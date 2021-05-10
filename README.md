@@ -1,1 +1,10 @@
-# Multiple Samples Goodness of Fit for Uniform Stochastic Ordering
+# Multiple Samples Distinguishing Distributions and Goodness-of-Fit Tests for Uniform Stochastic Ordering
+
+
+
+
+
+
+
+
+
