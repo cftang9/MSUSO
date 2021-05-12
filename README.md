@@ -1,4 +1,4 @@
-# Multiple Samples Distinguishing Distributions and Goodness-of-Fit Tests for Uniform Stochastic Ordering
+# Multisample distinction and goodness-of-fit tests for uniform stochastic ordering
 
 
 
