@@ -1,11 +1,5 @@
 # Multisample distinction and goodness-of-fit tests for uniform stochastic ordering via ordinal dominance curve
 
-
-
-
-
-# Testing for positive quadrant dependence
-
 This repository contains R programs for the article, “Testing for positive quadrant dependence.” 
 This article has been submitted for publication. 
 Prior to using R programs on this repository, please download the main R program [EL_PQD_Library.R](https://raw.githubusercontent.com/cftang9/PQD/master/EL_PQD_Library.R) or source it in R using the command ``source("https://raw.githubusercontent.com/cftang9/PQD/master/EL_PQD_Library.R")`` 
