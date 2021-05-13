@@ -1,4 +1,4 @@
-# Multisample distinction and goodness-of-fit tests for uniform stochastic ordering
+# Multisample distinction and goodness-of-fit tests for uniform stochastic ordering via ordinal dominance curve
 
 
 
