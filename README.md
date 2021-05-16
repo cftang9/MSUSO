@@ -8,7 +8,7 @@ This repository contains R programs for the article, “Multisample distinction 
 
 
 
-Prior to using R programs on this repository, please download the main R program [EL_PQD_Library.R](https://raw.githubusercontent.com/cftang9/MSUSO/master/MUSOLibrary.R) or source it in R using the command ``source("https://raw.githubusercontent.com/cftang9/MSUSO/master/MUSOLibrary.R")`` 
+Prior to using R programs on this repository, please download the main R program [MUSOLibrary.R](https://raw.githubusercontent.com/cftang9/MSUSO/master/MUSOLibrary.R) or source it in R using the command ``source("https://raw.githubusercontent.com/cftang9/MSUSO/master/MUSOLibrary.R")`` 
 
 <!--
 which requires installing `R` packages `Rcpp` and `copula`. We would like to point out that loading or executing functions in `Rcpp` packages may encounter some technical problems for Windows users if your `R` software was recently updated to the latest version. 
