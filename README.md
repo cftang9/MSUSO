@@ -15,6 +15,10 @@ which requires installing `R` packages `Rcpp` and `copula`. We would like to poi
 
 ### 1.2 Goodness-of-fit for USO
 
+
+
+<!-- 
+
 To better understand the use of our R program, we start with an illustrative example.
 
 ## Part 1:  Illustration
