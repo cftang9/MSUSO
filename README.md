@@ -17,7 +17,8 @@ Here we consider three mixture normal distributions. Each of them are mixed with
 ```R
 Data_demo = MixNormal(n=c(150,200,250),p=c(0.2,0.2,0.2),m=c(2,2.6,3.2))
 ```
-
+### 1.2 Goodness-of-fit for USO
+Then the function ``` MGOFUSO``` will return the scaled Lp departures, ```M1s, M2s, Mss``` for L1, L2, and sup norm, respectively, from USO for each ODC from each consecutive ODCs. For each collecion of Lp departures, the sum and maximum are reported by ```Skps``` and ```Wkps```. The bootstrapped critical values for ```Skps``` and ```Wkps``` are given by ```boot.cv.Skps``` and ```boot.cv.Wkps```. Lastly, ```decision.Skps``` reports ```TRUE``` if USO is rejected by ```Skps``` > ```boot.cv.Skps``` and reports ```FALSE``` otherwise. Similar to ```decision.Skps```, the  ```decision.Skps``` reports ```TRUE``` if USO is rejected by ```Skps``` > ```boot.cv.Skps``` and reports ```FALSE``` otherwise.
 
 ```R
 MGOFUSO(Data_demo)
@@ -49,7 +50,6 @@ $decision.Wkps
 [1] FALSE FALSE FALSE
 ```
 
-### 1.2 Goodness-of-fit for USO
 
 
 ## Part 2 Reproducing simulation results
