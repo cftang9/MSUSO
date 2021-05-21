@@ -103,6 +103,7 @@ $decision.Wkps
 ### 3.2. Table 2 Goodness-of-fit Test for USO with k=2, 4, 5
 
 ## Part 4 MFAP4 data analysis
+microfibrillar-associated protein 4 (MFAP4)
 
 ### 4.1 Table 3
 
