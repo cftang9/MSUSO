@@ -13,11 +13,14 @@ which requires installing `R` packages `Rcpp` and `copula`. We would like to poi
 
 ### 1.1 Distinguishing Distributions under USO
 
-Here we generate three independent samples with sample size 100, 200, and 300 from mixture distributions:
+Here we consider three mixture normal distributions. Each of them are mixed with the standard normal distribution with proportion p and a normal distribution with mean m and variance 1 with proportion (1-p). Here we generate three independent samples from mixture normal with p=(0.2,0.2,0.2), m=c(2,2.6,3.2) with sample sizes n=(150, 200, 250) using the ```MixNormal``` function:
+```R
+Data_demo = MixNormal(n=c(150,200,250),p=c(0.2,0.2,0.2),m=c(2,2.6,3.2))
+```
+
 
 ```R
-Data = MixNormal(n=c(150,200,250),p=c(0.2,0.2,0.2),m=c(2,2.6,3.2))
-MGOFUSO(Data)
+MGOFUSO(Data_demo)
 $M1s
 [1] 0.07335897 0.06171479
 
