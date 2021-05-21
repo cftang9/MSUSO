@@ -13,17 +13,42 @@ which requires installing `R` packages `Rcpp` and `copula`. We would like to poi
 
 Here we consider three mixture normal distributions. Each of them are mixed with the standard normal distribution with proportion p and a normal distribution with mean m and variance 1 with proportion (1-p). Here we generate three independent samples from mixture normal with p=(0.2,0.2,0.2), m=c(2,2.6,3.2) with sample sizes n=(150, 200, 250) using the ```MixNormal``` function:
 ```R
+set.seed(20210521)
 Data_demo = MixNormal(n=c(150,200,250),p=c(0.2,0.2,0.2),m=c(2,2.6,3.2))
 ```
 
 ### 1.1 Distinguishing Distributions under USO
 
+```R
+> MDDUSO(Data_demo)
+$D1s
+[1] 1.109851 1.423262
+
+$D2s
+[1] 1.213694 1.716641
+
+$Dss
+[1] 1.897931 2.888214
+
+$thresholds
+      95%       95%       95% 
+0.7398913 0.8371282 1.4706239 
+
+$distinction.p1
+[1] TRUE TRUE
+
+$distinction.p2
+[1] TRUE TRUE
+
+$distinction.ps
+[1] TRUE TRUE
+```
 
 ### 1.2 Goodness-of-fit for USO
 Then the function ``` MGOFUSO``` will return the scaled Lp departures, ```M1s, M2s, Mss``` for L1, L2, and sup norm, respectively, from USO for each ODC from each consecutive ODCs. For each collecion of Lp departures, the sum and maximum are reported by ```Skps``` and ```Wkps```. The bootstrapped critical values for ```Skps``` and ```Wkps``` are given by ```boot.cv.Skps``` and ```boot.cv.Wkps```. Lastly, ```decision.Skps``` reports ```TRUE``` if USO is rejected by ```Skps``` > ```boot.cv.Skps``` and reports ```FALSE``` otherwise. Similar to ```decision.Skps```, the  ```decision.Skps``` reports ```TRUE``` if USO is rejected by ```Skps``` > ```boot.cv.Skps``` and reports ```FALSE``` otherwise.
 
 ```R
-MGOFUSO(Data_demo)
+> MGOFUSO(Data_demo)
 $M1s
 [1] 0.07335897 0.06171479
 
