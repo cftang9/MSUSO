@@ -248,19 +248,7 @@ InvNSR = function(v,delta1=0.8,delta2=0.8){
   
   distance = a2 - b1; 
   yb1 = 1 - (1-b1)*s1; ya2 = 1- (1-a2)*s2; 
-  #b1r = b1 + distance*d; yb1r = 1 - (1-b1r)*s1; 
-  #a2l = a2 - distance*d; ya2l = 1 - (1-a2l)*s2; 
-  #mab = (b1r+a2l)/2; ymab = (yb1r+ya2l)/2; 
-  
   prop = 1 - 1/r; 
-  
-  #pyb1 = prop*(yb1 - b1) + b1; 
-  #pya2 = prop*(ya2 - a2) + a2; 
-  
-  #pyb1r = prop*(yb1r - b1r) + b1r; 
-  #pya2l = prop*(ya2l - a2l) + a2l; 
-  #pymab = prop*(ymab - mab) + mab; 
-  
   Ind = c(yb1<v & v<ya2); 
   
   InvNSR = array(0,nv); 
@@ -313,40 +301,6 @@ Ms21 = function(Rmn_data, LSMRmn_data,m,n){
 }
 
 
-# Park's test statistics and critical values. 
-ParkCV = function(N=2,nk=2){
-  TABLE=c(2.706, 4.231, 5.435, 6.498, 7.480, 8.407, 9.295, 10.152, 10.985,
-          4.577, 7.059, 9.177, 11.127, 12.974, 14.750, 16.475, 18.159, 19.809,
-          6.175, 9.669, 12.752, 15.637, 18.400, 21.080, 23.904, 26.671, 29.393,
-          7.665, 12.196, 16.268, 20.115, 23.925, 27.827, 31.647, 35.403, 39.108,
-          9.094, 14.675, 19.751, 24.585, 29.627, 34.546, 39.374, 44.131, 48.832
-  );
-  TABLE = array(TABLE,c(9,5))
-  ParkCV = TABLE[nk-1,N-1];
-  return(ParkCV); 
-}
-ParkLRT = function(X,tk){
-  N = length(X[,1]); n = length(X[1,]); k = length(tk)-1; 
-  mij = array(,c(N,k)); nij = array(,c(N,k)); 
-  #X = array(runif(N*n),c(N,n))
-  for(i in 1:N){
-    for(j in 1:k){
-      nij[i,j] = sum(X[i,]>tk[j] & X[i,]<=tk[j+1])
-    }
-    mij[i,] = cumsum(nij[i,])
-  }
-  theta = (mij-nij)/mij ; 
-  Isotheta = array(,c(N,k))
-  for(j in 1:k){
-    Isotheta[,j] = pava(theta[,j])
-  }
-  Isotheta = Isotheta[,-1]; 
-  nij = nij[,-1]; mij = mij[,-1]; theta = theta[,-1];  
-  LogNonLikelihood = sum((mij-nij)*log(theta) + nij*log(1-theta))
-  LogIsoLikelihood = sum((mij-nij)*log(Isotheta) + nij*log(1-Isotheta))
-  ParkLRT = -2*(LogIsoLikelihood-LogNonLikelihood)
-  return(ParkLRT); 
-}
 
 #### Generating random variables from USO distributions ####
 
@@ -847,7 +801,7 @@ gen.sample.power.curve = function(nv=c(200,200),delta=0,case=1){
   
 }
 
-MGOFUSO = function(X.data){
+MGOFUSO = function(X.data,alpha=0.05){
   k = length(X.data); 
   nv = array(NA,k); M1s = NA; M2s = NA; Mss = NA; 
   for(j in 1:k){
@@ -939,12 +893,12 @@ MGOFUSO = function(X.data){
       boot.Mss[bb, j] = boot.Msj; 
     }
   }
-  boot.cv.Sk1 = quantile(apply(boot.M1s,1,sum),0.95);
-  boot.cv.Sk2 = quantile(apply(boot.M2s,1,sum),0.95);
-  boot.cv.Sks = quantile(apply(boot.Mss,1,sum),0.95);
-  boot.cv.Wk1 = quantile(apply(boot.M1s,1,max),0.95);
-  boot.cv.Wk2 = quantile(apply(boot.M2s,1,max),0.95);
-  boot.cv.Wks = quantile(apply(boot.Mss,1,max),0.95);
+  boot.cv.Sk1 = quantile(apply(boot.M1s,1,sum),1-alpha);
+  boot.cv.Sk2 = quantile(apply(boot.M2s,1,sum),1-alpha);
+  boot.cv.Sks = quantile(apply(boot.Mss,1,sum),1-alpha);
+  boot.cv.Wk1 = quantile(apply(boot.M1s,1,max),1-alpha);
+  boot.cv.Wk2 = quantile(apply(boot.M2s,1,max),1-alpha);
+  boot.cv.Wks = quantile(apply(boot.Mss,1,max),1-alpha);
   
   MGOFUSO = list(
     M1s = M1s, M2s = M2s, Mss = Mss, 
@@ -989,7 +943,14 @@ Bon.cvs = function(k){
                         Bon.cv.ps = Bon.cv.ps))
 }
 
-
+########################################################################
+### MixNorm function return multiple independent mixture normal: 
+### Input: 
+###   n: sample sizes
+###   p: proportions of the standard normal distribution
+###   m: mean of the normal distribution mixed with the standard normal
+### Output: a list of independent sample from mixture distribution
+########################################################################
 MixNormal = function(n=c(100,100),p=c(0.25,0.25),m=c(1,2)){
   k = length(n); 
   MixNormal = list(); 
@@ -1168,12 +1129,67 @@ MUSODecision = function(X.data,BB=1000,unif.n=1000,alpha=0.05){
   return(MUSODecision = list(Sks=DSks,Wks=DWks,Bon=DBon))
 }
 
-DDDST = function(X.data){
+MDDUSO = function(X.data,alpha=0.05){
   k = length(X.data)
   nv = array(NA,k); 
+  
   for(j in 1:k){
     nv[j] = length(X.data[[j]])
   }
+  
+  nv0 = nv; 
+  B0 = 10000; 
+  M1s0 = array(NA,c(B0,(k-1))); M2s0 = array(NA,c(B0,(k-1))); Mss0 = array(NA,c(B0,(k-1))); 
+  for(b0 in 1:B0){
+    X0.data = list(X10 = runif(nv0[1]), 
+                   X20 = runif(nv0[2]),
+                   X30 = runif(nv0[3])
+    )
+    M1s = NA; M2s = NA; Mss = NA; 
+    us = list(); fun.Mrs = list(); cs = 0; 
+    for(j in 1:(k-1)){
+      us[[j]] = seq(0,1,by=1/nv0[j+1]); 
+      cs[j] = sqrt((nv0[j]*nv0[j+1])/(nv0[j]+nv0[j+1])); 
+    }
+    for(j in 1:(k-1)){
+      ### loading data and parameters
+      X = X0.data[[j]]; 
+      Y = X0.data[[j+1]]; 
+      uj = us[[j]]; 
+      cj = cs[j]; 
+      ### calcuating test statistics 
+      n.uj = length(uj); n.Y = length(Y); 
+      emp.Rj = ecdf(X)(quantile(Y,uj)); 
+      r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
+      Mrj = cummin(r.emp.Rj); 
+      MRj = 1-Mrj[1:n.Y]*(1-uj[1:n.Y]); MRj[n.uj] = 1; 
+      
+      ubj = (1-(1:n.Y)/n.Y); 
+      lbj = (1-(0:(n.Y-1))/n.Y); 
+      M1j = cj*(-(sum( (1-Mrj)^1/(1+1)*(ubj^(1+1)-lbj^(1+1)))))^(1/1)
+      M2j = cj*(-(sum( (1-Mrj)^2/(2+1)*(ubj^(2+1)-lbj^(2+1)))))^(1/2)
+      Msj = cj * max((1-Mrj)*lbj)
+      
+      ### saving statsitics and slope function r
+      M1s[j] = M1j; 
+      M2s[j] = M2j; 
+      Mss[j] = Msj; 
+      fun.Mrs[[j]] = approxfun(uj,c(Mrj,Mrj[n.Y]),f=1); 
+    }
+    M1s0[b0,] = M1s; 
+    M2s0[b0,] = M2s; 
+    Mss0[b0,] = Mss; 
+  }
+  
+  Wk10 = apply(M1s0, 1, max)
+  Wk20 = apply(M2s0, 1, max)
+  Wks0 = apply(Mss0, 1, max)
+  
+  jump.cv.p1 = quantile(Wk10,1-alpha) 
+  jump.cv.p2 = quantile(Wk20,1-alpha) 
+  jump.cv.ps = quantile(Wks0,1-alpha) 
+  
+
   M1s = NA; M2s = NA; Mss = NA; 
   us = list(); fun.Mrs = list(); cs = 0; 
   for(j in 1:(k-1)){
@@ -1205,7 +1221,13 @@ DDDST = function(X.data){
     Mss[j] = Msj; 
     fun.Mrs[[j]] = approxfun(uj,c(Mrj,Mrj[n.Y]),f=1); 
   }
-  return(list(D1s = M1s, D2s = M2s, Dss = Mss, MaxDps = c(max(M1s), max(M2s), max(Mss))))
+  IND = 1:(k-1); 
+  MDDUSO = return(list(D1s = M1s, D2s = M2s, Dss = Mss, #MaxDps = c(max(M1s), max(M2s), max(Mss)), 
+                       thresholds = c(jump.cv.p1, jump.cv.p2, jump.cv.ps), 
+                       distinction.p1 = IND[c(M1s > jump.cv.p1)], 
+                       distinction.p2 = IND[c(M2s > jump.cv.p2)], 
+                       distinction.ps = IND[c(Mss > jump.cv.ps)]
+                         ))
 }
 
 
