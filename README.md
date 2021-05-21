@@ -89,6 +89,8 @@ $decision.Wkps
 
 ### 2.0. Figure 1: Ordinal dominance curves
 
+![Optional Text](../master/Figure_1_ODCs.png)
+
 ### 2.1. Table 1 Distinguishing Distributions under USO with k=3
 
 ### 2.2. Table 2 Goodness-of-fit Test for USO with k=3
