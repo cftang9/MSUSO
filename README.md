@@ -28,19 +28,24 @@ Here we generate three independent samples with sample size 100, 200, and 300 fr
 
 ### 2.0. Figure 1: Ordinal dominance curves
 
-### 2.1. Table 1 Distinguishing Distributions under USO 
+### 2.1. Table 1 Distinguishing Distributions under USO with k=3
 
-### 2.2. Table 2 Goodness-of-fit Test for USO
-
-### 2.3. Table 3
+### 2.2. Table 2 Goodness-of-fit Test for USO with k=3
 
 ### 2.4. Figure 2: Power Curves
 
 
 ## Part 3 Reproducing simulation results in Web Appendix
 
+### 3.1. Table 1 Distinguishing Distribution under USO with k=2,4,5
+
+### 3.2. Table 2 Goodness-of-fit Test for USO with k=2, 4, 5
+
 ## Part 4 MFAP4 data analysis
 
+### 4.1 Table 3
+
+Data: [StockData.csv](https://raw.githubusercontent.com/cftang9/PQD/master/StockData.csv) 
 
 <!-- 
 
