@@ -9,12 +9,37 @@ Prior to using R programs on this repository, please download the main R program
 which requires installing `R` packages `Rcpp` and `copula`. We would like to point out that loading or executing functions in `Rcpp` packages may encounter some technical problems for Windows users if your `R` software was recently updated to the latest version. One may run these codes in `Rstudio` and follow what it suggests to solve the problem.  After successfully loading the main R program, the function `IndvsPQD` will automate critical value calculations for the practitioner. 
 --> 
 
-## Part 1: Illustration
+## Part 1 Illustration
 
 ### 1.1 Distinguishing Distributions under USO
 
+Here we generate three independent samples with sample size 100, 200, and 300 from mixture distributions G_
+
+
+
+```R
+
+```
+
 ### 1.2 Goodness-of-fit for USO
 
+
+## Part 2 Reproducing simulation results
+
+### 2.0. Figure 1: Ordinal dominance curves
+
+### 2.1. Table 1 Distinguishing Distributions under USO 
+
+### 2.2. Table 2 Goodness-of-fit Test for USO
+
+### 2.3. Table 3
+
+### 2.4. Figure 2: Power Curves
+
+
+## Part 3 Reproducing simulation results in Web Appendix
+
+## Part 4 MFAP4 data analysis
 
 
 <!-- 
