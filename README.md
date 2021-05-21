@@ -13,12 +13,37 @@ which requires installing `R` packages `Rcpp` and `copula`. We would like to poi
 
 ### 1.1 Distinguishing Distributions under USO
 
-Here we generate three independent samples with sample size 100, 200, and 300 from mixture distributions G_
-
-
+Here we generate three independent samples with sample size 100, 200, and 300 from mixture distributions:
 
 ```R
+Data = MixNormal(n=c(150,200,250),p=c(0.2,0.2,0.2),m=c(2,2.6,3.2))
+MGOFUSO(Data)
+$M1s
+[1] 0.07335897 0.06171479
 
+$M2s
+[1] 0.10444202 0.08002643
+
+$Mss
+[1] 0.3473620 0.2399506
+
+$Skps
+[1] 0.1350738 0.1844684 0.5873126
+
+$Wkps
+[1] 0.07335897 0.10444202 0.34736196
+
+$boot.cv.Skps
+[1] 0.7514462 0.9358829 2.0697751
+
+$boot.cv.Wkps
+[1] 0.5178424 0.6335423 1.3008537
+
+$decision.Skps
+[1] FALSE FALSE FALSE
+
+$decision.Wkps
+[1] FALSE FALSE FALSE
 ```
 
 ### 1.2 Goodness-of-fit for USO
