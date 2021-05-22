@@ -92,7 +92,7 @@ $decision.Wkps
 ## Part 2 Reproducing simulation results
 
 ### 2.0. Figure 1: Ordinal dominance curves
-```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](https://raw.githubusercontent.com/cftang9/MSUSO/master/Figure_1_%20ODCs.R?token=AK5HQA3BZTQFQ3VSJN7ASXDAVBZ6W).
+```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](https://raw.githubusercontent.com/cftang9/MSUSO/master/Figure_1_ODCs.R?token=AK5HQA6BXE3L4PABWUUA773AVCCB6).
 ![Figure 1](../master/Figure_1_ODCs.png)
 
 ### 2.1. Table 1: Distinguishing Distributions under USO with k=3
