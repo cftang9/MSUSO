@@ -105,8 +105,8 @@ $decision.Wkps
 ## Part 3 Reproducing simulation results in Web Appendix
 
 ### 2.0. Figure A.1: Ordinal dominance curves
-```R``` codes for ODC plots in Figure 1: [Supp_Figure_A.1_ODCs.R](../master/Figure_1_ODCs.R).
-![Figure 1](../master/Figure_1_ODCs.png)
+```R``` codes for ODC plots in Figure 1: [Supp_Figure_A.1_ODCs.R](../master/Supp_Figure_1_ODCs.R).
+![Supp Figure 1](../master/Supp_Figure_1_ODCs.png)
 
 ### 3.1. Table A.1: Distinguishing Distributions under USO with k=2,4,5
 
