@@ -93,16 +93,16 @@ $decision.Wkps
 
 ### 2.1. Table 1: Distinguishing Distributions under USO with k=3
 
-### 2.2. Table 2: Goodness-of-fit Test for USO with k=3
+### 2.2. Table 2: Goodness-of-fit Tests for USO with k=3
 
 ### 2.3. Figure 2: Power Curves
 
 
 ## Part 3 Reproducing simulation results in Web Appendix
 
-### 3.1. Table A.1: Distinguishing Distribution under USO with k=2,4,5
+### 3.1. Table A.1: Distinguishing Distributions under USO with k=2,4,5
 
-### 3.2. Table A.2: Goodness-of-fit Test for USO with k=2, 4, 5
+### 3.2. Table A.2: Goodness-of-fit Tests for USO with k=2, 4, 5
 
 ## Part 4 MFAP4 data analysis
 We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with [MFAP4.xlsx](../master/MFAP4.xlsx). One can load the data by 
