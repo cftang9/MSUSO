@@ -3,7 +3,7 @@
 This repository contains R programs for the article, “Multisample distinction and goodness-of-fit tests for uniform stochastic ordering via ordinal dominance curve.” 
 <!-- This article has been submitted for publication. -->
 
-Prior to using R programs on this repository, please download the main R program [MUSOLibrary.R](https://raw.githubusercontent.com/cftang9/MSUSO/master/MUSOLibrary.R) or source it in R using the command ``source("https://raw.githubusercontent.com/cftang9/MSUSO/master/MUSOLibrary.R")`` 
+Prior to using R programs on this repository, please download the main R program [MUSOLibrary.R](https://raw.githubusercontent.com/cftang9/MSUSO/master/MUSOLibrary.R?token=AK5HQA6Z4FIJ4GDV5CVOAYLAVBZ6S). 
 
 <!--
 which requires installing `R` packages `Rcpp` and `copula`. We would like to point out that loading or executing functions in `Rcpp` packages may encounter some technical problems for Windows users if your `R` software was recently updated to the latest version. One may run these codes in `Rstudio` and follow what it suggests to solve the problem.  After successfully loading the main R program, the function `IndvsPQD` will automate critical value calculations for the practitioner. 
@@ -88,7 +88,7 @@ $decision.Wkps
 ## Part 2 Reproducing simulation results
 
 ### 2.0. Figure 1: Ordinal dominance curves
-```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](../master/Figure_1_ODCs.R).
+```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](https://raw.githubusercontent.com/cftang9/MSUSO/master/Figure_1_%20ODCs.R?token=AK5HQA3BZTQFQ3VSJN7ASXDAVBZ6W).
 ![Figure 1](../master/Figure_1_ODCs.png)
 
 ### 2.1. Table 1: Distinguishing Distributions under USO with k=3
