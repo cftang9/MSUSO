@@ -117,7 +117,7 @@ $decision.Wkps
 ## Part 4 MFAP4 data analysis
 We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with [MFAP4.xlsx](../master/MFAP4.xlsx). The MFAP4 data is also saved as ```data_MFAP4``` in [MFAP4.Rdata](../master/MFAP4.Rdata)
 
-### 4.1 Table 3 part 1: Distinghishing fibrosis levels from MFAP4 levels
+### 4.1 Table 3 part 1: Distinghishing Fibrosis stages from MFAP4 levels
 ```R
 set.seed(05222021)
 MDDUSO(data_MFAP4)
