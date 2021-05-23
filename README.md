@@ -119,7 +119,7 @@ $decision.Wkps
 
 ## Part 4 MFAP4 data analysis
 We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with [MFAP4.xlsx](https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-016-0952-3/MediaObjects/12967_2016_952_MOESM1_ESM.xlsx)
-from  [Bracht et. al. (2016)](../master/#anchor-1)
+from  [Bracht et. al. (2016)](../master/README.md#anchor-1)
 . 
 This data is from 
 
