@@ -97,7 +97,7 @@ $decision.Wkps
 ## Part 2 Reproducing simulation results
 
 ### 2.0. Figure 1: Ordinal dominance curves
-```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](https://raw.githubusercontent.com/cftang9/MSUSO/master/Figure_1_ODCs.R?token=AK5HQA6BXE3L4PABWUUA773AVCCB6).
+```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](../master/Figure_1_ODCs.R).
 ![Figure 1](../master/Figure_1_ODCs.png)
 
 ### 2.1. Table 1: Distinguishing Distributions under USO with k=3
@@ -118,7 +118,7 @@ $decision.Wkps
 ### 3.2. Table A.2: Goodness-of-fit Tests for USO with k=2, 4, 5
 
 ## Part 4 MFAP4 data analysis
-We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with [MFAP4.xlsx](../master/MFAP4.xlsx). The MFAP4 data is also saved as ```data_MFAP4``` in [MFAP4.Rdata](../master/MFAP4.Rdata)
+We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with [MFAP4.xlsx](../master/MFAP4.xlsx). The MFAP4 data is also saved as ```data_MFAP4``` in [MFAP4.Rdata](../master/MFAP4.Rdata). 
 
 ### 4.1 Table 3 part 1: Distinghishing Fibrosis stages from MFAP4 levels
 ```R
