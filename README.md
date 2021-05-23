@@ -119,7 +119,8 @@ $decision.Wkps
 
 ## Part 4 MFAP4 data analysis
 We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with [MFAP4.xlsx](https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-016-0952-3/MediaObjects/12967_2016_952_MOESM1_ESM.xlsx)
-from  [Bracht et. al. (2016)](https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-016-0952-3). 
+from  [Bracht et. al. (2016)](https://github.com/cftang9/MSUSO/blob/master/README.md#thilo-bracht-christian-m%C3%B6lleken-maike-ahrens-gereon-poschmann-anders-schlosser-martin-eisenacher-kai-stu%CC%88hler-helmut-e-meyer-wolff-h-schmiegel-uffe-holmskov-grith-l-sorensen-and-barbara-sitek-2016)
+. 
 This data is from 
 
 
@@ -189,8 +190,7 @@ $decision.Wkps
 
 
 ## Reference: 
-### Thilo Bracht, Christian Mölleken, Maike Ahrens, Gereon Poschmann, Anders Schlosser, Martin Eisenacher, Kai Stühler, Helmut E. Meyer, Wolff H. Schmiegel, Uffe Holmskov, Grith L. Sorensen and Barbara Sitek (2016). 
-Evaluation of the biomarker candidate MFAP4 for non-invasive assessment of hepatic fibrosis in hepatitis C patients. *Journal of Translational Medicine*. 14:201. 
+### 1. [Thilo Bracht, Christian Mölleken, Maike Ahrens, Gereon Poschmann, Anders Schlosser, Martin Eisenacher, Kai Stühler, Helmut E. Meyer, Wolff H. Schmiegel, Uffe Holmskov, Grith L. Sorensen and Barbara Sitek (2016). Evaluation of the biomarker candidate MFAP4 for non-invasive assessment of hepatic fibrosis in hepatitis C patients. *Journal of Translational Medicine*. 14:201.](https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-016-0952-3)
 
 
 
