@@ -9,7 +9,7 @@ Prior to using R programs on this repository, please download the main R program
 which requires installing `R` packages `Rcpp` and `copula`. We would like to point out that loading or executing functions in `Rcpp` packages may encounter some technical problems for Windows users if your `R` software was recently updated to the latest version. One may run these codes in `Rstudio` and follow what it suggests to solve the problem.  After successfully loading the main R program, the function `IndvsPQD` will automate critical value calculations for the practitioner. 
 --> 
 
-## Part 1 Illustration
+## Part 1. Illustration
 
 Here we consider three mixture normal distributions. Each of them are mixed with the standard normal distribution with proportion p and a normal distribution with mean m and variance 1 with proportion (1-p). Here we generate three independent samples from mixture normal with p=(0.2,0.2,0.2), m=c(2,2.6,3.2) with sample sizes n=(150, 200, 250) using the ```MixNormal``` function:
 ```R
@@ -18,7 +18,7 @@ Data_demo = MixNormal(n=c(150,200,250),p=c(0.2,0.2,0.2),m=c(2,2.6,3.2))
 ```
 These three distributions are simple ordered in the sense of uniform stochastic ordering (USO). 
 
-### 1.1 Distinguishing Distribution Methods under USO
+### 1.1. Distinguishing Distribution Methods under USO
 
 To perform the distinguishing distribution methods, we input the ```Data_demo``` in the function ``` MDDUSO```: 
 ```R
@@ -54,7 +54,7 @@ $distinction.ps
 [1] 1 2
 ```
 
-### 1.2 Goodness-of-fit tests for USO
+### 1.2. Goodness-of-fit tests for USO
 
 To perform the GOF tests, we input the ```Data_demo``` in the function ``` MDDUSO```: 
 ```R
@@ -94,7 +94,7 @@ $decision.Wkps
 
 
 
-## Part 2 Reproducing simulation results
+## Part 2. Reproducing simulation results
 
 ### 2.0. Figure 1: Ordinal dominance curves
 ```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](../master/Figure_1_ODCs.R).
@@ -107,7 +107,7 @@ $decision.Wkps
 ### 2.3. Figure 2: Power Curves
 
 
-## Part 3 Reproducing simulation results in Web Appendix
+## Part 3. Reproducing simulation results in Web Appendix
 <!--
 ### 3.0. Figure A.1: Ordinal dominance curves
 ```R``` codes for ODC plots in Figure 1: [Supp_Figure_A.1_ODCs.R](../master/Supp_Figure_1_ODCs.R).
@@ -117,11 +117,11 @@ $decision.Wkps
 
 ### 3.2. Table A.2: Goodness-of-fit Tests for USO with k=2, 4, 5
 
-## Part 4 MFAP4 data analysis
+## Part 4. MFAP4 data analysis
 We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with clinical cohort characteristics and MFAP4 serum levels from [Bracht et. al. (2016)](../master/README.md#reference) in [MFAP4.xlsx](https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-016-0952-3/MediaObjects/12967_2016_952_MOESM1_ESM.xlsx)
 We grouped the MFAP4 levels in fibrosis stages and saved as a data ```data_MFAP4``` in [MFAP4.Rdata](../master/MFAP4.Rdata). 
 
-### 4.1 Table 3 part 1: Distinghishing Fibrosis stages from MFAP4 levels
+### 4.1. Table 3 part 1: Distinghishing Fibrosis stages from MFAP4 levels
 ```R
 set.seed(05222021)
 MDDUSO(data_MFAP4)
@@ -149,7 +149,7 @@ $distinction.p2
 $distinction.ps
 [1] 2 3
 ```
-### 4.2 Table 3 part 2: Goodness-of-fit test for USO for MFAP4 levels
+### 4.2. Table 3 part 2: Goodness-of-fit test for USO for MFAP4 levels
 ```R
 set.seed(05222021)
 MGOFUSO(data_MFAP4)
