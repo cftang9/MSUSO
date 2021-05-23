@@ -22,6 +22,7 @@ These three distributions are simple ordered in the sense of uniform stochastic 
 
 To perform the distinguishing distribution methods, we input the ```Data_demo``` in the function ``` MDDUSO```: 
 ```R
+set.seed(20210521)
 MDDUSO(Data_demo)
 ```
 
@@ -38,7 +39,7 @@ $Dss
 
 $thresholds
       95%       95%       95% 
-0.7382269 0.8210297 1.3578695 
+0.7391100 0.8210577 1.3578695 
 
 $distinction.p1
 [1] 1 2
@@ -54,31 +55,32 @@ $distinction.ps
 
 To perform the GOF tests, we input the ```Data_demo``` in the function ``` MDDUSO```: 
 ```R
+set.seed(20210521)
 MGOFUSO(Data_demo)
 ```
 Input the ```Data_demo``` in the function ``` MGOFUSO```, it returns the scaled Lp departures, ```M1s, M2s, Mss``` for L1, L2, and sup norm, respectively, from USO for each ODC from each consecutive ODCs. For each collecion of Lp departures, the sum and maximum are reported by ```Skps``` and ```Wkps```. The bootstrapped critical values for ```Skps``` and ```Wkps``` are given by ```boot.cv.Skps``` and ```boot.cv.Wkps```. Lastly, ```decision.Skps``` reports ```TRUE``` if USO is rejected by ```Skps``` > ```boot.cv.Skps``` and reports ```FALSE``` otherwise. Similar to ```decision.Skps```, the  ```decision.Skps``` reports ```TRUE``` if USO is rejected by ```Skps``` > ```boot.cv.Skps``` and reports ```FALSE``` otherwise.
 
 ```R
 $M1s
-[1] 0.07335897 0.06171479
+[1] 0.08465933 0.08245590
 
 $M2s
-[1] 0.10444202 0.08002643
+[1] 0.1143243 0.1102659
 
 $Mss
-[1] 0.3473620 0.2399506
+[1] 0.3754387 0.3279399
 
 $Skps
-[1] 0.1350738 0.1844684 0.5873126
+[1] 0.1671152 0.2245902 0.7033786
 
 $Wkps
-[1] 0.07335897 0.10444202 0.34736196
+[1] 0.08465933 0.11432426 0.37543872
 
 $boot.cv.Skps
-[1] 0.7514462 0.9358829 2.0697751
+[1] 0.7726876 0.9536662 2.0580213
 
 $boot.cv.Wkps
-[1] 0.5178424 0.6335423 1.3008537
+[1] 0.5411840 0.6553285 1.3248313
 
 $decision.Skps
 [1] FALSE FALSE FALSE
@@ -117,13 +119,65 @@ We applied both distinguishing distribution methods and GOF tests to microfibril
 
 ### 4.1 Table 3 part 1: Distinghishing fibrosis levels from MFAP4 levels
 ```R
+set.seed(05222021)
 MDDUSO(data_MFAP4)
+```
+```R
+$D1s
+[1] 0.6544701 0.9131620 1.4065704 0.7376320
+
+$D2s
+[1] 0.7043039 0.9764447 1.5331956 0.7869467
+
+$Dss
+[1] 1.092246 1.555362 2.311166 1.036642
+
+$thresholds
+      95%       95%       95% 
+0.8187272 0.9042299 1.4685763 
+
+$distinction.p1
+[1] 2 3
+
+$distinction.p2
+[1] 2 3
+
+$distinction.ps
+[1] 2 3
 ```
 ### 4.2 Table 3 part 2: Goodness-of-fit test for USO for MFAP4 levels
 ```R
+set.seed(05222021)
 MGOFUSO(data_MFAP4)
 ```
+```R
+$M1s
+[1] 0.11992756 0.12407684 0.04938947 0.12970074
 
+$M2s
+[1] 0.14243105 0.14830742 0.06981125 0.15658425
+
+$Mss
+[1] 0.3488498 0.3322567 0.2897778 0.3263503
+
+$Skps
+[1] 0.4230946 0.5171340 1.2972346
+
+$Wkps
+[1] 0.1297007 0.1565843 0.3488498
+
+$boot.cv.Skps
+[1] 1.304033 1.588324 3.441980
+
+$boot.cv.Wkps
+[1] 0.5882955 0.6911207 1.3172881
+
+$decision.Skps
+[1] FALSE FALSE FALSE
+
+$decision.Wkps
+[1] FALSE FALSE FALSE
+```
 
 <!--
 <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
