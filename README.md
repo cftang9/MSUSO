@@ -108,17 +108,22 @@ $decision.Wkps
 
 
 ## Part 3 Reproducing simulation results in Web Appendix
-
-### 2.0. Figure A.1: Ordinal dominance curves
+<!--
+### 3.0. Figure A.1: Ordinal dominance curves
 ```R``` codes for ODC plots in Figure 1: [Supp_Figure_A.1_ODCs.R](../master/Supp_Figure_1_ODCs.R).
 ![Supp Figure 1](../master/Supp_Figure_1_ODCs.png)
-
+-->
 ### 3.1. Table A.1: Distinguishing Distributions under USO with k=2,4,5
 
 ### 3.2. Table A.2: Goodness-of-fit Tests for USO with k=2, 4, 5
 
 ## Part 4 MFAP4 data analysis
-We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with [MFAP4.xlsx](../master/MFAP4.xlsx). The MFAP4 data is also saved as ```data_MFAP4``` in [MFAP4.Rdata](../master/MFAP4.Rdata). 
+We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with [MFAP4.xlsx](https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-016-0952-3/MediaObjects/12967_2016_952_MOESM1_ESM.xlsx)
+from  [Bracht et. al. (2016)](https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-016-0952-3). 
+This data is from 
+
+
+The MFAP4 data is also saved as ```data_MFAP4``` in [MFAP4.Rdata](../master/MFAP4.Rdata). 
 
 ### 4.1 Table 3 part 1: Distinghishing Fibrosis stages from MFAP4 levels
 ```R
@@ -181,6 +186,13 @@ $decision.Skps
 $decision.Wkps
 [1] FALSE FALSE FALSE
 ```
+
+
+## Reference: 
+Thilo Bracht, Christian Mölleken, Maike Ahrens, Gereon Poschmann, Anders Schlosser, Martin Eisenacher, Kai Stühler, Helmut E. Meyer, Wolff H. Schmiegel, Uffe Holmskov, Grith L. Sorensen and Barbara Sitek (2016). 
+Evaluation of the biomarker candidate MFAP4 for non-invasive assessment of hepatic fibrosis in hepatitis C patients. *Journal of Translational Medicine*. 14:201. 
+
+
 
 <!--
 <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
