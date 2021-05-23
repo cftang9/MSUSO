@@ -109,6 +109,7 @@ MDDUSO(my_data)
 
 ### 2.1. Table 1: Distinguishing Distributions under USO with k=3
 
+[Table_1_DD_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_1_DD_k3.R)
 
 <!--2.1 Table 1 in Section 3 of the manuscript 
 To reproduce Table 1, which involves four classic copulas: Clayton, Frank, Gumbel, and Gaussian, please run this R program:
@@ -118,10 +119,13 @@ But be aware of that, because the number of replications is 10,000, this program
 
 
 
-### 2.2. Table 2: Goodness-of-fit Tests for USO with k=3
+### 2.2. Table 2: Size and Power of Goodness-of-fit Tests for USO with k=3
 
-### 2.3. Figure 2: Power Curves
+[Table_2_GOF_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_2_GOF_k3.R)
 
+### 2.3. Figure 2: Power Curves Goodness-of-fit Tests for USO with k=3
+
+[Figure_2_PowerCurves_k3.R](https://github.com/cftang9/MSUSO/blob/master/Figure_2_PowerCurves_k3.R)
 
 ## Part 3. Reproducing simulation results in Web Appendix
 <!--
@@ -130,6 +134,10 @@ But be aware of that, because the number of replications is 10,000, this program
 ![Supp Figure 1](../master/Supp_Figure_1_ODCs.png)
 -->
 ### 3.1. Table A.1: Distinguishing Distributions under USO with k=2,4,5
+
+[Supp_Table_DD_k2.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k2.R)
+[Supp_Table_DD_k4.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k4.R)
+[Supp_Table_DD_k5.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k5.R)
 
 <!--
 ### 2.2 Tables C.1 and C.2 in Web Appendix C
@@ -152,6 +160,18 @@ We applied all tests in this manuscript to three data applications. To reproduce
 -->
 
 ### 3.2. Table A.2: Goodness-of-fit Tests for USO with k=2, 4, 5
+
+[Supp_Table_GOF_k2.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k2.R)
+[Supp_Table_GOF_k4.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k4.R)
+[Supp_Table_GOF_k5.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k5.R)
+
+
+### 3.3. Figures A.1,2,3: Power Curves for Goodness-of-fit Tests for USO with k=2, 4, 5
+
+[Supp_Figure_PowerCurves_k2.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_PowerCurves_k2.R)
+[Supp_Figure_PowerCurves_k4.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_PowerCurves_k4.R)
+[Supp_Figure_PowerCurves_k5.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_PowerCurves_k5.R)
+
 
 ## Part 4. MFAP4 data analysis
 We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with clinical cohort characteristics and MFAP4 serum levels from [Bracht et. al. (2016)](../master/README.md#reference) in [MFAP4.xlsx](https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-016-0952-3/MediaObjects/12967_2016_952_MOESM1_ESM.xlsx)
