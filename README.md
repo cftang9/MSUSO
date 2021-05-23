@@ -118,13 +118,8 @@ $decision.Wkps
 ### 3.2. Table A.2: Goodness-of-fit Tests for USO with k=2, 4, 5
 
 ## Part 4 MFAP4 data analysis
-We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with [MFAP4.xlsx](https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-016-0952-3/MediaObjects/12967_2016_952_MOESM1_ESM.xlsx)
-from  [Bracht et. al. (2016)](../master/README.md#reference)
-. 
-This data is from 
-
-
-The MFAP4 data is also saved as ```data_MFAP4``` in [MFAP4.Rdata](../master/MFAP4.Rdata). 
+We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with clinical cohort characteristics and MFAP4 serum levels from [Bracht et. al. (2016)](../master/README.md#reference) in [MFAP4.xlsx](https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-016-0952-3/MediaObjects/12967_2016_952_MOESM1_ESM.xlsx)
+We grouped the MFAP4 levels in fibrosis stages and saved as a data ```data_MFAP4``` in [MFAP4.Rdata](../master/MFAP4.Rdata). 
 
 ### 4.1 Table 3 part 1: Distinghishing Fibrosis stages from MFAP4 levels
 ```R
