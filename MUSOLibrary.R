@@ -1201,6 +1201,8 @@ MGOFUSO = function(X.data,alpha=0.05){
   boot.cv.Wk2 = quantile(apply(boot.M2s,1,max),1-alpha);
   boot.cv.Wks = quantile(apply(boot.Mss,1,max),1-alpha);
   
+  bon.cv = Bon.cvs(k); 
+  
   MGOFUSO = list(
     M1s = M1s, M2s = M2s, Mss = Mss, 
     Skps = c(Sk1, Sk2, Sks), 
@@ -1208,7 +1210,8 @@ MGOFUSO = function(X.data,alpha=0.05){
     boot.cv.Skps = as.numeric(c(boot.cv.Sk1, boot.cv.Sk2, boot.cv.Sks)),
     boot.cv.Wkps = as.numeric(c(boot.cv.Wk1, boot.cv.Wk2, boot.cv.Wks)),
     decision.Skps = as.logical(c(Sk1>boot.cv.Sk1, Sk2>boot.cv.Sk2, Sks>boot.cv.Sks)), 
-    decision.Wkps = as.logical(c(Wk1>boot.cv.Wk1, Wk2>boot.cv.Wk2, Wks>boot.cv.Wks))
+    decision.Wkps = as.logical(c(Wk1>boot.cv.Wk1, Wk2>boot.cv.Wk2, Wks>boot.cv.Wks)),
+    decision.Bon = as.logical(c(Wk1>bon.cv[1], Wk2>bon.cv[2], Wks>bon.cv[3]))
   )
   return(MGOFUSO)
 }
@@ -1566,3 +1569,155 @@ DDDST = function(X.data){
   return(list(D1s = M1s, D2s = M2s, Dss = Mss, MaxDps = c(max(M1s), max(M2s), max(Mss))))
 }
 
+GOFST = function(X.data,BB=1000,unif.n=1000,alpha=0.05){
+  
+  BB=1000; unif.n=1000; alpha=0.05
+  
+  k = length(X.data); 
+  if(k==2){
+    Bon.cv.p1 = 0.580; 
+    Bon.cv.p2 = 0.676; 
+    Bon.cv.ps = 1.350; 
+  }
+  if(k==3){
+    Bon.cv.p1 = 0.6585602; # (n0=3000)
+    Bon.cv.p2 = 0.7628116; # (n0=3000)
+    Bon.cv.ps = 1.4588240; # (n0=3000)
+  }
+  if(k==4){
+    Bon.cv.p1 = 0.6993266; # (n0=3000)
+    Bon.cv.p2 = 0.8052981; # (n0=3000)
+    Bon.cv.ps = 1.5228830; # (n0=3000)
+  }
+  if(k==5){
+    Bon.cv.p1 = 0.7287816; # (n0=3000)
+    Bon.cv.p2 = 0.8350943; # (n0=3000)
+    Bon.cv.ps = 1.5731570; # (n0=3000)
+  }
+  if(k==6){
+    Bon.cv.p1 = 0.7721178; # (n0=3000)
+    Bon.cv.p2 = 0.8778637; # (n0=3000)
+    Bon.cv.ps = 1.6285020; # (n0=3000)
+  }
+  
+  nv = array(NA,k); M1s = NA; M2s = NA; Mss = NA; 
+  for(j in 1:k){
+    nv[j] = length(X.data[[j]])
+  }
+  
+  us = list(); fun.Mrs = list(); cs = 0; 
+  for(j in 1:(k-1)){
+    us[[j]] = seq(0,1,by=1/nv[j+1]); 
+    cs[j] = sqrt((nv[j]*nv[j+1])/(nv[j]+nv[j+1])); 
+  }
+  L = 2000; 
+  switch.more.uniform = TRUE; 
+  switch.boot.exact.Lp = TRUE; 
+  
+  emp.Rs = list(); Maj.Rs = list(); 
+  for(j in 1:(k-1)){
+    ### loading data and parameters
+    X = X.data[[j]]; 
+    Y = X.data[[j+1]]; 
+    uj = us[[j]]; 
+    cj = cs[j]; 
+    ### calcuating test statistics 
+    n.uj = length(uj); n.Y = length(Y); 
+    emp.Rj = ecdf(X)(quantile(Y,uj)); 
+    r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
+    Mrj = cummin(r.emp.Rj); 
+    MRj = 1-Mrj[1:n.Y]*(1-uj[1:n.Y]); MRj[n.uj] = 1; 
+    ubj = 1-Mrj-emp.Rj[2:n.uj]+Mrj*(1:n.Y)/n.Y; 
+    lbj = 1-Mrj-emp.Rj[2:n.uj]+Mrj*(0:(n.Y-1))/n.Y; 
+    M1j = cj*(sum((ubj^(1+1)-lbj^(1+1))[Mrj>0]/(1+1)/Mrj[Mrj>0]))^(1/1);
+    M2j = cj*(sum((ubj^(2+1)-lbj^(2+1))[Mrj>0]/(2+1)/Mrj[Mrj>0]))^(1/2);
+    Msj = cj*max(ubj); 
+    ### saving statsitics and slope function r
+    M1s[j] = M1j; 
+    M2s[j] = M2j; 
+    Mss[j] = Msj; 
+    fun.Mrs[[j]] = approxfun(uj,c(Mrj,Mrj[n.Y]),f=1); 
+  }
+  
+  M1s; M2s; Mss; 
+  
+  Sk1 = sum(M1s); Sk1;  
+  Sk2 = sum(M2s); Sk2; 
+  Sks = sum(Mss); Sks; 
+  
+  Wk1 = max(M1s); Wk1; 
+  Wk2 = max(M2s); Wk2; 
+  Wks = max(Mss); Wks; 
+  
+  
+  boot.M1s = array(NA,c(BB,(k-1))); 
+  boot.M2s = array(NA,c(BB,(k-1))); 
+  boot.Mss = array(NA,c(BB,(k-1))); 
+  
+  
+  s = seq(0,1,1/L); 
+  ss = s[1:L];
+  
+  s.hat.rs = list(); s.MRs = list(); 
+  
+  for(j in 1:(k-1)){
+    s.hat.rs[[j]] = fun.Mrs[[j]](s); 
+    s.MRs[[j]] = 1-s.hat.rs[[j]]*(1-s)
+  }
+  boot.M1s = array(NA,c(BB,(k-1))); boot.M2s = array(NA,c(BB,(k-1))); boot.Mss = array(NA,c(BB,(k-1))); 
+  for(bb in 1:BB){
+    boot.Bs = list(); boot.emp.Bs = list(); 
+    for(j in 1:k){
+      ### simulating data from uniform distribution
+      switch = 1; 
+      if(switch.more.uniform==0){boot.Bs[[j]] = runif(nv[j]);}
+      if(switch.more.uniform==1){boot.Bs[[j]] = runif(unif.n);}
+      boot.emp.Bs[[j]] = ecdf(boot.Bs[[j]]); 
+    }
+    for(j in 1:(k-1)){
+      ### loading data; 
+      cj = cs[j]; lambdaj = nv[j+1]/(nv[j]+nv[j+1]); 
+      boot.emp.Bj1 = boot.emp.Bs[[j]]; 
+      boot.emp.Bj2 = boot.emp.Bs[[j+1]]; 
+      s.MRj1 = s.MRs[[j]]; 
+      s.hat.rj = s.hat.rs[[j]];
+      ### calculaing bounds from uniform distribution
+      if(switch.more.uniform==0){boot.Lj = cj*(boot.emp.Bj1(s.MRj1) - s.MRj1 - s.hat.rj*(boot.emp.Bj2(s) - s));}
+      if(switch.more.uniform==1){boot.Lj = sqrt(lambdaj)*sqrt(unif.n)*(boot.emp.Bj1(s.MRj1) - s.MRj1) - s.hat.rj*sqrt(1-lambdaj)*sqrt(1000)*(boot.emp.Bj2(s) - s);}
+      R.boot.Lj = boot.Lj + s; 
+      r.boot.Lj = (1-R.boot.Lj[1:L])/(1-ss); 
+      hat.r.boot.Lj = cummin(r.boot.Lj); 
+      MR.boot.Lj = c(1-(1-ss)*hat.r.boot.Lj, 1); 
+      DR.boot.Lj = MR.boot.Lj - R.boot.Lj; 
+      DR.boot.rj = (0-DR.boot.Lj)/(1-s); DR.boot.rj[L+1] = 0; 
+      
+      if(switch.boot.exact.Lp==0){
+        temp = DLps12(s,DR.boot.rj); 
+        boot.M1j = temp[1]; 
+        boot.M2j = temp[2]; 
+        boot.Msj = temp[3]; 
+      }
+      if(switch.boot.exact.Lp==1){
+        boot.M1j = mean(DR.boot.Lj); 
+        boot.M2j = (mean((DR.boot.Lj)^2))^(1/2); 
+        boot.Msj = max(DR.boot.Lj); 
+      }
+      
+      ### save simulated statistics
+      boot.M1s[bb, j] = boot.M1j; 
+      boot.M2s[bb, j] = boot.M2j; 
+      boot.Mss[bb, j] = boot.Msj; 
+    }
+  }
+  boot.cv.Sk1 = quantile(apply(boot.M1s,1,sum),1-alpha);
+  boot.cv.Sk2 = quantile(apply(boot.M2s,1,sum),1-alpha);
+  boot.cv.Sks = quantile(apply(boot.Mss,1,sum),1-alpha);
+  boot.cv.Wk1 = quantile(apply(boot.M1s,1,max),1-alpha);
+  boot.cv.Wk2 = quantile(apply(boot.M2s,1,max),1-alpha);
+  boot.cv.Wks = quantile(apply(boot.Mss,1,max),1-alpha);
+  
+  DSks = as.logical(c(Sk1>boot.cv.Sk1, Sk2>boot.cv.Sk2, Sks>boot.cv.Sks));
+  DWks = as.logical(c(Wk1>boot.cv.Wk1, Wk2>boot.cv.Wk2, Wks>boot.cv.Wks));
+  DBon = c(Wk1>Bon.cv.p1, Wk2>Bon.cv.p2, Wks>Bon.cv.ps);
+  return(MUSODecision = list(Sks=DSks,Wks=DWks,Bon=DBon))
+}
