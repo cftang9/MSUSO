@@ -1137,16 +1137,10 @@ MGOFUSO = function(X.data,alpha=0.05){
     Mss[j] = Msj; 
     fun.Mrs[[j]] = approxfun(uj,c(Mrj,Mrj[n.Y]),f=1); 
   }
+  #M1s; M2s; Mss; 
   
-  M1s; M2s; Mss; 
-  
-  Sk1 = sum(M1s); Sk1;  
-  Sk2 = sum(M2s); Sk2; 
-  Sks = sum(Mss); Sks; 
-  
-  Wk1 = max(M1s); Wk1; 
-  Wk2 = max(M2s); Wk2; 
-  Wks = max(Mss); Wks; 
+  Sk1 = sum(M1s); Sk2 = sum(M2s); Sks = sum(Mss); 
+  Wk1 = max(M1s); Wk2 = max(M2s); Wks = max(Mss); 
   
   BB = 1000; 
   boot.M1s = array(NA,c(BB,(k-1))); 
@@ -1164,6 +1158,7 @@ MGOFUSO = function(X.data,alpha=0.05){
     s.MRs[[j]] = 1-s.hat.rs[[j]]*(1-s)
   }
   boot.M1s = array(NA,c(BB,(k-1))); boot.M2s = array(NA,c(BB,(k-1))); boot.Mss = array(NA,c(BB,(k-1))); 
+  
   for(bb in 1:BB){
     boot.Bs = list(); boot.emp.Bs = list(); 
     for(j in 1:k){
@@ -1179,7 +1174,7 @@ MGOFUSO = function(X.data,alpha=0.05){
       s.MRj1 = s.MRs[[j]]; 
       s.hat.rj = s.hat.rs[[j]];
       ### calculaing bounds from uniform distribution
-      boot.Lj = cj*(boot.emp.Bj1(s.MRj1) - s.MRj1 - s.hat.rj*(boot.emp.Bj2(s) - s))
+      boot.Lj = cj*( (boot.emp.Bj1(s.MRj1) - s.MRj1) - (s.hat.rj*(boot.emp.Bj2(s) - s)) )
       R.boot.Lj = boot.Lj + s; 
       r.boot.Lj = (1-R.boot.Lj[1:L])/(1-ss); 
       hat.r.boot.Lj = cummin(r.boot.Lj); 
@@ -1286,9 +1281,7 @@ MixGamma = function(n=c(100,100),p=c(0.25,0.25),m=c(1,2),s=1,r=1){
 }
 
 MUSODecision = function(X.data,BB=1000,unif.n=1000,alpha=0.05){
-  
   BB=1000; unif.n=1000; alpha=0.05
-  
   k = length(X.data); 
   if(k==2){
     Bon.cv.p1 = 0.580; 
@@ -1315,7 +1308,6 @@ MUSODecision = function(X.data,BB=1000,unif.n=1000,alpha=0.05){
     Bon.cv.p2 = 0.8778637; # (n0=3000)
     Bon.cv.ps = 1.6285020; # (n0=3000)
   }
-  
   nv = array(NA,k); M1s = NA; M2s = NA; Mss = NA; 
   for(j in 1:k){
     nv[j] = length(X.data[[j]])
@@ -1357,19 +1349,12 @@ MUSODecision = function(X.data,BB=1000,unif.n=1000,alpha=0.05){
   
   M1s; M2s; Mss; 
   
-  Sk1 = sum(M1s); Sk1;  
-  Sk2 = sum(M2s); Sk2; 
-  Sks = sum(Mss); Sks; 
-  
-  Wk1 = max(M1s); Wk1; 
-  Wk2 = max(M2s); Wk2; 
-  Wks = max(Mss); Wks; 
-  
+  Sk1 = sum(M1s); Sk2 = sum(M2s); Sks = sum(Mss); 
+  Wk1 = max(M1s); Wk2 = max(M2s); Wks = max(Mss); 
   
   boot.M1s = array(NA,c(BB,(k-1))); 
   boot.M2s = array(NA,c(BB,(k-1))); 
   boot.Mss = array(NA,c(BB,(k-1))); 
-  
   
   s = seq(0,1,1/L); 
   ss = s[1:L];
