@@ -801,6 +801,402 @@ gen.sample.power.curve = function(nv=c(200,200),delta=0,case=1){
   
 }
 
+
+Gen.RR = function(nv=c(200,200), case=1){
+  k = length(nv); 
+  ### k=2 under H0 from AoS paper
+  if(k == 2 & case == 1){
+    X.data = list(
+      X1 = runif(nv[1]),
+      X2 = runif(nv[2])
+    )
+  }
+  if(k == 2 & case == 2){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2])
+    )
+  }
+  if(k == 2 & case == 3){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.8),
+      X2 = runif(nv[2])
+    )
+  }
+  if(k == 2 & case == 4){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.8,delta2=0.4),
+      X2 = runif(nv[2])
+    )
+  }
+  if(k == 2 & case == 5){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.8,delta2=0.4),
+      X2 = runif(nv[2])
+    )
+  }
+  # k=2 under H1 from AoS paper
+  if(k == 2 & case == 6){
+    X.data = list(
+      X1 = RIS(runif(nv[1]),delta=0.25),
+      X2 = runif(nv[2])
+    )
+  }
+  if(k == 2 & case == 7){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.8,delta2=0.4),
+      X2 = runif(nv[2])
+    )
+  }
+  if(k == 2 & case == 8){
+    X.data = list(
+      X1 = rnorm(nv[1],0,2),
+      X2 = rnorm(nv[2])
+    )
+  }
+  if(k == 2 & case == 9){
+    X.data = list(
+      X1 = rnorm(nv[1],0,1/2),
+      X2 = rnorm(nv[2])
+    )
+  }
+  
+  ### k=3 under H0
+  if(k == 3 & case == 1){
+    X.data = list(
+      X1 = runif(nv[1]),
+      X2 = runif(nv[2]), 
+      X3 = runif(nv[3])
+    )
+  }
+  if(k == 3 & case == 2){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = runif(nv[3])
+    )
+  }
+  if(k == 3 & case == 3){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = InvNSR(runif(nv[2]),delta1=0.4,delta2=0.4),
+      X3 = runif(nv[3])
+    )
+  }
+  if(k == 3 & case == 4){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = NSR(runif(nv[3]),delta1=0.4,delta2=0.4)
+    )
+  }
+  ### k=3 under H1
+  if(k == 3 & case == 5){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = sort(runif(nv[2])),
+      X3 = NSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4)
+    )
+  }
+  if(k == 3 & case == 6){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = runif(nv[3])
+    )
+  }
+  if(k == 3 & case == 7){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = InvNSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4)
+    )
+  }
+  
+  ### k=4 under H0  
+  if(k == 4 & case == 1){
+    X.data = list(
+      X1 = runif(nv[1]),
+      X2 = runif(nv[2]), 
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4])
+    )
+  }
+  if(k == 4 & case == 2){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4])
+    )
+  }
+  if(k == 4 & case == 3){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = InvNSR(runif(nv[2]),delta1=0.4,delta2=0.4),
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4])
+    )
+  }
+  if(k == 4 & case == 4){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = NSR(runif(nv[3]),delta1=0.4,delta2=0.4),
+      X4 = NSR(runif(nv[4]),delta1=0.4,delta2=0.4)
+    )
+  }
+  ### k=4 under H1
+  if(k == 4 & case == 5){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = sort(runif(nv[2])),
+      X3 = NSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4),
+      X4 = NSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4)
+    )
+  }
+  if(k == 4 & case == 6){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4])
+    )
+  }
+  if(k == 4 & case == 7){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = InvNSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4),
+      X4 = InvNSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4)
+    )
+  }
+  
+  ### k=5 under H0  
+  if(k == 5 & case == 1){
+    X.data = list(
+      X1 = runif(nv[1]),
+      X2 = runif(nv[2]), 
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4]),
+      X5 = runif(nv[5])
+    )
+  }
+  if(k == 5 & case == 2){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4]),
+      X5 = runif(nv[5])
+    )
+  }
+  if(k == 5 & case == 3){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = InvNSR(runif(nv[2]),delta1=0.4,delta2=0.4),
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4]),
+      X4 = runif(nv[5])
+    )
+  }
+  if(k == 5 & case == 4){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = NSR(runif(nv[3]),delta1=0.4,delta2=0.4),
+      X4 = NSR(runif(nv[4]),delta1=0.4,delta2=0.4),
+      X5 = NSR(runif(nv[5]),delta1=0.4,delta2=0.4) 
+    )
+  }
+  ### k=5 under H1
+  if(k == 5 & case == 5){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = sort(runif(nv[2])),
+      X3 = NSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4),
+      X4 = NSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4),
+      X5 = NSR(sort(runif(nv[5])),delta1=0.4,delta2=0.4)
+    )
+  }
+  if(k == 5 & case == 6){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4]),
+      X5 = runif(nv[5])
+    )
+  }
+  if(k == 5 & case == 7){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = InvNSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4),
+      X4 = InvNSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4),
+      X5 = InvNSR(sort(runif(nv[5])),delta1=0.4,delta2=0.4)
+    )
+  }
+  return(X.data)
+}
+
+Gen.MN = function(nv=c(200,200), case=1){
+  k = length(nv); 
+  ### k=2 under H0
+  ### k=2 under H1 
+
+  ### k=3 under H0
+  if(k == 3 & case == 1){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2),m=c(2,2,2))
+  }
+  if(k == 3 & case == 2){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2),m=c(2,2.6,2.6))
+  }
+  if(k == 3 & case == 3){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2),m=c(2,2,2.6))
+  }
+  if(k == 3 & case == 4){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2),m=c(2,2.6,3.2))
+  }
+  ### k=3 under H1
+  if(k == 3 & case == 5){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2),m=c(3.2,2.6,3.2))
+  }
+  if(k == 3 & case == 6){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2),m=c(3.2,2.6,2.6))
+  }
+  if(k == 3 & case == 7){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2),m=c(3.2,2.6,2.0))
+  }
+  
+  ### k=4 under H0  
+  if(k == 4 & case == 1){
+    X.data = list(
+      X1 = runif(nv[1]),
+      X2 = runif(nv[2]), 
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4])
+    )
+  }
+  if(k == 4 & case == 2){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4])
+    )
+  }
+  if(k == 4 & case == 3){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = InvNSR(runif(nv[2]),delta1=0.4,delta2=0.4),
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4])
+    )
+  }
+  if(k == 4 & case == 4){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = NSR(runif(nv[3]),delta1=0.4,delta2=0.4),
+      X4 = NSR(runif(nv[4]),delta1=0.4,delta2=0.4)
+    )
+  }
+  ### k=4 under H1
+  if(k == 4 & case == 5){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = sort(runif(nv[2])),
+      X3 = NSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4),
+      X4 = NSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4)
+    )
+  }
+  if(k == 4 & case == 6){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4])
+    )
+  }
+  if(k == 4 & case == 7){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = InvNSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4),
+      X4 = InvNSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4)
+    )
+  }
+  
+  ### k=5 under H0  
+  if(k == 5 & case == 1){
+    X.data = list(
+      X1 = runif(nv[1]),
+      X2 = runif(nv[2]), 
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4]),
+      X5 = runif(nv[5])
+    )
+  }
+  if(k == 5 & case == 2){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4]),
+      X5 = runif(nv[5])
+    )
+  }
+  if(k == 5 & case == 3){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = InvNSR(runif(nv[2]),delta1=0.4,delta2=0.4),
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4]),
+      X4 = runif(nv[5])
+    )
+  }
+  if(k == 5 & case == 4){
+    X.data = list(
+      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = NSR(runif(nv[3]),delta1=0.4,delta2=0.4),
+      X4 = NSR(runif(nv[4]),delta1=0.4,delta2=0.4),
+      X5 = NSR(runif(nv[5]),delta1=0.4,delta2=0.4) 
+    )
+  }
+  ### k=5 under H1
+  if(k == 5 & case == 5){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = sort(runif(nv[2])),
+      X3 = NSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4),
+      X4 = NSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4),
+      X5 = NSR(sort(runif(nv[5])),delta1=0.4,delta2=0.4)
+    )
+  }
+  if(k == 5 & case == 6){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = runif(nv[3]),
+      X4 = runif(nv[4]),
+      X5 = runif(nv[5])
+    )
+  }
+  if(k == 5 & case == 7){
+    X.data = list(
+      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
+      X2 = runif(nv[2]),
+      X3 = InvNSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4),
+      X4 = InvNSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4),
+      X5 = InvNSR(sort(runif(nv[5])),delta1=0.4,delta2=0.4)
+    )
+  }
+  return(X.data)
+}
+
+
 MGOFUSO = function(X.data,alpha=0.05){
   k = length(X.data); 
   nv = array(NA,k); M1s = NA; M2s = NA; Mss = NA; 
@@ -1136,49 +1532,44 @@ MDDUSO = function(X.data,alpha=0.05){
   for(j in 1:k){
     nv[j] = length(X.data[[j]])
   }
-  
   nv0 = nv; 
   B0 = 10000; 
   M1s0 = array(NA,c(B0,(k-1))); M2s0 = array(NA,c(B0,(k-1))); Mss0 = array(NA,c(B0,(k-1))); 
   for(b0 in 1:B0){
-    X0.data = list(X10 = runif(nv0[1]), 
-                   X20 = runif(nv0[2]),
-                   X30 = runif(nv0[3])
-    )
+    X0.data = list();
+    for(j in 1:k){
+      X0.data[[j]] = runif(nv0[j])
+    }
     M1s = NA; M2s = NA; Mss = NA; 
-    us = list(); fun.Mrs = list(); cs = 0; 
+    us0 = list(); fun.Mrs0 = list(); cs0 = 0; 
     for(j in 1:(k-1)){
-      us[[j]] = seq(0,1,by=1/nv0[j+1]); 
-      cs[j] = sqrt((nv0[j]*nv0[j+1])/(nv0[j]+nv0[j+1])); 
+      us0[[j]] = seq(0,1,by=1/nv0[j+1]); 
+      cs0[j] = sqrt((nv0[j]*nv0[j+1])/(nv0[j]+nv0[j+1])); 
     }
     for(j in 1:(k-1)){
       ### loading data and parameters
-      X = X0.data[[j]]; 
-      Y = X0.data[[j+1]]; 
-      uj = us[[j]]; 
-      cj = cs[j]; 
+      X0 = X0.data[[j]]; 
+      Y0 = X0.data[[j+1]]; 
+      uj0 = us0[[j]]; 
+      cj0 = cs0[j]; 
       ### calcuating test statistics 
-      n.uj = length(uj); n.Y = length(Y); 
-      emp.Rj = ecdf(X)(quantile(Y,uj)); 
-      r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
-      Mrj = cummin(r.emp.Rj); 
-      MRj = 1-Mrj[1:n.Y]*(1-uj[1:n.Y]); MRj[n.uj] = 1; 
+      n.uj0 = length(uj0); n.Y0 = length(Y0); 
+      emp.Rj0 = ecdf(X0)(quantile(Y0,uj0)); 
+      r.emp.Rj0 = (1-emp.Rj0[2:n.uj0])/(1-uj0[1:n.Y0]); 
+      Mrj0 = cummin(r.emp.Rj0); 
+      MRj0 = 1-Mrj0[1:n.Y0]*(1-uj0[1:n.Y0]); MRj0[n.uj0] = 1; 
       
-      ubj = (1-(1:n.Y)/n.Y); 
-      lbj = (1-(0:(n.Y-1))/n.Y); 
-      M1j = cj*(-(sum( (1-Mrj)^1/(1+1)*(ubj^(1+1)-lbj^(1+1)))))^(1/1)
-      M2j = cj*(-(sum( (1-Mrj)^2/(2+1)*(ubj^(2+1)-lbj^(2+1)))))^(1/2)
-      Msj = cj * max((1-Mrj)*lbj)
+      ubj0 = (1-(1:n.Y0)/n.Y0); 
+      lbj0 = (1-(0:(n.Y0-1))/n.Y0); 
+      M1j0 = cj0*(-(sum( (1-Mrj0)^1/(1+1)*(ubj0^(1+1)-lbj0^(1+1)))))^(1/1)
+      M2j0 = cj0*(-(sum( (1-Mrj0)^2/(2+1)*(ubj0^(2+1)-lbj0^(2+1)))))^(1/2)
+      Msj0 = cj0 * max((1-Mrj0)*lbj0)
       
       ### saving statsitics and slope function r
-      M1s[j] = M1j; 
-      M2s[j] = M2j; 
-      Mss[j] = Msj; 
-      fun.Mrs[[j]] = approxfun(uj,c(Mrj,Mrj[n.Y]),f=1); 
+      M1s0[b0,j] = M1j0; 
+      M2s0[b0,j] = M2j0; 
+      Mss0[b0,j] = Msj0; 
     }
-    M1s0[b0,] = M1s; 
-    M2s0[b0,] = M2s; 
-    Mss0[b0,] = Mss; 
   }
   
   Wk10 = apply(M1s0, 1, max)
@@ -1230,4 +1621,43 @@ MDDUSO = function(X.data,alpha=0.05){
                          ))
 }
 
+DDDST = function(X.data){
+  k = length(X.data)
+  nv = array(NA,k); 
+  for(j in 1:k){
+    nv[j] = length(X.data[[j]])
+  }
+  M1s = NA; M2s = NA; Mss = NA; 
+  us = list(); fun.Mrs = list(); cs = 0; 
+  for(j in 1:(k-1)){
+    us[[j]] = seq(0,1,by=1/nv[j+1]); 
+    cs[j] = sqrt((nv[j]*nv[j+1])/(nv[j]+nv[j+1])); 
+  }
+  for(j in 1:(k-1)){
+    ### loading data and parameters
+    X = X.data[[j]]; 
+    Y = X.data[[j+1]]; 
+    uj = us[[j]]; 
+    cj = cs[j]; 
+    ### calcuating test statistics 
+    n.uj = length(uj); n.Y = length(Y); 
+    emp.Rj = ecdf(X)(quantile(Y,uj)); 
+    r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
+    Mrj = cummin(r.emp.Rj); 
+    MRj = 1-Mrj[1:n.Y]*(1-uj[1:n.Y]); MRj[n.uj] = 1; 
+    
+    ubj = (1-(1:n.Y)/n.Y); 
+    lbj = (1-(0:(n.Y-1))/n.Y); 
+    M1j = cj*(-(sum( (1-Mrj)^1/(1+1)*(ubj^(1+1)-lbj^(1+1)))))^(1/1)
+    M2j = cj*(-(sum( (1-Mrj)^2/(2+1)*(ubj^(2+1)-lbj^(2+1)))))^(1/2)
+    Msj = cj * max((1-Mrj)*lbj)
+    
+    ### saving statsitics and slope function r
+    M1s[j] = M1j; 
+    M2s[j] = M2j; 
+    Mss[j] = Msj; 
+    fun.Mrs[[j]] = approxfun(uj,c(Mrj,Mrj[n.Y]),f=1); 
+  }
+  return(list(D1s = M1s, D2s = M2s, Dss = Mss, MaxDps = c(max(M1s), max(M2s), max(Mss))))
+}
 
