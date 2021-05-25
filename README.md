@@ -240,6 +240,9 @@ $decision.Skps
 
 $decision.Wkps
 [1] FALSE FALSE FALSE
+
+$decision.Bon
+[1] FALSE FALSE FALSE
 ```
 
 
