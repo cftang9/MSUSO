@@ -1043,7 +1043,28 @@ Gen.RR = function(nv=c(200,200), case=1){
 Gen.MN = function(nv=c(200,200), case=1){
   k = length(nv); 
   ### k=2 under H0
+  if(k == 2 & case == 1){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2),m=c(2,2))
+  }
+  if(k == 2 & case == 2){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2),m=c(2,2.6))
+  }
+  if(k == 2 & case == 3){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2),m=c(2,3.2))
+  }
+  if(k == 2 & case == 4){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2),m=c(2.6,3.2))
+  }
   ### k=2 under H1 
+  if(k == 2 & case == 5){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2),m=c(3.2,2.6))
+  }
+  if(k == 2 & case == 6){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2),m=c(3.2,2.0))
+  }
+  if(k == 2 & case == 7){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2),m=c(2.6,2.0))
+  }
 
   ### k=3 under H0
   if(k == 3 & case == 1){
@@ -1070,129 +1091,13 @@ Gen.MN = function(nv=c(200,200), case=1){
   }
   
   ### k=4 under H0  
-  if(k == 4 & case == 1){
-    X.data = list(
-      X1 = runif(nv[1]),
-      X2 = runif(nv[2]), 
-      X3 = runif(nv[3]),
-      X4 = runif(nv[4])
-    )
-  }
-  if(k == 4 & case == 2){
-    X.data = list(
-      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
-      X2 = runif(nv[2]),
-      X3 = runif(nv[3]),
-      X4 = runif(nv[4])
-    )
-  }
-  if(k == 4 & case == 3){
-    X.data = list(
-      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
-      X2 = InvNSR(runif(nv[2]),delta1=0.4,delta2=0.4),
-      X3 = runif(nv[3]),
-      X4 = runif(nv[4])
-    )
-  }
-  if(k == 4 & case == 4){
-    X.data = list(
-      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
-      X2 = runif(nv[2]),
-      X3 = NSR(runif(nv[3]),delta1=0.4,delta2=0.4),
-      X4 = NSR(runif(nv[4]),delta1=0.4,delta2=0.4)
-    )
-  }
+ 
   ### k=4 under H1
-  if(k == 4 & case == 5){
-    X.data = list(
-      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
-      X2 = sort(runif(nv[2])),
-      X3 = NSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4),
-      X4 = NSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4)
-    )
-  }
-  if(k == 4 & case == 6){
-    X.data = list(
-      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
-      X2 = runif(nv[2]),
-      X3 = runif(nv[3]),
-      X4 = runif(nv[4])
-    )
-  }
-  if(k == 4 & case == 7){
-    X.data = list(
-      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
-      X2 = runif(nv[2]),
-      X3 = InvNSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4),
-      X4 = InvNSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4)
-    )
-  }
-  
+ 
   ### k=5 under H0  
-  if(k == 5 & case == 1){
-    X.data = list(
-      X1 = runif(nv[1]),
-      X2 = runif(nv[2]), 
-      X3 = runif(nv[3]),
-      X4 = runif(nv[4]),
-      X5 = runif(nv[5])
-    )
-  }
-  if(k == 5 & case == 2){
-    X.data = list(
-      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
-      X2 = runif(nv[2]),
-      X3 = runif(nv[3]),
-      X4 = runif(nv[4]),
-      X5 = runif(nv[5])
-    )
-  }
-  if(k == 5 & case == 3){
-    X.data = list(
-      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
-      X2 = InvNSR(runif(nv[2]),delta1=0.4,delta2=0.4),
-      X3 = runif(nv[3]),
-      X4 = runif(nv[4]),
-      X4 = runif(nv[5])
-    )
-  }
-  if(k == 5 & case == 4){
-    X.data = list(
-      X1 = InvNSR(runif(nv[1]),delta1=0.4,delta2=0.4),
-      X2 = runif(nv[2]),
-      X3 = NSR(runif(nv[3]),delta1=0.4,delta2=0.4),
-      X4 = NSR(runif(nv[4]),delta1=0.4,delta2=0.4),
-      X5 = NSR(runif(nv[5]),delta1=0.4,delta2=0.4) 
-    )
-  }
+ 
   ### k=5 under H1
-  if(k == 5 & case == 5){
-    X.data = list(
-      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
-      X2 = sort(runif(nv[2])),
-      X3 = NSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4),
-      X4 = NSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4),
-      X5 = NSR(sort(runif(nv[5])),delta1=0.4,delta2=0.4)
-    )
-  }
-  if(k == 5 & case == 6){
-    X.data = list(
-      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
-      X2 = runif(nv[2]),
-      X3 = runif(nv[3]),
-      X4 = runif(nv[4]),
-      X5 = runif(nv[5])
-    )
-  }
-  if(k == 5 & case == 7){
-    X.data = list(
-      X1 = NSR(runif(nv[1]),delta1=0.4,delta2=0.4),
-      X2 = runif(nv[2]),
-      X3 = InvNSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4),
-      X4 = InvNSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4),
-      X5 = InvNSR(sort(runif(nv[5])),delta1=0.4,delta2=0.4)
-    )
-  }
+ 
   return(X.data)
 }
 
