@@ -180,6 +180,9 @@ We applied all tests in this manuscript to three data applications. To reproduce
 We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with clinical cohort characteristics and MFAP4 serum levels from [Bracht et. al. (2016)](../master/README.md#reference) in [MFAP4.xlsx](https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-016-0952-3/MediaObjects/12967_2016_952_MOESM1_ESM.xlsx)
 We grouped the MFAP4 levels in fibrosis stages and saved as a data ```data_MFAP4``` in [MFAP4.Rdata](../master/MFAP4.Rdata). 
 
+```R``` codes for ODC plots in Figure 3: [Figure_3_MFAP4.R](../master/Figure_3_MFAP4.R).
+![Figure 3](../master/Figure_3_MFAP4.png)
+
 ### 4.1. Table 3 part 1: Distinghishing Fibrosis stages from MFAP4 levels
 ```R
 set.seed(05222021)
