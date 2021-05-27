@@ -281,9 +281,52 @@ LSMRmn = function(Rmn_data){
   return(LSMRmn)
 }
 
+Rmn0 = function(X,Y){
+  m = length(X)
+  n = length(Y)
+  Rmn0 = c(array(0,(n)),1)
+  for (i in 1:n){
+    Rmn0[i] = sum(X<=Y[i-1])/m
+  }
+  return(Rmn0)
+}
+
+Rmn1 = function(X,Y){
+  m = length(X)
+  n = length(Y)
+  Rmn1 = c(array(0,(n)),1)
+  for (i in 2:(n+1)){
+    Rmn1[i] = sum(X<=Y[i-1])/m
+  }
+  return(Rmn1)
+}
+
+LSMRmn0 = function(Rmn_data){
+  m = length(Rmn_data)-1
+  u = seq(0,1,by=1/m)
+  u_slope = array(0,m+1)
+  LSMRmn0 = array(1,m+1)
+  alpha = array(0,m+1)
+  u_slope[1:m] = (1-Rmn_data[2:(m+1)])/(1-u[1:m])
+  alpha = cummin(u_slope)
+  LSMRmn0 = 1-(1-u)*alpha
+  return(LSMRmn0)
+}
+
+LSMRmn1 = function(Rmn_data){
+  m = length(Rmn_data)-1
+  u = seq(0,1,by=1/m)
+  u_slope = array(0,m+1)
+  LSMRmn1 = array(1,m+1)
+  alpha = array(0,m+1)
+  u_slope[1:m] = (1-Rmn_data[2:(m+1)])/(1-u[1:m])
+  alpha = cummin(u_slope)
+  LSMRmn1 = 1-(1-u)*alpha + alpha/m
+  return(LSMRmn1)
+}
+
 Mp21 = function(Rmn_data, LSMRmn_data,m,n,p=1){
   cmn = sqrt(m*n/(m+n))
-  #Mp21 = cmn*TrapArea(LSMRmn_data-Rmn_data,p)
   u = seq(0,1,by=1/n)
   slope = (((1-LSMRmn_data[1:n])/(1-u[1:n])))
   nss = sum(slope>0)
@@ -402,6 +445,11 @@ invf = function(u,a,m,b,Ra,Rm,Rb){
     invf[i] = ((cs*amb - am)^2-(m^2-a*b))/amb
   }
   return(invf)
+}
+
+ftf = function(u=u,a=a,m=m,b=b){
+  ftf = 1/(a+b-2*m)*(a-m+sqrt(m^2-a*b+(a+b-2*m)*u))
+  return(ftf)
 }
 
 RLS = function(u,delta=0){
@@ -1218,29 +1266,29 @@ Bon.cvs = function(k){
     Bon.cv.ps = 1.350; 
   }
   if(k==3){
-    Bon.cv.p1 = 0.6557469; # (n0=3000)
-    Bon.cv.p2 = 0.7613634; # (n0=3000)
-    Bon.cv.ps = 1.451662; # (n0=3000)
+    Bon.cv.p1 = 0.6567475; # (n0=3000)
+    Bon.cv.p2 = 0.7596477; # (n0=3000)
+    Bon.cv.ps = 1.454522; # (n0=3000)
   }
   if(k==4){
-    Bon.cv.p1 = 0.6985535; # (n0=3000)
-    Bon.cv.p2 = 0.8072756; # (n0=3000)
-    Bon.cv.ps = 1.514235; # (n0=3000)
+    Bon.cv.p1 = 0.7048794; # (n0=3000)
+    Bon.cv.p2 = 0.8093516; # (n0=3000)
+    Bon.cv.ps = 1.525212; # (n0=3000)
   }
   if(k==5){
-    Bon.cv.p1 = 0.7303944; # (n0=3000)
-    Bon.cv.p2 = 0.8361775; # (n0=3000)
-    Bon.cv.ps = 1.565891; # (n0=3000)
+    Bon.cv.p1 = 0.7283533; # (n0=3000)
+    Bon.cv.p2 = 0.8414987; # (n0=3000)
+    Bon.cv.ps = 1.579907; # (n0=3000)
   }
   if(k==6){
-    Bon.cv.p1 = 0.7470708; # (n0=3000)
-    Bon.cv.p2 = 0.8665516; # (n0=3000)
-    Bon.cv.ps = 1.608623; # (n0=3000)
+    Bon.cv.p1 = 0.7541543; # (n0=3000)
+    Bon.cv.p2 = 0.8702084; # (n0=3000)
+    Bon.cv.ps = 1.613301; # (n0=3000)
   }
   if(k==7){
-    Bon.cv.p1 = 0.7580310; # (n0=3000)
-    Bon.cv.p2 = 0.8860498; # (n0=3000)
-    Bon.cv.ps = 1.634976; # (n0=3000)
+    Bon.cv.p1 = 0.7732230; # (n0=3000)
+    Bon.cv.p2 = 0.8854050; # (n0=3000)
+    Bon.cv.ps = 1.641733; # (n0=3000)
   }
   return(Bon.cvs = list(Bon.cv.p1 = Bon.cv.p1,
                         Bon.cv.p2 = Bon.cv.p2,
