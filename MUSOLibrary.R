@@ -1138,9 +1138,29 @@ Gen.MN = function(nv=c(200,200), case=1){
     X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2),m=c(3.2,2.6,2.0))
   }
   
-  ### k=4 under H0  
- 
-  ### k=4 under H1
+  ### k=4 under H0
+  if(k == 4 & case == 1){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(2,2,2,2))
+  }
+  if(k == 4 & case == 2){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(2,2.6,2.6,2.6))
+  }
+  if(k == 4 & case == 3){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(2,2,2.6,2.6))
+  }
+  if(k == 4 & case == 4){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(2,2.6,3.2,3.2))
+  }
+  ### k=3 under H1
+  if(k == 4 & case == 5){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(3.2,2.6,3.2,3.2))
+  }
+  if(k == 4 & case == 6){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(3.2,2.6,2.6,2.6))
+  }
+  if(k == 4 & case == 7){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(3.2,2.6,2.0,2.0))
+  }
  
   ### k=5 under H0  
  
