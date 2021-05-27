@@ -37,7 +37,7 @@ for(j in 1:4){
   Jump.p1 = array(NA,c(B,(k-1))); Jump.p2 = array(NA,c(B,(k-1))); Jump.ps = array(NA,c(B,(k-1))); M1s.data = array(NA,c(B,(k-1))); M2s.data = array(NA,c(B,(k-1))); Mss.data = array(NA,c(B,(k-1))); 
   set.seed(02142021)
   for(b in 1:B){
-    X.data = Gen.DD(nv,case=j)
+    X.data = Gen.RR(nv,case=j)
     temp = DDDST(X.data)
     Jump.p1[b,] = c(temp$D1s>jump.cv.p1.200);
     Jump.p2[b,] = c(temp$D2s>jump.cv.p2.200);
@@ -49,7 +49,7 @@ for(j in 1:4){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=c( (j-1)%%2, (j-1)%/%2, (j-1)%/%4); 
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
@@ -89,7 +89,7 @@ for(j in 1:8){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=c( (j-1)%%2, (j-1)%/%2, (j-1)%/%4); 
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
@@ -161,7 +161,7 @@ for(j in 1:4){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=c( (j-1)%%2, (j-1)%/%2, (j-1)%/%4); 
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
@@ -203,7 +203,7 @@ for(j in 1:8){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=c( (j-1)%%2, (j-1)%/%2, (j-1)%/%4); 
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 

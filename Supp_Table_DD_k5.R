@@ -50,7 +50,7 @@ for(j in 1:4){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=c( (j-1)%%2, (j-1)%/%2, (j-1)%/%4, (j-1)%/%8); 
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
@@ -90,7 +90,7 @@ for(j in 1:16){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=c( (j-1)%%2, (j-1)%/%2, (j-1)%/%4, (j-1)%/%8);
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
@@ -163,7 +163,7 @@ for(j in 1:4){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=c( (j-1)%%2, (j-1)%/%2, (j-1)%/%4, (j-1)%/%8);
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
@@ -205,7 +205,7 @@ for(j in 1:16){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=c( (j-1)%%2, (j-1)%/%2, (j-1)%/%4, (j-1)%/%8);
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
