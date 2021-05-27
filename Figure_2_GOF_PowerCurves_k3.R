@@ -2,7 +2,7 @@ rm(list=ls(all=TRUE))
 source("MUSOLibrary.R")
 
 ######## C1 n=200 #################3
-nv = c(200,200,200,200,200); k = length(nv); 
+nv = c(200,200,200); k = length(nv); 
 alpha = 0.05; B = 1000; BB = 1000; 
 Cases = 1:10; nC = length(Cases)
 pSks_C1_200 = array(0,c(nC,3)); pWks_C1_200 = array(0,c(nC,3)); pBon_C1_200 = array(0,c(nC,3))
@@ -13,10 +13,8 @@ for(l in Cases){
     X1 = RIS(sort(runif(nv[1])), delta=1/2-l/20);
     X2 = sort(runif(nv[2])); 
     X3 = NSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4);
-    X4 = NSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4);
-    X5 = NSR(sort(runif(nv[5])),delta1=0.4,delta2=0.4);
     
-    X = list(X1, X2, X3, X4, X5); 
+    X = list(X1, X2, X3); 
     temp = MGOFUSO(X)
     
     pSks_C1_200[l,] = pSks_C1_200[l,] + temp$decision.Skps/B
@@ -35,9 +33,8 @@ for(l in Cases){
   }
 }
 
-
 ######## C3 n=200 #################3
-nv = c(200,200,200,200,200); k = length(nv); 
+nv = c(200,200,200); k = length(nv); 
 alpha = 0.05; B = 1000; BB = 1000; 
 Cases = 1:10; nC = length(Cases)
 pSks_C3_200 = array(0,c(nC,3)); pWks_C3_200 = array(0,c(nC,3)); pBon_C3_200 = array(0,c(nC,3))
@@ -48,10 +45,8 @@ for(l in Cases){
     X1 = RIS(sort(runif(nv[1])), delta=1/2-l/20);
     X2 = sort(runif(nv[2])); 
     X3 = RLS(sort(runif(nv[3])), delta=1/2-l/20);
-    X4 = RLS(sort(runif(nv[4])), delta=1/2-l/20);
-    X5 = RLS(sort(runif(nv[5])), delta=1/2-l/20);
     
-    X = list(X1, X2, X3, X4, X5); 
+    X = list(X1, X2, X3); 
     temp = MGOFUSO(X)
     
     pSks_C3_200[l,] = pSks_C3_200[l,] + temp$decision.Skps/B
@@ -98,4 +93,3 @@ lines((Cases-1)/10, pWks_C3_200[,3],col="blue");
 lines((Cases-1)/10, pBon_C3_200[,3],lty=2); 
 abline(h=0.05,lty=3); 
 par(mfcol=c(1,1))
-

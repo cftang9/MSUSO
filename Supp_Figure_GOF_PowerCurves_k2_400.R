@@ -2,7 +2,7 @@ rm(list=ls(all=TRUE))
 source("MUSOLibrary.R")
 
 ######## C1 n=400 #################3
-nv = c(400,400,400,400); k = length(nv); 
+nv = c(400,400); k = length(nv); 
 alpha = 0.05; B = 1000; BB = 1000; 
 Cases = 1:10; nC = length(Cases)
 pSks_C1_400 = array(0,c(nC,3)); pWks_C1_400 = array(0,c(nC,3)); pBon_C1_400 = array(0,c(nC,3))
@@ -12,10 +12,8 @@ for(l in Cases){
   for(b in 1:B){
     X1 = RIS(sort(runif(nv[1])), delta=1/2-l/20);
     X2 = sort(runif(nv[2])); 
-    X3 = NSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4);
-    X4 = NSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4);
     
-    X = list(X1, X2, X3, X4); 
+    X = list(X1, X2); 
     temp = MGOFUSO(X)
     
     pSks_C1_400[l,] = pSks_C1_400[l,] + temp$decision.Skps/B
@@ -35,7 +33,7 @@ for(l in Cases){
 }
 
 ######## C3 n=400 #################3
-nv = c(400,400,400,400); k = length(nv); 
+nv = c(400,400); k = length(nv); 
 alpha = 0.05; B = 1000; BB = 1000; 
 Cases = 1:10; nC = length(Cases)
 pSks_C3_400 = array(0,c(nC,3)); pWks_C3_400 = array(0,c(nC,3)); pBon_C3_400 = array(0,c(nC,3))
@@ -45,10 +43,8 @@ for(l in Cases){
   for(b in 1:B){
     X1 = RIS(sort(runif(nv[1])), delta=1/2-l/20);
     X2 = sort(runif(nv[2])); 
-    X3 = RLS(sort(runif(nv[3])), delta=1/2-l/20);
-    X4 = RLS(sort(runif(nv[4])), delta=1/2-l/20);
     
-    X = list(X1, X2, X3, X4); 
+    X = list(X1, X2); 
     temp = MGOFUSO(X)
     
     pSks_C3_400[l,] = pSks_C3_400[l,] + temp$decision.Skps/B

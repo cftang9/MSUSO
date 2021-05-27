@@ -16,7 +16,7 @@ for(l in Cases){
     X4 = NSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4);
     X5 = NSR(sort(runif(nv[5])),delta1=0.4,delta2=0.4);
     
-    X = list(X1, X2, X3); 
+    X = list(X1, X2, X3, X4, X5); 
     temp = MGOFUSO(X)
     
     pSks_C1_400[l,] = pSks_C1_400[l,] + temp$decision.Skps/B
@@ -50,7 +50,7 @@ for(l in Cases){
     X4 = RLS(sort(runif(nv[4])), delta=1/2-l/20);
     X5 = RLS(sort(runif(nv[5])), delta=1/2-l/20);
     
-    X = list(X1, X2, X3); 
+    X = list(X1, X2, X3, X4, X5); 
     temp = MGOFUSO(X)
     
     pSks_C3_400[l,] = pSks_C3_400[l,] + temp$decision.Skps/B

@@ -1,9 +1,6 @@
 rm(list=ls(all=TRUE))
 source("MUSOLibrary.R")
 
-rm(list=ls(all=TRUE))
-source("MUSOLibrary.R")
-
 ######## C1 n=200 #################3
 nv = c(200,200,200,200); k = length(nv); 
 alpha = 0.05; B = 1000; BB = 1000; 
@@ -18,7 +15,7 @@ for(l in Cases){
     X3 = NSR(sort(runif(nv[3])),delta1=0.4,delta2=0.4);
     X4 = NSR(sort(runif(nv[4])),delta1=0.4,delta2=0.4);
     
-    X = list(X1, X2, X3); 
+    X = list(X1, X2, X3, X4); 
     temp = MGOFUSO(X)
     
     pSks_C1_200[l,] = pSks_C1_200[l,] + temp$decision.Skps/B
@@ -52,7 +49,7 @@ for(l in Cases){
     X3 = RLS(sort(runif(nv[3])), delta=1/2-l/20);
     X4 = RLS(sort(runif(nv[4])), delta=1/2-l/20);
     
-    X = list(X1, X2, X3); 
+    X = list(X1, X2, X3, X4); 
     temp = MGOFUSO(X)
     
     pSks_C3_200[l,] = pSks_C3_200[l,] + temp$decision.Skps/B
