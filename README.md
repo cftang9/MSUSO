@@ -120,15 +120,16 @@ To reproduce Table 1, which involves four classic copulas: Clayton, Frank, Gumbe
 But be aware of that, because the number of replications is 10,000, this program might take a long time to finish. As stated in our manuscript, our calculation of Table 1 took approximately 73 minutes on a computer with a 3.1GHz processor and 16GB of memory. 
 -->
 
-
-
 ### 2.2. Table 2: Size and Power of Goodness-of-fit Tests for USO with k=3
+
+The 
+
 
 [Table_2_GOF_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_2_GOF_k3.R)
 
 ### 2.3. Figure 2: Power Curves Goodness-of-fit Tests for USO with k=3
 
-[Figure_2_PowerCurves_k3.R](https://github.com/cftang9/MSUSO/blob/master/Figure_2_PowerCurves_k3.R)
+[Figure_2_GOF_PowerCurves_k3_200.R](https://github.com/cftang9/MSUSO/blob/master/Figure_2_GOF_PowerCurves_k3_200.R)
 
 ## Part 3. Reproducing simulation results in Web Appendix
 <!--
@@ -171,9 +172,13 @@ We applied all tests in this manuscript to three data applications. To reproduce
 
 ### 3.3. Figures A.1,2,3: Power Curves for Goodness-of-fit Tests for USO with k=2, 4, 5
 
-[Supp_Figure_PowerCurves_k2.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_PowerCurves_k2.R)
-[Supp_Figure_PowerCurves_k4.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_PowerCurves_k4.R)
-[Supp_Figure_PowerCurves_k5.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_PowerCurves_k5.R)
+[Supp_Figure_GOF_PowerCurves_k2_200.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k2_200.R)
+[Supp_Figure_GOF_PowerCurves_k2_400.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k2_400.R)
+[Supp_Figure_GOF_PowerCurves_k3_400.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k3_400.R)
+[Supp_Figure_GOF_PowerCurves_k4_200.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_200.R)
+[Supp_Figure_GOF_PowerCurves_k4_400.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_400.R)
+[Supp_Figure_GOF_PowerCurves_k5_200.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_200.R)
+[Supp_Figure_GOF_PowerCurves_k5_400.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_400.R)
 
 
 ## Part 4. MFAP4 data analysis
