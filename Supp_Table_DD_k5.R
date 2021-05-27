@@ -73,7 +73,7 @@ for(j in 1:4){
   Table.DD.K5.RR.200[j,] = c(C1,C2,C3); 
 }
 
-Table.DD.K5.MN.200 = array(,c(4,9)); 
+Table.DD.K5.MN.200 = array(,c(16,9)); 
 for(j in 1:16){
   Jump.p1 = array(NA,c(B,(k-1))); Jump.p2 = array(NA,c(B,(k-1))); Jump.ps = array(NA,c(B,(k-1))); M1s.data = array(NA,c(B,(k-1))); M2s.data = array(NA,c(B,(k-1))); Mss.data = array(NA,c(B,(k-1))); 
   set.seed(02142021)
@@ -188,7 +188,7 @@ for(j in 1:4){
 }
 
 
-Table.DD.K5.MN.400 = array(,c(4,9)); 
+Table.DD.K5.MN.400 = array(,c(16,9)); 
 for(j in 1:16){
   Jump.p1 = array(NA,c(B,(k-1))); Jump.p2 = array(NA,c(B,(k-1))); Jump.ps = array(NA,c(B,(k-1))); M1s.data = array(NA,c(B,(k-1))); M2s.data = array(NA,c(B,(k-1))); Mss.data = array(NA,c(B,(k-1))); 
   set.seed(02142021)
