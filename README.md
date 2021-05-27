@@ -172,13 +172,14 @@ We applied all tests in this manuscript to three data applications. To reproduce
 
 ### 3.3. Figures A.1,2,3: Power Curves for Goodness-of-fit Tests for USO with k=2, 4, 5
 
-[Supp_Figure_GOF_PowerCurves_k2_200.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k2_200.R)
-[Supp_Figure_GOF_PowerCurves_k2_400.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k2_400.R)
-[Supp_Figure_GOF_PowerCurves_k3_400.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k3_400.R)
-[Supp_Figure_GOF_PowerCurves_k4_200.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_200.R)
-[Supp_Figure_GOF_PowerCurves_k4_400.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_400.R)
-[Supp_Figure_GOF_PowerCurves_k5_200.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_200.R)
-[Supp_Figure_GOF_PowerCurves_k5_400.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_400.R)
+We put  similar settings with two samples with sample size with ```R``` codes for k=3 with [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k3_400.R) 
+
+k=2 with [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k2_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k2_400.R)
+
+k=4 with [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_400.R)
+
+k=5 with [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_400.R)
+
 
 
 ## Part 4. MFAP4 data analysis
