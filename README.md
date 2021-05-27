@@ -137,7 +137,7 @@ The
 ```R``` codes for ODC plots in Figure 1: [Supp_Figure_A.1_ODCs.R](../master/Supp_Figure_1_ODCs.R).
 ![Supp Figure 1](../master/Supp_Figure_1_ODCs.png)
 -->
-### 3.1. Table A.1: Distinguishing Distributions under USO with k=2,4,5
+### 3.1. Tables: Distinguishing Distributions under USO with k=2,4,5
 
 [Supp_Table_DD_k2.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k2.R)
 [Supp_Table_DD_k4.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k4.R)
@@ -163,14 +163,14 @@ and
 We applied all tests in this manuscript to three data applications. To reproduce the results of our analysis (Table 2 and Figures 2-4), please run the R program for each. The data included in the CSV file will be automatically read by the corresponding R program.
 -->
 
-### 3.2. Table A.2: Goodness-of-fit Tests for USO with k=2, 4, 5
+### 3.2. Tables: Goodness-of-fit Tests for USO with k=2, 4, 5
 
 [Supp_Table_GOF_k2.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k2.R)
 [Supp_Table_GOF_k4.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k4.R)
 [Supp_Table_GOF_k5.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k5.R)
 
 
-### 3.3. Figures A.1,2,3: Power Curves for Goodness-of-fit Tests for USO with k=2, 4, 5
+### 3.3. Figures: Power Curves for Goodness-of-fit Tests for USO with k=2, 4, 5
 
 We put  similar settings with two samples with sample size with ```R``` codes for k=3 with [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k3_400.R) 
 
