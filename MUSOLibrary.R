@@ -1151,7 +1151,7 @@ Gen.MN = function(nv=c(200,200), case=1){
   if(k == 4 & case == 4){
     X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(2,2.6,3.2,3.2))
   }
-  ### k=3 under H1
+  ### k=4 under H1
   if(k == 4 & case == 5){
     X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(3.2,2.6,3.2,3.2))
   }
@@ -1162,13 +1162,139 @@ Gen.MN = function(nv=c(200,200), case=1){
     X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(3.2,2.6,2.0,2.0))
   }
  
-  ### k=5 under H0  
- 
+  ### k=5 under H0
+  if(k == 5 & case == 1){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2,2,2,2))
+  }
+  if(k == 5 & case == 2){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2.6,2.6,2.6,2.6))
+  }
+  if(k == 5 & case == 3){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2,2.6,2.6,2.6))
+  }
+  if(k == 5 & case == 4){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2.6,3.2,3.2,3.2))
+  }
   ### k=5 under H1
- 
+  if(k == 5 & case == 5){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(3.2,2.6,3.2,3.2,3.2))
+  }
+  if(k == 5 & case == 6){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(3.2,2.6,2.6,2.6,2.6))
+  }
+  if(k == 5 & case == 7){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(3.2,2.6,2.0,2.0,2.0))
+  }
   return(X.data)
 }
 
+Gen.DD = function(n=c(200,200),case=1){
+  k = length(nv); 
+  ### k=2 under H0
+  if(k == 2 & case == 1){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2),m=c(2,2))
+  }
+  if(k == 2 & case == 2){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2),m=c(2,2.6))
+  }
+  if(k == 2 & case == 3){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2),m=c(2,3.2))
+  }
+  if(k == 2 & case == 4){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2),m=c(2.6,3.2))
+  }
+  
+  ### k=3 under H0
+  if(k == 3 & case == 1){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2),m=c(2,2,2))
+  }
+  if(k == 3 & case == 2){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2),m=c(2,2.6,2.6))
+  }
+  if(k == 3 & case == 3){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2),m=c(2,2,2.6))
+  }
+  if(k == 3 & case == 4){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2),m=c(2,2.6,3.2))
+  }
+  
+  ### k=4 under H0
+  if(k == 4 & case == 1){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(2,2,2,2))
+  }
+  if(k == 4 & case == 2){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(2,2.6,2.6,2.6))
+  }
+  if(k == 4 & case == 3){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(2,2,2.6,2.6))
+  }
+  if(k == 4 & case == 4){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(2,2.6,3.2,3.2))
+  }
+  if(k == 4 & case == 5){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(2,2,2,2.6))
+  }
+  if(k == 4 & case == 6){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(2,2.6,2.6,3.2))
+  }
+  if(k == 4 & case == 7){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(2,2,2.6,3.2))
+  }
+  if(k == 4 & case == 8){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2),m=c(2,2.6,3.2,3.8))
+  }
+  
+  ### k=5 under H0
+  if(k == 5 & case == 1){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2,2,2,2))
+  }
+  if(k == 5 & case == 2){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2.6,2.6,2.6,2.6))
+  }
+  if(k == 5 & case == 3){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2,2.6,2.6,2.6))
+  }
+  if(k == 5 & case == 4){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2.6,3.2,3.2,3.2))
+  }
+  if(k == 5 & case == 5){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2,2,2.6,2.6))
+  }
+  if(k == 5 & case == 6){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2.6,2.6,3.2,3.2))
+  }
+  if(k == 5 & case == 7){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2,2.6,3.2,3.2))
+  }
+  if(k == 5 & case == 8){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2.6,3.2,3.8,3.8))
+  }
+  if(k == 5 & case == 9){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2,2,2,2.6))
+  }
+  if(k == 5 & case == 10){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2.6,2.6,2.6,3.2))
+  }
+  if(k == 5 & case == 11){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2,2.6,2.6,3.2))
+  }
+  if(k == 5 & case == 12){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2.6,3.2,3.2,3.8))
+  }
+  if(k == 5 & case == 13){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2,2,2.6,3.2))
+  }
+  if(k == 5 & case == 14){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2.6,2.6,3.2,3.8))
+  }
+  if(k == 5 & case == 15){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2,2.6,3.2,3.8))
+  }
+  if(k == 5 & case == 16){
+    X.data = MixNormal(n=nv,p=c(0.2,0.2,0.2,0.2,0.2),m=c(2,2.6,3.2,3.8,4.4))
+  }
+  return(X.data)
+}
 
 MGOFUSO = function(X.data,alpha=0.05){
   k = length(X.data); 
