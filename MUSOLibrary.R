@@ -269,6 +269,20 @@ Rmn = function(X,Y){
   }
   return(Rmn)
 }
+
+Rmna = function(X,Y){
+  m = length(X)
+  n = length(Y)
+  Y = sort(Y)
+  Rmna = c(array(0,(n)),1)
+  for (i in 2:(n+1)){
+    Rmna[i] = mean(X<=Y[i-1])
+  }
+  Rmna[n+2] = Rmna[n+1]; 
+  Rmna = Rmna[-1]; 
+  return(Rmna)
+}
+
 LSMRmn = function(Rmn_data){
   m = length(Rmn_data)-1
   u = seq(0,1,by=1/m)
@@ -1045,7 +1059,7 @@ Gen.RR = function(nv=c(200,200), case=1){
       X2 = InvNSR(runif(nv[2]),delta1=0.4,delta2=0.4),
       X3 = runif(nv[3]),
       X4 = runif(nv[4]),
-      X4 = runif(nv[5])
+      X5 = runif(nv[5])
     )
   }
   if(k == 5 & case == 4){
@@ -1316,15 +1330,16 @@ MGOFUSO = function(X.data,alpha=0.05){
     cj = cs[j]; 
     ### calcuating test statistics 
     n.uj = length(uj); n.Y = length(Y); 
-    emp.Rj = ecdf(X)(quantile(Y,uj)); 
-    r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
-    Mrj = cummin((1-emp.Rj[2:n.uj])/(1-uj[1:n.Y])); 
+    emp.Rj = Rmna(X,Y) #emp.Rj = ecdf(X)(quantile(Y,uj)); 
+    r.emp.Rj = (1-emp.Rj[1:n.Y])/(1-uj[1:n.Y]); # r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
+    Mrj = cummin(r.emp.Rj); 
     MRj = 1-Mrj[1:n.Y]*(1-uj[1:n.Y]); MRj[n.uj] = 1; 
-    ubj = 1-Mrj-emp.Rj[2:n.uj]+Mrj*(1:n.Y)/n.Y; 
-    lbj = 1-Mrj-emp.Rj[2:n.uj]+Mrj*(0:(n.Y-1))/n.Y; 
+    
+    ubj = (MRj[1:n.Y] + Mrj/n.Y - emp.Rj[1:n.Y]);
+    lbj = (MRj[1:n.Y] - emp.Rj[1:n.Y]);
     M1j = cj*(sum((ubj^(1+1)-lbj^(1+1))[Mrj>0]/(1+1)/Mrj[Mrj>0]))^(1/1);
     M2j = cj*(sum((ubj^(2+1)-lbj^(2+1))[Mrj>0]/(2+1)/Mrj[Mrj>0]))^(1/2);
-    Msj = cj*max(ubj); 
+    Msj = cj*max(ubj,lbj); 
     ### saving statsitics and slope function r
     M1s[j] = M1j; 
     M2s[j] = M2j; 
@@ -1525,15 +1540,17 @@ MUSODecision = function(X.data,BB=1000,unif.n=1000,alpha=0.05){
     cj = cs[j]; 
     ### calcuating test statistics 
     n.uj = length(uj); n.Y = length(Y); 
-    emp.Rj = ecdf(X)(quantile(Y,uj)); 
-    r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
+    
+    emp.Rj = Rmna(X,Y) #emp.Rj = ecdf(X)(quantile(Y,uj)); 
+    r.emp.Rj = (1-emp.Rj[1:n.Y])/(1-uj[1:n.Y]); # r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
     Mrj = cummin(r.emp.Rj); 
     MRj = 1-Mrj[1:n.Y]*(1-uj[1:n.Y]); MRj[n.uj] = 1; 
-    ubj = 1-Mrj-emp.Rj[2:n.uj]+Mrj*(1:n.Y)/n.Y; 
-    lbj = 1-Mrj-emp.Rj[2:n.uj]+Mrj*(0:(n.Y-1))/n.Y; 
+    
+    ubj = (MRj[1:n.Y] + Mrj/n.Y - emp.Rj[1:n.Y]);
+    lbj = (MRj[1:n.Y] - emp.Rj[1:n.Y]);
     M1j = cj*(sum((ubj^(1+1)-lbj^(1+1))[Mrj>0]/(1+1)/Mrj[Mrj>0]))^(1/1);
     M2j = cj*(sum((ubj^(2+1)-lbj^(2+1))[Mrj>0]/(2+1)/Mrj[Mrj>0]))^(1/2);
-    Msj = cj*max(ubj); 
+    Msj = cj*max(lbj,ubj); 
     ### saving statsitics and slope function r
     M1s[j] = M1j; 
     M2s[j] = M2j; 
@@ -1646,16 +1663,16 @@ MDDUSO = function(X.data,alpha=0.05){
       cj0 = cs0[j]; 
       ### calcuating test statistics 
       n.uj0 = length(uj0); n.Y0 = length(Y0); 
-      emp.Rj0 = ecdf(X0)(quantile(Y0,uj0)); 
-      r.emp.Rj0 = (1-emp.Rj0[2:n.uj0])/(1-uj0[1:n.Y0]); 
+      emp.Rj0 = Rmna(X0,Y0) #emp.Rj0 = ecdf(X0)(quantile(Y0,uj0,type=1)); 
+      r.emp.Rj0 = (1-emp.Rj0[1:n.Y0])/(1-uj0[1:n.Y0]); # r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
       Mrj0 = cummin(r.emp.Rj0); 
       MRj0 = 1-Mrj0[1:n.Y0]*(1-uj0[1:n.Y0]); MRj0[n.uj0] = 1; 
-      
-      ubj0 = (1-(1:n.Y0)/n.Y0); 
-      lbj0 = (1-(0:(n.Y0-1))/n.Y0); 
-      M1j0 = cj0*(-(sum( (1-Mrj0)^1/(1+1)*(ubj0^(1+1)-lbj0^(1+1)))))^(1/1)
-      M2j0 = cj0*(-(sum( (1-Mrj0)^2/(2+1)*(ubj0^(2+1)-lbj0^(2+1)))))^(1/2)
-      Msj0 = cj0 * max((1-Mrj0)*lbj0)
+      #w0 = seq(0,1,by=1/n.Y0)
+      ubj0 = (MRj0[1:n.Y0] + Mrj0/n.Y0 - (uj0[1:n.Y0] + 1/n.Y0));
+      lbj0 = (MRj0[1:n.Y0] - uj0[1:n.Y0]); 
+      M1j0 = cj0*(-(sum( (1/(1-Mrj0)/(1+1)*(ubj0^(1+1)-lbj0^(1+1)))[1-Mrj0>0] )))^(1/1)
+      M2j0 = cj0*(-(sum( (1/(1-Mrj0)/(2+1)*(ubj0^(2+1)-lbj0^(2+1)))[1-Mrj0>0] )))^(1/2)
+      Msj0 = cj0 * max(lbj0,ubj0)
       
       ### saving statsitics and slope function r
       M1s0[b0,j] = M1j0; 
@@ -1687,16 +1704,16 @@ MDDUSO = function(X.data,alpha=0.05){
     cj = cs[j]; 
     ### calcuating test statistics 
     n.uj = length(uj); n.Y = length(Y); 
-    emp.Rj = ecdf(X)(quantile(Y,uj)); 
-    r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
+    emp.Rj = Rmna(X,Y) #emp.Rj = ecdf(X)(quantile(Y,uj,type=1)); 
+    r.emp.Rj = (1-emp.Rj[1:n.Y])/(1-uj[1:n.Y]); # r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
     Mrj = cummin(r.emp.Rj); 
     MRj = 1-Mrj[1:n.Y]*(1-uj[1:n.Y]); MRj[n.uj] = 1; 
-    
-    ubj = (1-(1:n.Y)/n.Y); 
-    lbj = (1-(0:(n.Y-1))/n.Y); 
-    M1j = cj*(-(sum( (1-Mrj)^1/(1+1)*(ubj^(1+1)-lbj^(1+1)))))^(1/1)
-    M2j = cj*(-(sum( (1-Mrj)^2/(2+1)*(ubj^(2+1)-lbj^(2+1)))))^(1/2)
-    Msj = cj * max((1-Mrj)*lbj)
+
+    ubj = (MRj[1:n.Y] + Mrj/n.Y - (uj[1:n.Y] + 1/n.Y));
+    lbj = (MRj[1:n.Y] - uj[1:n.Y]);
+    M1j = cj*(-(sum( 1/(1-Mrj)/(1+1)*(ubj^(1+1)-lbj^(1+1)))))^(1/1)
+    M2j = cj*(-(sum( 1/(1-Mrj)/(2+1)*(ubj^(2+1)-lbj^(2+1)))))^(1/2)
+    Msj = cj * max(lbj,ubj)
     
     ### saving statsitics and slope function r
     M1s[j] = M1j; 
@@ -1712,6 +1729,21 @@ MDDUSO = function(X.data,alpha=0.05){
                        distinction.ps = IND[c(Mss > jump.cv.ps)]
                          ))
 }
+
+poi = function(case=8,k=4){
+  s = k-1; num = case - 1;
+  poi = c(); 
+  if( num < 2^s ){
+    for(j in (s-1):1){
+      m = c(num >= 2^j)
+      num = num - m * 2^j
+      poi = c(m,poi)
+    }
+    poi = c(num,poi)
+    return(poi)
+  }else{ return(NA) }
+}
+
 
 DDDST = function(X.data){
   k = length(X.data)
@@ -1733,16 +1765,16 @@ DDDST = function(X.data){
     cj = cs[j]; 
     ### calcuating test statistics 
     n.uj = length(uj); n.Y = length(Y); 
-    emp.Rj = ecdf(X)(quantile(Y,uj)); 
-    r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
+    emp.Rj = Rmna(X,Y) #emp.Rj = ecdf(X)(quantile(Y,uj,type=1)); 
+    r.emp.Rj = (1-emp.Rj[1:n.Y])/(1-uj[1:n.Y]); # r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
     Mrj = cummin(r.emp.Rj); 
     MRj = 1-Mrj[1:n.Y]*(1-uj[1:n.Y]); MRj[n.uj] = 1; 
     
-    ubj = (1-(1:n.Y)/n.Y); 
-    lbj = (1-(0:(n.Y-1))/n.Y); 
-    M1j = cj*(-(sum( (1-Mrj)^1/(1+1)*(ubj^(1+1)-lbj^(1+1)))))^(1/1)
-    M2j = cj*(-(sum( (1-Mrj)^2/(2+1)*(ubj^(2+1)-lbj^(2+1)))))^(1/2)
-    Msj = cj * max((1-Mrj)*lbj)
+    ubj = (MRj[1:n.Y] + Mrj/n.Y - (uj[1:n.Y] + 1/n.Y));
+    lbj = (MRj[1:n.Y] - uj[1:n.Y]);
+    M1j = cj*(-sum( (1/(1-Mrj)/(1+1)*(ubj^(1+1)-lbj^(1+1)))[1-Mrj>0] ))^(1/1)
+    M2j = cj*(-sum( (1/(1-Mrj)/(2+1)*(ubj^(2+1)-lbj^(2+1)))[1-Mrj>0] ))^(1/2)
+    Msj = cj * max(lbj,ubj)
     
     ### saving statsitics and slope function r
     M1s[j] = M1j; 
@@ -1807,15 +1839,17 @@ GOFST = function(X.data,BB=1000,unif.n=1000,alpha=0.05){
     cj = cs[j]; 
     ### calcuating test statistics 
     n.uj = length(uj); n.Y = length(Y); 
-    emp.Rj = ecdf(X)(quantile(Y,uj)); 
-    r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
+    emp.Rj = Rmna(X,Y) #emp.Rj = ecdf(X)(quantile(Y,uj,type=1)); 
+    r.emp.Rj = (1-emp.Rj[1:n.Y])/(1-uj[1:n.Y]); # r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
+    r.emp.Rj[n.Y] = 0
     Mrj = cummin(r.emp.Rj); 
     MRj = 1-Mrj[1:n.Y]*(1-uj[1:n.Y]); MRj[n.uj] = 1; 
-    ubj = 1-Mrj-emp.Rj[2:n.uj]+Mrj*(1:n.Y)/n.Y; 
-    lbj = 1-Mrj-emp.Rj[2:n.uj]+Mrj*(0:(n.Y-1))/n.Y; 
+    
+    ubj = (MRj[1:n.Y] + Mrj/n.Y - emp.Rj[1:n.Y]); 
+    lbj = (MRj[1:n.Y] - emp.Rj[1:n.Y]);
     M1j = cj*(sum((ubj^(1+1)-lbj^(1+1))[Mrj>0]/(1+1)/Mrj[Mrj>0]))^(1/1);
     M2j = cj*(sum((ubj^(2+1)-lbj^(2+1))[Mrj>0]/(2+1)/Mrj[Mrj>0]))^(1/2);
-    Msj = cj*max(ubj); 
+    Msj = cj*max(ubj,lbj); 
     ### saving statsitics and slope function r
     M1s[j] = M1j; 
     M2s[j] = M2j; 
