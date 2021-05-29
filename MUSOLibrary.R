@@ -1711,8 +1711,8 @@ MDDUSO = function(X.data,alpha=0.05){
 
     ubj = (MRj[1:n.Y] + Mrj/n.Y - (uj[1:n.Y] + 1/n.Y));
     lbj = (MRj[1:n.Y] - uj[1:n.Y]);
-    M1j = cj*(-(sum( 1/(1-Mrj)/(1+1)*(ubj^(1+1)-lbj^(1+1)))))^(1/1)
-    M2j = cj*(-(sum( 1/(1-Mrj)/(2+1)*(ubj^(2+1)-lbj^(2+1)))))^(1/2)
+    M1j = cj*(-(sum( (1/(1-Mrj)/(1+1)*(ubj^(1+1)-lbj^(1+1)))[1-Mrj>0])))^(1/1)
+    M2j = cj*(-(sum( (1/(1-Mrj)/(2+1)*(ubj^(2+1)-lbj^(2+1)))[1-Mrj>0])))^(1/2)
     Msj = cj * max(lbj,ubj)
     
     ### saving statsitics and slope function r
@@ -1841,7 +1841,7 @@ GOFST = function(X.data,BB=1000,unif.n=1000,alpha=0.05){
     n.uj = length(uj); n.Y = length(Y); 
     emp.Rj = Rmna(X,Y) #emp.Rj = ecdf(X)(quantile(Y,uj,type=1)); 
     r.emp.Rj = (1-emp.Rj[1:n.Y])/(1-uj[1:n.Y]); # r.emp.Rj = (1-emp.Rj[2:n.uj])/(1-uj[1:n.Y]); 
-    r.emp.Rj[n.Y] = 0
+    #r.emp.Rj[n.Y+1] = 0
     Mrj = cummin(r.emp.Rj); 
     MRj = 1-Mrj[1:n.Y]*(1-uj[1:n.Y]); MRj[n.uj] = 1; 
     
