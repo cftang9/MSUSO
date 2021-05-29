@@ -117,3 +117,6 @@ for(j in 1:7){
   }
   Table.GOF.K3.MN.400[j,] = c(power.Sks[1],power.Wks[1],power.Bon[1],   power.Sks[2],power.Wks[2],power.Bon[2],   power.Sks[3],power.Wks[3],power.Bon[3])
 }
+
+# save(file="SPsk3.Rdata", Table.GOF.K3.RR.200, Table.GOF.K3.RR.400, Table.GOF.K3.MN.200, Table.GOF.K3.MN.400)
+
