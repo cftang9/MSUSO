@@ -69,7 +69,7 @@ save(file="PCsk2n200.Rdata",
 
 #pdf("Supp_Figure_GOF_PowerCurves_k2_200.pdf", width=19.5, heigh=13)
 
-png("Supp_Figure_GOF_PowerCurves_k2_200.pdf", width=1872, heigh=1248)
+png("Supp_Figure_GOF_PowerCurves_k2_200.png", width=1872, heigh=1248)
 
 par(mfrow=c(2,3))
 par(mar=c(2,2,2,2)) 
