@@ -39,7 +39,7 @@ for(j in 1:4){
     temp = DDDST(X.data)
     Jump.p1[b,] = c(temp$D1s>jump.cv.p1.200);
     Jump.p2[b,] = c(temp$D2s>jump.cv.p2.200);
-    Jump.ps[b,] = c(temp$Dss>jump.cv.ps.200); print(b)
+    Jump.ps[b,] = c(temp$Dss>jump.cv.ps.200); 
   }
   
   exact.rate.p1 = 0; exact.rate.p2 = 0; exact.rate.ps = 0; 
@@ -47,7 +47,7 @@ for(j in 1:4){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=c(j>1); 
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
@@ -87,7 +87,7 @@ for(j in 1:4){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=c(j>1); 
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
@@ -149,7 +149,7 @@ for(j in 1:4){
     temp = DDDST(X.data)
     Jump.p1[b,] = c(temp$D1s>jump.cv.p1.400);
     Jump.p2[b,] = c(temp$D2s>jump.cv.p2.400);
-    Jump.ps[b,] = c(temp$Dss>jump.cv.ps.400); print(b)
+    Jump.ps[b,] = c(temp$Dss>jump.cv.ps.400); 
   }
   
   exact.rate.p1 = 0; exact.rate.p2 = 0; exact.rate.ps = 0; 
@@ -157,7 +157,7 @@ for(j in 1:4){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=c(j>1); 
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
@@ -191,7 +191,7 @@ for(j in 1:4){
     temp = DDDST(X.data)
     Jump.p1[b,] = c(temp$D1s>jump.cv.p1.200);
     Jump.p2[b,] = c(temp$D2s>jump.cv.p2.200);
-    Jump.ps[b,] = c(temp$Dss>jump.cv.ps.200); print(b)
+    Jump.ps[b,] = c(temp$Dss>jump.cv.ps.200); 
   }
   
   exact.rate.p1 = 0; exact.rate.p2 = 0; exact.rate.ps = 0; 
@@ -199,7 +199,7 @@ for(j in 1:4){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=c(j>1); 
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
