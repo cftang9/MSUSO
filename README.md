@@ -125,7 +125,7 @@ But be aware of that, because the number of replications is 10,000, this program
 The 
 
 
-[Table_2_GOF_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_2_GOF_k3.R)
+[Table_2_GOF_k3_200.R](https://github.com/cftang9/MSUSO/blob/master/Table_2_GOF_k3_200.R)
 
 ### 2.3. Figure 2: Power Curves Goodness-of-fit Tests for USO with k=3
 
