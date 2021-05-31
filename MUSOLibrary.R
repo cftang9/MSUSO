@@ -893,7 +893,7 @@ Gen.RR = function(nv=c(200,200), case=1){
   }
   if(k == 2 & case == 5){
     X.data = list(
-      X1 = InvNSR(runif(nv[1]),delta1=0.8,delta2=0.4),
+      X1 = InvNSR(runif(nv[1]),delta1=0.8,delta2=0.8),
       X2 = runif(nv[2])
     )
   }

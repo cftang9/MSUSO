@@ -70,13 +70,13 @@ for(l in Cases){
   }
 }
 
-save(file="PCsk5n200.Rdata",
-     pSks_C1_200, pWks_C1_200, pBon_C1_200,
-     pSks_C3_200, pWks_C3_200, pBon_C3_200)
+# save(file="PCsk5n200.Rdata",
+#      pSks_C1_200, pWks_C1_200, pBon_C1_200,
+#      pSks_C3_200, pWks_C3_200, pBon_C3_200)
 
 #pdf("Supp_Figure_GOF_PowerCurves_k5_200.pdf", width=19.5, heigh=13)
 
-png("Supp_Figure_GOF_PowerCurves_k5_200.png", width=1872, heigh=1248)
+#png("Supp_Figure_GOF_PowerCurves_k5_200.png", width=1872, heigh=1248)
 
 par(mfrow=c(2,3))
 par(mar=c(2,2,2,2)) 

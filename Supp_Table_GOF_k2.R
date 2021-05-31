@@ -6,9 +6,9 @@ source("MUSOLibrary.R")
 
 nv = c(200,200); 
 B = 1000; BB = 1000; 
-Table.GOF.K2.RR.200 = array(,c(7,9)); 
+Table.GOF.K2.RR.200 = array(,c(9,9)); 
 start = Sys.time();
-for(j in 1:7){
+for(j in 1:9){
   power.Sks = array(0,3); power.Wks = array(0,3); power.Bon = array(0,3); 
   set.seed(0212202000+(j-1))
   for(b in 1:B){
@@ -19,13 +19,13 @@ for(j in 1:7){
     power.Bon = power.Bon + temp$decision.Bon/B; 
     
     end = Sys.time(); 
-    ave.interval = (end-start)/((j-1)*B+b)
-    if(b%%100==0){
+    ave.interval = (end-start)/((9-1)*B+b)
+    if(b%%250==0){
       print(start); print(c("RR",nv,j))
       print(round(c(power.Sks*B/b,power.Wks*B/b,power.Bon*B/b),3)); 
       print(b); print(ave.interval); 
       print(Sys.time() + ave.interval*(B-b)); 
-      print(Sys.time() + ave.interval*(B-b) + (7-j)*B*ave.interval); 
+      print(Sys.time() + ave.interval*(B-b) + (9-j)*B*ave.interval); 
     } 
   }
   Table.GOF.K2.RR.200[j,] = c(power.Sks[1],power.Wks[1],power.Bon[1],   power.Sks[2],power.Wks[2],power.Bon[2],   power.Sks[3],power.Wks[3],power.Bon[3])
@@ -48,7 +48,7 @@ for(j in 1:7){
     
     end = Sys.time(); 
     ave.interval = (end-start)/((j-1)*B+b)
-    if(b%%100==0){
+    if(b%%250==0){
       print(start); print(c("MN",nv,j))
       print(round(c(power.Sks*B/b,power.Wks*B/b,power.Bon*B/b),3)); 
       print(b); print(ave.interval); 
@@ -65,9 +65,9 @@ for(j in 1:7){
 
 nv = c(400,400);
 B = 1000; BB = 1000; 
-Table.GOF.K2.RR.400 = array(,c(7,9)); 
+Table.GOF.K2.RR.400 = array(,c(9,9)); 
 start = Sys.time();
-for(j in 1:7){
+for(j in 1:9){
   power.Sks = array(0,3); power.Wks = array(0,3); power.Bon = array(0,3); 
   set.seed(0212202000+(j-1)*20)
   for(b in 1:B){
@@ -79,12 +79,12 @@ for(j in 1:7){
     
     end = Sys.time(); 
     ave.interval = (end-start)/((j-1)*B+b)
-    if(b%%100==0){
+    if(b%%250==0){
       print(start); print(c("RR",nv,j))
       print(round(c(power.Sks*B/b,power.Wks*B/b,power.Bon*B/b),3)); 
       print(b); print(ave.interval); 
       print(Sys.time() + ave.interval*(B-b)); 
-      print(Sys.time() + ave.interval*(B-b) + (7-j)*B*ave.interval); 
+      print(Sys.time() + ave.interval*(B-b) + (9-j)*B*ave.interval); 
     } 
   }
   Table.GOF.K2.RR.400[j,] = c(power.Sks[1],power.Wks[1],power.Bon[1],   power.Sks[2],power.Wks[2],power.Bon[2],   power.Sks[3],power.Wks[3],power.Bon[3])
@@ -106,7 +106,7 @@ for(j in 1:7){
     
     end = Sys.time(); 
     ave.interval = (end-start)/((j-1)*B+b)
-    if(b%%100==0){
+    if(b%%250==0){
       print(start); print(c("RR",nv,j))
       print(round(c(power.Sks*B/b,power.Wks*B/b,power.Bon*B/b),3)); 
       print(b); print(ave.interval); 

@@ -30,12 +30,12 @@ B = 1000;
 #######################################################
 ### RR
 
-Table.DD.K2.RR.200 = array(,c(4,9)); 
-for(j in 1:4){
+Table.DD.K2.RR.200 = array(,c(5,9)); 
+for(j in 1:5){
   Jump.p1 = array(NA,c(B,(k-1))); Jump.p2 = array(NA,c(B,(k-1))); Jump.ps = array(NA,c(B,(k-1))); M1s.data = array(NA,c(B,(k-1))); M2s.data = array(NA,c(B,(k-1))); Mss.data = array(NA,c(B,(k-1))); 
   set.seed(02142021)
   for(b in 1:B){
-    X.data = Gen.DD(nv,case=j)
+    X.data = Gen.RR(nv,case=j)
     temp = DDDST(X.data)
     Jump.p1[b,] = c(temp$D1s>jump.cv.p1.200);
     Jump.p2[b,] = c(temp$D2s>jump.cv.p2.200);
@@ -126,7 +126,7 @@ for(b0 in 1:B0){
   temp = DDDST(X0.data)
   Wk10[b0] = max(temp$D1s); 
   Wk20[b0] = max(temp$D2s); 
-  Wks0[b0] = max(temp$Dss); print(b0)
+  Wks0[b0] = max(temp$Dss); 
 }
 
 jump.cv.p1.400 = quantile(Wk10,0.95) 
@@ -140,8 +140,8 @@ B = 1000;
 #######################################################
 ### RR
 
-Table.DD.K2.RR.400 = array(,c(4,9)); 
-for(j in 1:4){
+Table.DD.K2.RR.400 = array(,c(5,9)); 
+for(j in 1:5){
   Jump.p1 = array(NA,c(B,(k-1))); Jump.p2 = array(NA,c(B,(k-1))); Jump.ps = array(NA,c(B,(k-1))); M1s.data = array(NA,c(B,(k-1))); M2s.data = array(NA,c(B,(k-1))); Mss.data = array(NA,c(B,(k-1))); 
   set.seed(02142021)
   for(b in 1:B){

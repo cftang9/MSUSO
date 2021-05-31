@@ -31,8 +31,8 @@ B = 1000;
 #######################################################
 ### RR
 
-Table.K3.RR.200 = array(,c(4,9)); 
-for(j in 1:4){
+Table.DD.K3.RR.200 = array(,c(5,9)); 
+for(j in 1:5){
   Jump.p1 = array(NA,c(B,(k-1))); Jump.p2 = array(NA,c(B,(k-1))); Jump.ps = array(NA,c(B,(k-1))); M1s.data = array(NA,c(B,(k-1))); M2s.data = array(NA,c(B,(k-1))); Mss.data = array(NA,c(B,(k-1))); 
   set.seed(02142021)
   for(b in 1:B){
@@ -40,7 +40,7 @@ for(j in 1:4){
     temp = DDDST(X.data)
     Jump.p1[b,] = c(temp$D1s>jump.cv.p1.200);
     Jump.p2[b,] = c(temp$D2s>jump.cv.p2.200);
-    Jump.ps[b,] = c(temp$Dss>jump.cv.ps.200); print(b)
+    Jump.ps[b,] = c(temp$Dss>jump.cv.ps.200); 
   }
   
   exact.rate.p1 = 0; exact.rate.p2 = 0; exact.rate.ps = 0; 
@@ -48,7 +48,7 @@ for(j in 1:4){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=poi(case=j,k=3);
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
@@ -68,10 +68,10 @@ for(j in 1:4){
   C2 = c(exact.rate.p2, under.rate.p2, over.rate.p2); 
   C3 = c(exact.rate.ps, under.rate.ps, over.rate.ps); 
   
-  Table.K3.RR.200[j,] = c(C1,C2,C3); 
+  Table.DD.K3.RR.200[j,] = c(C1,C2,C3); 
 }
 
-Table.K3.MN.200 = array(,c(4,9)); 
+Table.DD.K3.MN.200 = array(,c(4,9)); 
 for(j in 1:4){
   Jump.p1 = array(NA,c(B,(k-1))); Jump.p2 = array(NA,c(B,(k-1))); Jump.ps = array(NA,c(B,(k-1))); M1s.data = array(NA,c(B,(k-1))); M2s.data = array(NA,c(B,(k-1))); Mss.data = array(NA,c(B,(k-1))); 
   set.seed(02142021)
@@ -88,7 +88,7 @@ for(j in 1:4){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=poi(case=j,k=k);
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
@@ -108,7 +108,7 @@ for(j in 1:4){
   C2 = c(exact.rate.p2, under.rate.p2, over.rate.p2); 
   C3 = c(exact.rate.ps, under.rate.ps, over.rate.ps); 
   
-  Table.K3.MN.200[j,] = c(C1,C2,C3); 
+  Table.DD.K3.MN.200[j,] = c(C1,C2,C3); 
 }
 
 
@@ -128,7 +128,7 @@ for(b0 in 1:B0){
   temp = DDDST(X0.data)
   Wk10[b0] = max(temp$D1s); 
   Wk20[b0] = max(temp$D2s); 
-  Wks0[b0] = max(temp$Dss); print(b0)
+  Wks0[b0] = max(temp$Dss); 
 }
 
 jump.cv.p1.400 = quantile(Wk10,0.95) 
@@ -142,8 +142,8 @@ B = 1000;
 #######################################################
 ### RR
 
-Table.K3.RR.400 = array(,c(4,9)); 
-for(j in 1:4){
+Table.DD.K3.RR.400 = array(,c(5,9)); 
+for(j in 1:5){
   Jump.p1 = array(NA,c(B,(k-1))); Jump.p2 = array(NA,c(B,(k-1))); Jump.ps = array(NA,c(B,(k-1))); M1s.data = array(NA,c(B,(k-1))); M2s.data = array(NA,c(B,(k-1))); Mss.data = array(NA,c(B,(k-1))); 
   set.seed(02142021)
   for(b in 1:B){
@@ -151,7 +151,7 @@ for(j in 1:4){
     temp = DDDST(X.data)
     Jump.p1[b,] = c(temp$D1s>jump.cv.p1.400);
     Jump.p2[b,] = c(temp$D2s>jump.cv.p2.400);
-    Jump.ps[b,] = c(temp$Dss>jump.cv.ps.400); print(b)
+    Jump.ps[b,] = c(temp$Dss>jump.cv.ps.400); 
   }
   
   exact.rate.p1 = 0; exact.rate.p2 = 0; exact.rate.ps = 0; 
@@ -159,7 +159,7 @@ for(j in 1:4){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=poi(case=j,k=3);
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
@@ -180,11 +180,11 @@ for(j in 1:4){
   C2 = c(exact.rate.p2, under.rate.p2, over.rate.p2); 
   C3 = c(exact.rate.ps, under.rate.ps, over.rate.ps); 
   
-  Table.K3.RR.400[j,] = c(C1,C2,C3); 
+  Table.DD.K3.RR.400[j,] = c(C1,C2,C3); 
 }
 
 
-Table.K3.MN.400 = array(,c(4,9)); 
+Table.DD.K3.MN.400 = array(,c(4,9)); 
 for(j in 1:4){
   Jump.p1 = array(NA,c(B,(k-1))); Jump.p2 = array(NA,c(B,(k-1))); Jump.ps = array(NA,c(B,(k-1))); M1s.data = array(NA,c(B,(k-1))); M2s.data = array(NA,c(B,(k-1))); Mss.data = array(NA,c(B,(k-1))); 
   set.seed(02142021)
@@ -193,7 +193,7 @@ for(j in 1:4){
     temp = DDDST(X.data)
     Jump.p1[b,] = c(temp$D1s>jump.cv.p1.200);
     Jump.p2[b,] = c(temp$D2s>jump.cv.p2.200);
-    Jump.ps[b,] = c(temp$Dss>jump.cv.ps.200); print(b)
+    Jump.ps[b,] = c(temp$Dss>jump.cv.ps.200); 
   }
   
   exact.rate.p1 = 0; exact.rate.p2 = 0; exact.rate.ps = 0; 
@@ -201,7 +201,7 @@ for(j in 1:4){
   over.rate.p1 = 0; over.rate.p2 = 0; over.rate.ps = 0; 
   TP.p1 = 0; TP.p2 = 0; TP.ps = 0; 
   
-  exact.jump=c( (j-1)%%2, (j-1)%/%2); 
+  exact.jump=poi(case=j,k=k);
   
   for(b in 1:B){
     over.rate.p1 = (all(Jump.p1[b,] >= exact.jump) & any(Jump.p1[b,] > exact.jump))/B + over.rate.p1; 
@@ -221,11 +221,11 @@ for(j in 1:4){
   C2 = c(exact.rate.p2, under.rate.p2, over.rate.p2); 
   C3 = c(exact.rate.ps, under.rate.ps, over.rate.ps); 
   
-  Table.K3.MN.400[j,] = c(C1,C2,C3); 
+  Table.DD.K3.MN.400[j,] = c(C1,C2,C3); 
 }
 
 ### Table 1. 
-Table.K3.RR.200
-Table.K3.RR.400
-Table.K3.MN.200
-Table.K3.MN.400
+Table.DD.K3.RR.200
+Table.DD.K3.RR.400
+Table.DD.K3.MN.200
+Table.DD.K3.MN.400
