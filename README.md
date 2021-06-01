@@ -106,7 +106,8 @@ MDDUSO(my_data)
 
 ## Part 2. Reproducing simulation results
 
-Both distingusing distribution methods and GOF tests depends on the ODC between consecutive distributions. 
+Since both distingusing distribution methods and GOF tests depends on the ODC between consecutive distributions. it suffices to generating random samples from ODCs. In the manuscripts, we consider R_1 on the right of Figure 1 for unequal but USO ordered distributions. 
+More simulations results are provided in the supplementary materials. 
 
 ### 2.0. Figure 1: Ordinal dominance curves
 ```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](../master/Figure_1_ODCs.R).
