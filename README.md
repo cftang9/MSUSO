@@ -106,6 +106,8 @@ MDDUSO(my_data)
 
 ## Part 2. Reproducing simulation results
 
+Both distingusing distribution methods and GOF tests depends on the ODC between consecutive distributions. 
+
 ### 2.0. Figure 1: Ordinal dominance curves
 ```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](../master/Figure_1_ODCs.R).
 ![Figure 1](../master/Figure_1_ODCs.png)
@@ -122,7 +124,7 @@ But be aware of that, because the number of replications is 10,000, this program
 
 ### 2.2. Table 2: Size and Power of Goodness-of-fit Tests for USO with k=3
 
-The 
+To reproduce Table 2, 
 
 
 [Table_2_GOF_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_2_GOF_k3.R)
