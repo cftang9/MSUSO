@@ -95,7 +95,7 @@ $decision.Bon
 [1] FALSE FALSE FALSE
 ```
 
-### 1.3 For your own data
+### 1.3. For your own data
 Please use the following ```R``` commands after naming the data ```my_data```:
 ```R
 source(https://raw.githubusercontent.com/cftang9/MSUSO/master/MUSOLibrary.R?token=AK5HQA6Z4FIJ4GDV5CVOAYLAVBZ6S)
@@ -106,16 +106,16 @@ MDDUSO(my_data)
 
 ## Part 2. Reproducing simulation results
 
-Since both distingusing distribution methods and GOF tests depends on the ODC between consecutive distributions. it suffices to generating random samples from ODCs. In the manuscripts, we consider R_1 on the right of Figure 1 for unequal but USO ordered distributions. 
-More simulations results are provided in the supplementary materials. 
-
 ### 2.0. Figure 1: Ordinal dominance curves
+Since both distingusing distribution methods and GOF tests depends on the ODC between consecutive distributions. it suffices to generating random samples from ODCs. In the manuscripts, we consider R_1 from [Tang et. al. (2017)](../master/README.md#reference) on the right of Figure 1 below for unequal but USO ordered distributions. On the other hand, the ODC R_1^{-1} [Wang and Tang (2020)](../master/README.md#reference) is used to generate random samples which do not satisfy USO. The sequence of the ODCs on the right of Figure 1 is for power curves comparison. 
+
 ```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](../master/Figure_1_ODCs.R).
 ![Figure 1](../master/Figure_1_ODCs.png)
 
 ### 2.1. Table 1: Distinguishing Distributions under USO with k=3
 
-[Table_1_DD_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_1_DD_k3.R)
+Table 1 shows the 
+The ```R``` codes to reproduce Table 1 is attached: [Table_1_DD_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_1_DD_k3.R). 
 
 <!--2.1 Table 1 in Section 3 of the manuscript 
 To reproduce Table 1, which involves four classic copulas: Clayton, Frank, Gumbel, and Gaussian, please run this R program:
@@ -134,12 +134,18 @@ To reproduce Table 2,
 
 [Figure_2_GOF_PowerCurves_k3_200.R](https://github.com/cftang9/MSUSO/blob/master/Figure_2_GOF_PowerCurves_k3_200.R)
 
+
+
+
 ## Part 3. Reproducing simulation results in Web Appendix
 <!--
 ### 3.0. Figure A.1: Ordinal dominance curves
 ```R``` codes for ODC plots in Figure 1: [Supp_Figure_A.1_ODCs.R](../master/Supp_Figure_1_ODCs.R).
 ![Supp Figure 1](../master/Supp_Figure_1_ODCs.png)
 -->
+
+More simulations results are provided in the supplementary materials. 
+
 ### 3.1. Tables: Distinguishing Distributions under USO with k=2,4,5
 
 [Supp_Table_DD_k2.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k2.R)
@@ -167,27 +173,23 @@ We applied all tests in this manuscript to three data applications. To reproduce
 -->
 
 ### 3.2. Tables: Goodness-of-fit Tests for USO with k=2, 4, 5
+In addition to k=3 in [Table 2](../master/README.md#22-table-2-size-and-power-of-goodness-of-fit-tests-for-uso-with-k3)
+[k=2](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k2.R)
+[k=4](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k4.R)
+[k=5](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k5.R)
 
-[Supp_Table_GOF_k2.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k2.R)
-[Supp_Table_GOF_k4.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k4.R)
-[Supp_Table_GOF_k5.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k5.R)
 
+### 3.3. Figures: Power Curves for Goodness-of-fit Tests for USO with k=2, 3, 4, 5
 
-### 3.3. Figures: Power Curves for Goodness-of-fit Tests for USO with k=2, 4, 5
-
-We put  similar settings with two samples with sample size with ```R``` codes for k=3 with [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k3_400.R) 
-
-k=2 with [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k2_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k2_400.R)
-
-k=4 with [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_400.R)
-
-k=5 with [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_400.R)
-
+We also consider more settings for power curves comparison for GOF tests with k=2,3,4,5 samples and sample sizes n= 200 and 400 with ```R``` codes attached.
+* For k=3 with sample size [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k3_400.R) which took approximately 6 hours on a computer with a 3.1GHz processor and 16GB of memory. 
+* For k=2 with sample sizes [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k2_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k2_400.R), they took approximately 4 and 6 hours, respectively.  
+* For k=4 with sample sizes [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_400.R) which took approximately 6 and 10 hours, respectively. 
+* For k=5 with sample sizes [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_400.R) which took approximately 8 and 12 hours, respectively. 
 
 
 ## Part 4. MFAP4 data analysis
-We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with clinical cohort characteristics and MFAP4 serum levels from [Bracht et. al. (2016)](../master/README.md#reference) in [MFAP4.xlsx](https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-016-0952-3/MediaObjects/12967_2016_952_MOESM1_ESM.xlsx)
-We grouped the MFAP4 levels in fibrosis stages and saved as a data ```data_MFAP4``` in [MFAP4.Rdata](../master/MFAP4.Rdata). 
+We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with clinical cohort characteristics and MFAP4 serum levels from [Bracht et. al. (2016)](../master/README.md#reference) in [MFAP4.xlsx](https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-016-0952-3/MediaObjects/12967_2016_952_MOESM1_ESM.xlsx). We grouped the MFAP4 levels in fibrosis stages and saved in ```R``` data form ```data_MFAP4``` in [MFAP4.Rdata](../master/MFAP4.Rdata). 
 
 ```R``` codes for ODC plots in Figure 3: [Figure_3_MFAP4.R](../master/Figure_3_MFAP4.R).
 ![Figure 3](../master/Figure_3_MFAP4.png)
