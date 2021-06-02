@@ -99,7 +99,8 @@ MDDUSO(my_data)
 ```
 
 ## Part 2. Reproducing simulation results
-Since both distingusing distribution methods and GOF tests depends on the ODC between consecutive distributions. it suffices to generating random samples from ODCs. In the manuscripts, we consider R_1 from [Tang et. al. (2017)](../master/README.md#reference) on the right of Figure 1 below for unequal but USO ordered distributions. On the other hand, the ODC R_1^{-1} [Wang and Tang (2020)](../master/README.md#reference) is used to generate random samples which do not satisfy USO. The sequence of the ODCs on the right of Figure 1 is for power curves comparison. The computation times in the followings are based on on a computer with a 3.0GHz processor and 64GB of memory. 
+
+The following simulations generate random samples both from the mixture normal distribution and ODCs. Since both distingusing distribution methods and GOF tests depends on the ODC between consecutive distributions. it also suffices to generating random samples from ODCs. In the manuscripts, we consider R_1 from [Tang et. al. (2017)](../master/README.md#reference) on the right of Figure 1 below for unequal but USO ordered distributions. On the other hand, the ODC R_1^{-1} [Wang and Tang (2020)](../master/README.md#reference) is used to generate random samples which do not satisfy USO. The sequence of the ODCs on the right of Figure 1 is for power curves comparison. The computation times in the followings are based on on a computer with a 3.0GHz processor and 64GB of memory. 
 
 ```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](../master/Figure_1_ODCs.R).
 ![Figure 1](../master/Figure_1_ODCs.png)
