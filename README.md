@@ -184,7 +184,7 @@ $distinction.ps
 ```
 ### 4.2. Table 3 part 2: Goodness-of-fit test for USO for MFAP4 levels
 
-The second part of Table 3 () provides the departure ```M1s```, ```M2s```, and ```Mss``` of consecutive distributions from USO in L_p norm with p=1,2, and supremum norms, respectively. The critical values ```boot.cv.Skps``` and ```boot.cv.Wkps``` for the cumulated test statistics ```Skp``` and ```Wkp```, respectively, are provided. The Bonferroni-corrected critical values are saved in function ```Bon.cvs``` with L_p norms ```Bon.cv.p1```, ```$Bon.cv.p2```, and ```$Bon.cv.ps```. 
+The second part of Table 3 () provides the departure ```M1s```, ```M2s```, and ```Mss``` of consecutive distributions from USO in L_p norm with p=1,2, and supremum norms, respectively. The critical values ```boot.cv.Skps``` and ```boot.cv.Wkps``` for the cumulated test statistics ```Skp``` and ```Wkp```, respectively, are provided. The Bonferroni-corrected critical values are saved in function ```Bon.cvs``` with L_p norms ```Bon.cv.p1```, ```$Bon.cv.p2```, and ```Bon.cv.ps```. 
 ```R
 set.seed(05222021)
 MGOFUSO(data_MFAP4)
