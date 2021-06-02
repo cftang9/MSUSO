@@ -5,12 +5,8 @@ This repository contains R programs for the article, “Multisample distinction 
 
 Prior to using R programs on this repository, please download the main R program [MUSOLibrary.R](https://raw.githubusercontent.com/cftang9/MSUSO/master/MUSOLibrary.R?token=AK5HQA6Z4FIJ4GDV5CVOAYLAVBZ6S). 
 
-<!--
-which requires installing `R` packages `Rcpp` and `copula`. We would like to point out that loading or executing functions in `Rcpp` packages may encounter some technical problems for Windows users if your `R` software was recently updated to the latest version. One may run these codes in `Rstudio` and follow what it suggests to solve the problem.  After successfully loading the main R program, the function `IndvsPQD` will automate critical value calculations for the practitioner. 
---> 
 
 ## Part 1. Illustration
-
 Here we consider three mixture normal distributions. Each of them are mixed with the standard normal distribution with proportion p and a normal distribution with mean m and variance 1 with proportion (1-p). Here we generate three independent samples from mixture normal with p=(0.2,0.2,0.2), m=c(2,2.6,3.2) with sample sizes n=(150, 200, 250) using the ```MixNormal``` function which return a ```list``` of vectors of random samples:
 ```R
 set.seed(20210521)
@@ -19,7 +15,6 @@ Data_demo = MixNormal(n=c(150,200,250),p=c(0.2,0.2,0.2),m=c(2,2.6,3.2))
 These three distributions are simple ordered in the sense of uniform stochastic ordering (USO). 
 
 ### 1.1. Distinguishing Distribution Methods under USO
-
 To perform the distinguishing distribution methods, we input the ```Data_demo``` in the function ``` MDDUSO```: 
 ```R
 set.seed(20210521)
@@ -55,7 +50,6 @@ $distinction.ps
 ```
 
 ### 1.2. Goodness-of-fit tests for USO
-
 To perform the GOF tests, we input the ```Data_demo``` in the function ``` MDDUSO```: 
 ```R
 set.seed(20210521)
@@ -105,17 +99,15 @@ MDDUSO(my_data)
 ```
 
 ## Part 2. Reproducing simulation results
-
 ### 2.0. Figure 1: Ordinal dominance curves
-Since both distingusing distribution methods and GOF tests depends on the ODC between consecutive distributions. it suffices to generating random samples from ODCs. In the manuscripts, we consider R_1 from [Tang et. al. (2017)](../master/README.md#reference) on the right of Figure 1 below for unequal but USO ordered distributions. On the other hand, the ODC R_1^{-1} [Wang and Tang (2020)](../master/README.md#reference) is used to generate random samples which do not satisfy USO. The sequence of the ODCs on the right of Figure 1 is for power curves comparison. 
+Since both distingusing distribution methods and GOF tests depends on the ODC between consecutive distributions. it suffices to generating random samples from ODCs. In the manuscripts, we consider R_1 from [Tang et. al. (2017)](../master/README.md#reference) on the right of Figure 1 below for unequal but USO ordered distributions. On the other hand, the ODC R_1^{-1} [Wang and Tang (2020)](../master/README.md#reference) is used to generate random samples which do not satisfy USO. The sequence of the ODCs on the right of Figure 1 is for power curves comparison. The computation times in the followings are based on on a computer with a 3.0GHz processor and 64GB of memory. 
 
 ```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](../master/Figure_1_ODCs.R).
 ![Figure 1](../master/Figure_1_ODCs.png)
 
 ### 2.1. Table 1: Distinguishing Distributions under USO with k=3
 
-Table 1 shows the 
-The ```R``` codes to reproduce Table 1 is attached: [Table_1_DD_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_1_DD_k3.R). 
+The ```R``` codes to reproduce Table 1 is attached: [Table_1_DD_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_1_DD_k3.R). The calculation took approximately 10 minutes. 
 
 <!--2.1 Table 1 in Section 3 of the manuscript 
 To reproduce Table 1, which involves four classic copulas: Clayton, Frank, Gumbel, and Gaussian, please run this R program:
@@ -124,78 +116,46 @@ But be aware of that, because the number of replications is 10,000, this program
 -->
 
 ### 2.2. Table 2: Size and Power of Goodness-of-fit Tests for USO with k=3
-
-To reproduce Table 2, 
-
-
-[Table_2_GOF_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_2_GOF_k3.R)
+[Table_2](https://github.com/cftang9/MSUSO/blob/master/Table_2_GOF_k3.R) provides the size and power studies with k=3 sample with sample size n=200 which requires 6 hours approximately. 
 
 ### 2.3. Figure 2: Power Curves Goodness-of-fit Tests for USO with k=3
-
-[Figure_2_GOF_PowerCurves_k3_200.R](https://github.com/cftang9/MSUSO/blob/master/Figure_2_GOF_PowerCurves_k3_200.R)
-
-
-
+The power curves comparison in [Figure_2](https://github.com/cftang9/MSUSO/blob/master/Figure_2_GOF_PowerCurves_k3_200.R)
+with k=3 sample with sample size n=200 which requires 6 hours. 
 
 ## Part 3. Reproducing simulation results in Web Appendix
-<!--
-### 3.0. Figure A.1: Ordinal dominance curves
-```R``` codes for ODC plots in Figure 1: [Supp_Figure_A.1_ODCs.R](../master/Supp_Figure_1_ODCs.R).
-![Supp Figure 1](../master/Supp_Figure_1_ODCs.png)
--->
-
-In addition to the [Part 2](../master/README.md#part-2-reproducing-simulation-results).
-More simulations results are provided in the supplementary materials with ```R``` codes attached in the followings. 
+In addition to the simulation results in the manuscript in [Part 2](../master/README.md#part-2-reproducing-simulation-results), more simulations results are provided in the supplementary materials with ```R``` codes attached in the followings. 
 
 ### 3.1. Tables: Distinguishing Distributions under USO with k=2,4,5
-
-[Supp_Table_DD_k2.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k2.R)
-[Supp_Table_DD_k4.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k4.R)
-[Supp_Table_DD_k5.R](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k5.R)
-
-<!--
-### 2.2 Tables C.1 and C.2 in Web Appendix C
-
-Table 1 considers n=100. We also included the same table but with n=50 and 200 in Web Appendix C. To reproduce those two tables. Please run [Clayton_Frank_Gumbel_and_Gaussian_n=50.R](https://raw.githubusercontent.com/cftang9/PQD/master/Restricted_t_FGM_and_CA_n%3D50.R)
-and
-[Clayton_Frank_Gumbel_and_Gaussian_n=200.R](https://raw.githubusercontent.com/cftang9/PQD/master/Restricted_t_FGM_and_CA_n%3D200.R), respectively.
--->
-<!--
-### 2.3 Tables C.3-C.5 in Web Appendix C
-
-In addition to the Clayton, Frank, Gaussian, and Gumbel copulas, we have also considered the FGM and CA copulas and a restricted bivariate t distribution family. The results are presented in Tables C.3-C.5 in Web Appendix C. To reproduce these tables, please run
-[Restricted_t_FGM_and_CA n=50.R](https://raw.githubusercontent.com/cftang9/PQD/master/Restricted_t_FGM_and_CA_n%3D100.R),
-[Restricted_t_FGM_and_CA n=100.R](https://raw.githubusercontent.com/cftang9/PQD/master/Restricted_t_FGM_and_CA_n%3D50.R),
-and
-[Restricted_t_FGM_and_CA_n=200.R](https://raw.githubusercontent.com/cftang9/PQD/master/Restricted_t_FGM_and_CA_n%3D200.R).
-
-## Part 3: To reproduce the real data analysis results in Section 4 of the manuscript
-We applied all tests in this manuscript to three data applications. To reproduce the results of our analysis (Table 2 and Figures 2-4), please run the R program for each. The data included in the CSV file will be automatically read by the corresponding R program.
--->
+Other than k=3 samples, we applied the distinghishing distribution methods to samples
+[k=2](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k2.R)
+[k=4](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k4.R)
+and [k=5](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k5.R)
+with sample sizes n=200 and 400. All the calculations took less than 10 minuntes. 
 
 ### 3.2. Tables: Goodness-of-fit Tests for USO with k=2, 4, 5
-In addition to k=3 in [Table 2](../master/README.md#22-table-2-size-and-power-of-goodness-of-fit-tests-for-uso-with-k3)
+In addition to k=3 in [Table 2](../master/README.md#22-table-2-size-and-power-of-goodness-of-fit-tests-for-uso-with-k3), 
+we provide the size and power study for 
 [k=2](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k2.R)
 [k=4](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k4.R)
-[k=5](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k5.R)
-
+and [k=5](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k5.R)
+samples with sample sizes n=200 and 400 with ```R``` codes attached. The calculation took approximately 8 hours. 
 
 ### 3.3. Figures: Power Curves for Goodness-of-fit Tests for USO with k=2, 3, 4, 5
-
 We also consider more settings for power curves comparison for GOF tests with k=2,3,4,5 samples and sample sizes n= 200 and 400 with ```R``` codes attached.
-* For k=3 with sample size [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k3_400.R) which took approximately 6 hours on a computer with a 3.1GHz processor and 16GB of memory. 
+* For k=3 with sample size [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k3_400.R) which took approximately 8 hours on a computer with a 3.0GHz processor and 64GB of memory. 
 * For k=2 with sample sizes [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k2_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k2_400.R), they took approximately 4 and 6 hours, respectively.  
-* For k=4 with sample sizes [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_400.R) which took approximately 6 and 10 hours, respectively. 
-* For k=5 with sample sizes [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_400.R) which took approximately 8 and 12 hours, respectively. 
-
+* For k=4 with sample sizes [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_400.R) which took approximately 8 and 10 hours, respectively. 
+* For k=5 with sample sizes [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_200.R) and [n=400](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_400.R) which took approximately 10 and 12 hours, respectively. 
 
 ## Part 4. MFAP4 data analysis
 We applied both distinguishing distribution methods and GOF tests to microfibrillar-associated protein 4 (MFAP4) data with clinical cohort characteristics and MFAP4 serum levels from [Bracht et. al. (2016)](../master/README.md#reference) in [MFAP4.xlsx](https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-016-0952-3/MediaObjects/12967_2016_952_MOESM1_ESM.xlsx). We grouped the MFAP4 levels in fibrosis stages and saved in ```R``` data form ```data_MFAP4``` in [MFAP4.Rdata](../master/MFAP4.Rdata). 
 
-```R``` codes for ODC plots in Figure 3: [Figure_3_MFAP4.R](../master/Figure_3_MFAP4.R).
+Here we provide the empirical estimators and estimators under USO for ODCs between consecutive fibrosis stages with 
+```R``` codes attached: [Figure_3](../master/Figure_3_MFAP4.R).
 ![Figure 3](../master/Figure_3_MFAP4.png)
 
 ### 4.1. Table 3 part 1: Distinghishing Fibrosis stages from MFAP4 levels
+The first part of Table 3 provides the differences ```D1s```, ```D2s```, and ```Dss``` of distributions from equality in L_p norm with p=1,2, and supremum norms, respectively. The thresholds for each L_p differences are provided to determine if the consecutive distributions are distinct. 
 ```R
 set.seed(05222021)
 MDDUSO(data_MFAP4)
@@ -224,6 +184,9 @@ $distinction.ps
 [1] 2 3
 ```
 ### 4.2. Table 3 part 2: Goodness-of-fit test for USO for MFAP4 levels
+
+The second part of Table 3 provides the departure ```M1s```, ```M2s```, and ```Mss``` of distributions from USO in L_p norm with p=1,2, and supremum norms, respectively. The thresholds for each L_p differences are provided to determine if USO is rejected. 
+
 ```R
 set.seed(05222021)
 MGOFUSO(data_MFAP4)
@@ -265,36 +228,5 @@ $decision.Bon
 1. Thilo Bracht, Christian Mölleken, Maike Ahrens, Gereon Poschmann, Anders Schlosser, Martin Eisenacher, Kai Stühler, Helmut E. Meyer, Wolff H. Schmiegel, Uffe Holmskov, Grith L. Sorensen and Barbara Sitek (2016). [Evaluation of the biomarker candidate MFAP4 for non-invasive assessment of hepatic fibrosis in hepatitis C patients.](https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-016-0952-3) *Journal of Translational Medicine*. 14:201.
 2. Dewei Wang, Chuan-Fa Tang, and Joshua M. Tebbs (2020). [More powerful goodness-of-fit tests for uniform stochastic ordering.](http://www.sciencedirect.com/science/article/pii/S0167947319302531) *Computational Statistics & Data Analysis*. 144:106898.
 3. Chuan-Fa Tang, Dewei Wang, and Joshua M. Tebbs (2017). [Nonparametric goodness-of-fit tests for uniform stochastic ordering](https://projecteuclid.org/euclid.aos/1513328583) *The Annals of Statistics*. 45:2565-2589.)
-
-
-<!--
-<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
--->
-
-
-<!--
-## Part 3: To reproduce the real data analysis results in Section 4 of the manuscript
-We applied all tests in this manuscript to three data applications. To reproduce the results of our analysis (Table 2 and Figures 2-4), please run the R program for each. The data included in the CSV file will be automatically read by the corresponding R program.
-
-
-### 3.1 Twins Data
-
-Data: [TwinsData.csv](https://raw.githubusercontent.com/cftang9/PQD/master/TwinsData.csv) 
-(R program: [TwinsData.R](https://raw.githubusercontent.com/cftang9/PQD/master/TwinsData.R))
-
-### 3.2 Education data
-
-Data: [EducationData.csv](https://raw.githubusercontent.com/cftang9/PQD/master/EducationData.csv)
-(R program: [EducationData.R](https://raw.githubusercontent.com/cftang9/PQD/master/EducationData.R))
-
-
-### 3.3 Stock Data
-
-Data: [StockData.csv](https://raw.githubusercontent.com/cftang9/PQD/master/StockData.csv) 
-(R program: [StockData.R](https://raw.githubusercontent.com/cftang9/PQD/master/StockData.R))
-
--->
-
-
 
 
