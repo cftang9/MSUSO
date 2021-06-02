@@ -154,7 +154,7 @@ Here we provide the empirical estimators and estimators under USO for ODCs betwe
 ![Figure 3](../master/Figure_3_MFAP4.png)
 
 ### 4.1. Table 3 part 1: Distinghishing Fibrosis stages from MFAP4 levels
-The first part of Table 3 provides the differences ```D1s```, ```D2s```, and ```Dss``` of distributions from equality in L_p norm with p=1,2, and supremum norms, respectively. The thresholds for each L_p differences are provided to determine if the consecutive distributions are distinct. 
+The first part (first 5 columns) of Table 3 provides the differences ```D1s```, ```D2s```, and ```Dss``` of distributions from equality in L_p norm with p=1,2, and supremum norms, respectively. The thresholds for each L_p differences are provided to determine if the consecutive distributions are distinct. 
 ```R
 set.seed(05222021)
 MDDUSO(data_MFAP4)
@@ -184,8 +184,7 @@ $distinction.ps
 ```
 ### 4.2. Table 3 part 2: Goodness-of-fit test for USO for MFAP4 levels
 
-The second part of Table 3 provides the departure ```M1s```, ```M2s```, and ```Mss``` of distributions from USO in L_p norm with p=1,2, and supremum norms, respectively. The thresholds for each L_p differences are provided to determine if USO is rejected. 
-
+The second part of Table 3 () provides the departure ```M1s```, ```M2s```, and ```Mss``` of consecutive distributions from USO in L_p norm with p=1,2, and supremum norms, respectively. The critical values ```boot.cv.Skps``` and ```boot.cv.Wkps``` for the cumulated test statistics ```Skp``` and ```Wkp```, respectively, are provided. The Bonferroni-corrected critical values are saved in function ```Bon.cvs``` with L_p norms ```Bon.cv.p1```, ```$Bon.cv.p2```, and ```$Bon.cv.ps```. 
 ```R
 set.seed(05222021)
 MGOFUSO(data_MFAP4)
@@ -220,6 +219,19 @@ $decision.Wkps
 
 $decision.Bon
 [1] FALSE FALSE FALSE
+```
+```R
+Bon.cvs(k=5)
+```
+```R
+$Bon.cv.p1
+[1] 0.7283533
+
+$Bon.cv.p2
+[1] 0.8414987
+
+$Bon.cv.ps
+[1] 1.579907
 ```
 
 
