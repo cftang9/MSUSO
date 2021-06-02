@@ -126,16 +126,16 @@ In addition to the simulation results in the manuscript in [Part 2](../master/RE
 
 ### 3.1. Tables: Distinguishing Distributions under USO with k=2,4,5
 Other than k=3 samples, we applied the distinghishing distribution methods to samples
-[k=2](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k2.R)
-[k=4](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k4.R)
+[k=2](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k2.R),
+[k=4](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k4.R),
 and [k=5](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k5.R)
 with sample sizes n=200 and 400. All the calculations took less than 10 minuntes. 
 
 ### 3.2. Tables: Goodness-of-fit Tests for USO with k=2, 4, 5
 In addition to k=3 in [Table 2](../master/README.md#22-table-2-size-and-power-of-goodness-of-fit-tests-for-uso-with-k3), 
 we provide the size and power study for 
-[k=2](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k2.R)
-[k=4](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k4.R)
+[k=2](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k2.R),
+[k=4](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k4.R),
 and [k=5](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k5.R)
 samples with sample sizes n=200 and 400 with ```R``` codes attached. The calculation took approximately 8 hours. 
 
