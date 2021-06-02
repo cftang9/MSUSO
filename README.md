@@ -144,7 +144,8 @@ To reproduce Table 2,
 ![Supp Figure 1](../master/Supp_Figure_1_ODCs.png)
 -->
 
-More simulations results are provided in the supplementary materials. 
+In addition to the [Part 2](../master/README.md#Part-2.-Reproducing-simulation-results).
+More simulations results are provided in the supplementary materials with ```R``` codes attached in the followings. 
 
 ### 3.1. Tables: Distinguishing Distributions under USO with k=2,4,5
 
