@@ -143,7 +143,7 @@ B = 1000;
 ### RR
 
 Table.DD.K3.RR.400 = array(,c(5,9)); 
-for(j in 1:5){
+for(j in 1:4){
   Jump.p1 = array(NA,c(B,(k-1))); Jump.p2 = array(NA,c(B,(k-1))); Jump.ps = array(NA,c(B,(k-1))); M1s.data = array(NA,c(B,(k-1))); M2s.data = array(NA,c(B,(k-1))); Mss.data = array(NA,c(B,(k-1))); 
   set.seed(02142021)
   for(b in 1:B){
