@@ -11,7 +11,7 @@ The following simulations generate random samples both from the mixture normal d
 The sequence of the ODCs from [Wang and Tang (2020)](../master/README.md#reference) on the right of Figure 1 are for power curves comparison.
 The computation times in the followings are based on on a computer with a 3.0GHz processor and 64GB of memory. 
 
-```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](https://raw.githubusercontent.com/cftang9/MSUSO/master/Figure_1_ODCs_Plot.r).
+```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](https://github.com/cftang9/MSUSO/blob/master/Figure_1_ODCs_Plot.r).
 ![Figure 1](../master/Figure_1_ODC_Plot.png)
 
 ### 1.1. Table 1: Equal Distribution Test under USO with k=3
