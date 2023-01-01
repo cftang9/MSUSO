@@ -25,15 +25,15 @@ But be aware of that, because the number of replications is 10,000, this program
 -->
 
 ### 1.2. Table 2: Size and Power of Goodness-of-fit Tests for USO with k=3
-[Table_2](https://github.com/cftang9/MSUSO/blob/master/Table_2_GOF_k3.R) provides the size and power studies with k=3 sample with sample size n=200 which requires 6 hours approximately. 
+[Testing_GOF_k3.R](https://github.com/cftang9/MSUSO/blob/master/Testing_GOF_k3.R) provides the size and power studies with k=3 sample with sample size n=200 which requires 6 hours approximately. 
 
 ### 1.3. Figure 2: Power Curves Goodness-of-fit Tests for USO with k=3
-The power curves comparison in [Figure_2](https://github.com/cftang9/MSUSO/blob/master/Figure_2_GOF_PowerCurves_k3_200.R)
+The power curves comparison in [Figure_2]((https://github.com/cftang9/MSUSO/blob/master/Testing_GOF_k3_PC.R))
 with k=3 sample with sample size n=200 which requires 6 hours. 
 
 ### 1.4. Table 3: Distinguishing Distributions under USO with k=3
 
-The ```R``` codes to reproduce Table 1 is attached: [Table_1_DD_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_1_DD_k3.R). The calculation took approximately 10 minutes. 
+The ```R``` codes to reproduce Table 3 is attached: [Testing_Jump_k3.R](https://github.com/cftang9/MSUSO/blob/master/Testing_Jump_k3.R). The calculation took approximately 10 minutes. 
 
 
 ## Part 2. Reproducing simulation results in Web Appendix
