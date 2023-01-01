@@ -30,6 +30,7 @@ But be aware of that, because the number of replications is 10,000, this program
 ### 1.3. Figure 2: Power Curves Goodness-of-fit Tests for USO with k=3
 The power curves comparison in Figure 2, (```R``` codes [Testing_GOF_k3_PC.R](https://github.com/cftang9/MSUSO/blob/master/Testing_GOF_k3_PC.R))
 with k=3 samples and equal sample sizes n=200, requires 6 hours totally on a computer with a 3.0GHz processor and 64GB of memory. 
+![Figure 2](../master/Figure_2_GOF_PowerCurves_k3_200.png)
 
 ### 1.4. Table 3: Distinguishing Distributions under USO with k=3
 
