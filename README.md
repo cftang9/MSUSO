@@ -12,7 +12,7 @@ The following simulations generate random samples both from the mixture normal d
 ```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](../master/Figure_1_ODCs.R).
 ![Figure 1](../master/Figure_1_ODC_Plot.png)
 
-### 1.1. Table 1: Distinguishing Distributions under USO with k=3
+### 1.1. Table 1: Equal Distribution Test under USO with k=3
 
 The ```R``` codes to reproduce Table 1 is attached: [Table_1_DD_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_1_DD_k3.R). The calculation took approximately 10 minutes. 
 
@@ -28,6 +28,11 @@ But be aware of that, because the number of replications is 10,000, this program
 ### 1.3. Figure 2: Power Curves Goodness-of-fit Tests for USO with k=3
 The power curves comparison in [Figure_2](https://github.com/cftang9/MSUSO/blob/master/Figure_2_GOF_PowerCurves_k3_200.R)
 with k=3 sample with sample size n=200 which requires 6 hours. 
+
+### 1.4. Table 3: Distinguishing Distributions under USO with k=3
+
+The ```R``` codes to reproduce Table 1 is attached: [Table_1_DD_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_1_DD_k3.R). The calculation took approximately 10 minutes. 
+
 
 ## Part 2. Reproducing simulation results in Web Appendix
 In addition to the simulation results in the manuscript in [Part 2](../master/README.md#part-2-reproducing-simulation-results), more simulations results are provided in the supplementary materials with ```R``` codes attached in the followings. 
