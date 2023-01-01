@@ -8,7 +8,7 @@ Prior to using R programs on this repository, please download the main R program
 ## Part 1. Reproducing simulation results in the manuscript
 
 The following simulations generate random samples both from the mixture normal distribution and ODCs. Since both distingusing distribution methods and GOF tests depends on the ODC between consecutive distributions. it also suffices to generating random samples from ODCs. In the manuscripts, we consider G_1 from [Tang et. al. (2017)](../master/README.md#reference) on the left of Figure 1 below for star-shaped ODC and G_1^{-1} for non-star-shaped ODC.
-The sequence of the ODCs from [Wang and Tang (2020)](../master/README.md#reference) on the right of Figure 1 are for power curves comparison.
+The sequence of the ODCs ```G_delta``` from [Wang and Tang (2020)](../master/README.md#reference) on the right of Figure 1 are for power curves comparison.
 The computation times in the followings are based on on a computer with a 3.0GHz processor and 64GB of memory. 
 
 ```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](https://github.com/cftang9/MSUSO/blob/master/Figure_1_ODCs_Plot.r).
