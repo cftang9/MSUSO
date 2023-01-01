@@ -28,8 +28,8 @@ But be aware of that, because the number of replications is 10,000, this program
 [Testing_GOF_k3.R](https://github.com/cftang9/MSUSO/blob/master/Testing_GOF_k3.R) provides the size and power studies with k=3 sample with sample size n=200 which requires 6 hours approximately. 
 
 ### 1.3. Figure 2: Power Curves Goodness-of-fit Tests for USO with k=3
-The power curves comparison in [Figure_2]((https://github.com/cftang9/MSUSO/blob/master/Testing_GOF_k3_PC.R))
-with k=3 sample with sample size n=200 which requires 6 hours. 
+The power curves comparison in Figure 2, (```R``` codes [Testing_GOF_k3_PC.R](https://github.com/cftang9/MSUSO/blob/master/Testing_GOF_k3_PC.R))
+with k=3 samples and equal sample sizes n=200, requires 6 hours totally. 
 
 ### 1.4. Table 3: Distinguishing Distributions under USO with k=3
 
