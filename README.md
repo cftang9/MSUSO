@@ -11,12 +11,12 @@ The following simulations generate random samples both from the mixture normal d
 The sequence of the ODCs from [Wang and Tang (2020)](../master/README.md#reference) on the right of Figure 1 are for power curves comparison.
 The computation times in the followings are based on on a computer with a 3.0GHz processor and 64GB of memory. 
 
-```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](../master/Figure_1_ODCs.R).
+```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](../master/Figure_1_ODC_Plot.R).
 ![Figure 1](../master/Figure_1_ODC_Plot.png)
 
 ### 1.1. Table 1: Equal Distribution Test under USO with k=3
 
-The ```R``` codes to reproduce Table 1 is attached: [Table_1_DD_k3.R](https://github.com/cftang9/MSUSO/blob/master/Table_1_DD_k3.R). The calculation took approximately 10 minutes. 
+The ```R``` codes to reproduce Table 1 is attached: [Testing_Equality_k3.R](https://github.com/cftang9/MSUSO/blob/master/Testing_Equality_k3.R). The calculation took approximately 10 minutes. 
 
 <!--1.1 Table 1 in Section 3 of the manuscript 
 To reproduce Table 1, which involves four classic copulas: Clayton, Frank, Gumbel, and Gaussian, please run this R program:
