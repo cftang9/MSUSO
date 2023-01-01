@@ -29,7 +29,7 @@ But be aware of that, because the number of replications is 10,000, this program
 
 ### 1.3. Figure 2: Power Curves Goodness-of-fit Tests for USO with k=3
 The power curves comparison in Figure 2, (```R``` codes [Testing_GOF_k3_PC.R](https://github.com/cftang9/MSUSO/blob/master/Testing_GOF_k3_PC.R))
-with k=3 samples and equal sample sizes n=200, requires 6 hours totally. 
+with k=3 samples and equal sample sizes n=200, requires 6 hours totally on a computer with a 3.0GHz processor and 64GB of memory. 
 
 ### 1.4. Table 3: Distinguishing Distributions under USO with k=3
 
@@ -37,31 +37,30 @@ The ```R``` codes to reproduce Table 3 is attached: [Testing_Jump_k3.R](https://
 
 
 ## Part 2. Reproducing simulation results in Web Appendix
-In addition to the simulation results in the manuscript in [Part 2](../master/README.md#part-2-reproducing-simulation-results), more simulations results are provided in the supplementary materials with ```R``` codes attached in the followings. 
+In addition to the simulation results in the manuscript, more simulations results are provided in the supplementary materials with ```R``` codes attached in the followings. 
 
 ### 2.1. Tables: Equal Distribution Test under USO with k=4,5
 Other than k=3 samples, we applied the distinghishing distribution methods to samples
-[k=4](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k4.R),
-and [k=5](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k5.R)
+[k=4](https://github.com/cftang9/MSUSO/blob/master/Testing_Equality_k4.R),
+and [k=5](https://github.com/cftang9/MSUSO/blob/master/Testing_Equality_k5.R)
 with sample sizes n=60,100,and 200. All the calculations took less than 10 minuntes. 
 
 ### 2.2. Tables: Goodness-of-fit Tests for USO with k=4,5
 In addition to k=3 in [Table 2](../master/README.md#22-table-2-size-and-power-of-goodness-of-fit-tests-for-uso-with-k3), 
 we provide the size and power study for 
-[k=4](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k4.R),
-and [k=5](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_GOF_k5.R)
+[k=4](https://github.com/cftang9/MSUSO/blob/master/Testing_GOF_k4.R),
+and [k=5](https://github.com/cftang9/MSUSO/blob/master/Testing_GOF_k5.R)
 samples with sample sizes n=60, 100, and 200. All the calculations took less than 10 minuntes. 
 
 ### 2.3. Figures: Power Curves for Goodness-of-fit Tests for USO with k=4, 5
 We also consider more settings for power curves comparison for GOF tests with k=4,5 samples and sample sizes n= 200 and 400 with ```R``` codes attached.
-* For k=3 with sample size [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k3_400.R) which took approximately 8 hours on a computer with a 3.0GHz processor and 64GB of memory. 
-* For k=4 with sample sizes [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k4_200.R) which took approximately 8 and 10 hours, respectively. 
-* For k=5 with sample sizes [n=200](https://github.com/cftang9/MSUSO/blob/master/Supp_Figure_GOF_PowerCurves_k5_200.R) which took approximately 10 and 12 hours, respectively. 
+* For k=4 with sample sizes [n=200](https://github.com/cftang9/MSUSO/blob/master/Testing_GOF_k4_PC.R) which took approximately 8 hours on a computer with a 3.0GHz processor and 64GB of memory, respectively. 
+* For k=5 with sample sizes [n=200](https://github.com/cftang9/MSUSO/blob/master/Testing_GOF_k5_PC.R) which took approximately 10 hours, respectively. 
 
 ### 2.4. Tables: Distinguishing Distributions under USO with k=4,5
 Other than k=3 samples, we applied the distinghishing distribution methods to samples
-[k=4](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k4.R),
-and [k=5](https://github.com/cftang9/MSUSO/blob/master/Supp_Table_DD_k5.R)
+[k=4](https://github.com/cftang9/MSUSO/blob/master/Testing_Jump_k4.R),
+and [k=5](https://github.com/cftang9/MSUSO/blob/master/Testing_Jump_k5.R)
 with sample sizes n=60,100,and 200. All the calculations took less than 10 minuntes. 
 
 
