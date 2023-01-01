@@ -74,12 +74,15 @@ Here we provide the empirical estimators and estimators under USO for ODCs betwe
 
 ### 3.1. Table 3 part 1: Equal test for USO for MFAP4 levels
 
+The first part (first 3 rows) of Table 3 provides the differences of distributions from equality in L_p norm with p=1,2, and supremum norms, respectively. The thresholds for each L_p differences are provided to determine if the consecutive distributions are distinct. 
+
 ### 3.2. Table 3 part 2: Goodness-of-fit test for USO for MFAP4 levels
 
-The second part of Table 3 () provides the departure ```M1s```, ```M2s```, and ```Mss``` of consecutive distributions from USO in L_p norm with p=1,2, and supremum norms, respectively. The critical values ```boot.cv.Skps``` and ```boot.cv.Wkps``` for the cumulated test statistics ```Skp``` and ```Wkp```, respectively, are provided. The Bonferroni-corrected critical values are saved in function ```Bon.cvs``` with L_p norms ```Bon.cv.p1```, ```$Bon.cv.p2```, and ```Bon.cv.ps```. 
+The second part (last 3 rows) of Table 3 provides the departures of consecutive distributions from USO in L_p norm with p=1,2, and supremum norms, respectively. The critical values ```boot.cv.Skps``` and ```boot.cv.Wkps``` for the cumulated test statistics ```Skp``` and ```Wkp```, respectively, are provided. The Bonferroni-corrected critical values are saved in function ```Bon.cvs``` with L_p norms ```Bon.cv.p1```, ```$Bon.cv.p2```, and ```Bon.cv.ps```. 
 
 ### 3.3. Table 3 part 3: Distinghishing Fibrosis stages from MFAP4 levels
-The first part (first 5 columns) of Table 3 provides the differences ```D1s```, ```D2s```, and ```Dss``` of distributions from equality in L_p norm with p=1,2, and supremum norms, respectively. The thresholds for each L_p differences are provided to determine if the consecutive distributions are distinct. 
+
+The jump detection methods, including ```J_p^0``` and ```J_p^*```, for MFAP4 data are coded in [MFAP4_Jump_Detection.R](https://github.com/cftang9/MSUSO/blob/master/MFAP4_Jump_Detection.R)
 
 ## Reference: 
 1. Thilo Bracht, Christian Mölleken, Maike Ahrens, Gereon Poschmann, Anders Schlosser, Martin Eisenacher, Kai Stühler, Helmut E. Meyer, Wolff H. Schmiegel, Uffe Holmskov, Grith L. Sorensen and Barbara Sitek (2016). [Evaluation of the biomarker candidate MFAP4 for non-invasive assessment of hepatic fibrosis in hepatitis C patients.](https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-016-0952-3) *Journal of Translational Medicine*. 14:201.
