@@ -23,9 +23,7 @@ u12 = seq(0,1,by=1/n2)
 u23 = seq(0,1,by=1/n3)
 u34 = seq(0,1,by=1/n4)
 
-#pdf("Figure_3_MFAP4.pdf", width=13, heigh=13)
-
-png("Figure_3_MFAP4.png", width=1248, heigh=1248)
+#pdf("Figure_3_MFAP4.pdf", width=8, heigh=8)
 
 par(mfrow=c(2,2))
 par(mar=c(2,2,0.1,0.1))
@@ -84,4 +82,4 @@ legend("bottomright",legend=c(expression(hat(R)[4]),
 par(mfrow=c(1,1))
 
 
-dev.off()
+#dev.off()
