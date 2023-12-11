@@ -1,17 +1,16 @@
 # Nonparametric Comparisons of Multiple Distributions under Uniform Stochastic Ordering
 
-This repository contains R programs for the article “Nonparametric Comparisons of Multiple Distributions under Uniform Stochastic Ordering”. 
+This repository contains R programs for the article “Nonparametric Comparisons of Multiple Distributions under Uniform Stochastic Ordering.” 
 <!-- This article has been submitted for publication. -->
 
 Prior to using R programs on this repository, please download the main R program [EGJ_USO_Library.R](https://raw.githubusercontent.com/cftang9/MSUSO/master/EGJ_USO_Library.r). 
 
 ## Part 1. Reproducing simulation results in the manuscript
 
-The following simulations generate random samples both from the mixture of normal distribution and ODCs. 
-Since both distinguishing distribution methods and GOF tests depend on the ODC between consecutive distributions. 
-It also suffices to generate random samples from ODCs. 
+Since both distinguishing distribution methods and GOF tests depend on the ODC between consecutive distributions, it suffices to generate random samples from the ODCs with the first distribution assigned to be uniformly distributed. 
 In the manuscripts, we consider G_q with q between 0 and 1 for star-shaped ODC and G_q for non-star-shaped ODC. See the top-left figure in Figure 1. 
 The sequence of the ODCs ```K_delta``` from [Wang and Tang (2020)](../master/README.md#reference) on the right of Figure 1 is for power curve comparison.
+We provide ```R``` codes for generating the random samples from G_q [rUSO.samples.R](https://raw.githubusercontent.com/cftang9/MSUSO/master/rUSO_samples.R)
 The computation times in the following are based on a computer with a 3.0GHz processor and 64GB of memory. 
 
 ```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](https://github.com/cftang9/MSUSO/blob/master/Figure_1_ODCs_Plot.r).
