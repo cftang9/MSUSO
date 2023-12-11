@@ -1,6 +1,6 @@
-# Multiple Ordinal Dominance Curves and Uniform Stochastic Ordering
+# Nonparametric Comparisons of Multiple Distributions under Uniform Stochastic Ordering
 
-This repository contains R programs for the article, “Multiple Ordinal Dominance Curves and Uniform Stochastic Ordering”. 
+This repository contains R programs for the article “Nonparametric Comparisons of Multiple Distributions under Uniform Stochastic Ordering”. 
 <!-- This article has been submitted for publication. -->
 
 Prior to using R programs on this repository, please download the main R program [EGJ_USO_Library.R](https://raw.githubusercontent.com/cftang9/MSUSO/master/EGJ_USO_Library.r). 
