@@ -14,7 +14,7 @@ We provide ```R``` codes for generating the random samples from G_q [rUSO.sample
 The computation times in the following are based on a computer with a 3.0GHz processor and 64GB of memory. 
 
 ```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](https://github.com/cftang9/MSUSO/blob/master/Figure_1_ODCs_Plot.r).
-![Figure 1](https://github.com/cftang9/MSUSO/blob/master/ODCandDDs.pdf)
+![Figure 1](https://github.com/cftang9/MSUSO/blob/master/ODCandDDs.png)
 
 ### 1.1. Table 1: Equal Distribution Test under USO with k=3.
 
