@@ -7,21 +7,24 @@ Prior to using R programs on this repository, please download the main R program
 
 ## Part 1. Reproducing simulation results in the manuscript
 
-The following simulations generate random samples both from the mixture normal distribution and ODCs. Since both distingusing distribution methods and GOF tests depends on the ODC between consecutive distributions. it also suffices to generating random samples from ODCs. In the manuscripts, we consider G_1 from [Tang et. al. (2017)](../master/README.md#reference) on the left of Figure 1 below for star-shaped ODC and G_1^{-1} for non-star-shaped ODC.
-The sequence of the ODCs ```G_delta``` from [Wang and Tang (2020)](../master/README.md#reference) on the right of Figure 1 are for power curves comparison.
-The computation times in the followings are based on on a computer with a 3.0GHz processor and 64GB of memory. 
+The following simulations generate random samples both from the mixture of normal distribution and ODCs. 
+Since both distinguishing distribution methods and GOF tests depend on the ODC between consecutive distributions. 
+It also suffices to generate random samples from ODCs. 
+In the manuscripts, we consider G_q with q between 0 and 1 for star-shaped ODC and G_q for non-star-shaped ODC. See the top-left figure in Figure 1. 
+The sequence of the ODCs ```K_delta``` from [Wang and Tang (2020)](../master/README.md#reference) on the right of Figure 1 is for power curve comparison.
+The computation times in the following are based on a computer with a 3.0GHz processor and 64GB of memory. 
 
 ```R``` codes for ODC plots in Figure 1: [Figure_1_ODCs.R](https://github.com/cftang9/MSUSO/blob/master/Figure_1_ODCs_Plot.r).
 ![Figure 1](../master/Figure_1_ODC_Plot.png)
 
 ### 1.1. Table 1: Equal Distribution Test under USO with k=3.
 
-The ```R``` codes to reproduce Table 1 is attached: [Testing_Equality_k3.R](https://github.com/cftang9/MSUSO/blob/master/Testing_Equality_k3.R). The calculation took approximately 10 minutes. 
+The ```R``` codes to reproduce Table 1 are attached: [Testing_Equality_k3.R](https://github.com/cftang9/MSUSO/blob/master/Testing_Equality_k3.R). The calculation took approximately 10 minutes. 
 
 <!--1.1 Table 1 in Section 3 of the manuscript 
 To reproduce Table 1, which involves four classic copulas: Clayton, Frank, Gumbel, and Gaussian, please run this R program:
 [Clayton_Frank_Gumbel_and_Gaussian_n=100.R](https://raw.githubusercontent.com/cftang9/PQD/master/Restricted_t_FGM_and_CA_n%3D100.R).
-But be aware of that, because the number of replications is 10,000, this program might take a long time to finish. As stated in our manuscript, our calculation of Table 1 took approximately 73 minutes on a computer with a 3.1GHz processor and 16GB of memory. 
+But be aware that because the number of replications is 10,000, this program might take a long time to finish. As stated in our manuscript, our calculation of Table 1 took approximately 73 minutes on a computer with a 3.1GHz processor and 16GB of memory. 
 -->
 
 ### 1.2. Table 2: Size and Power of Goodness-of-fit Tests for USO with k=3.
