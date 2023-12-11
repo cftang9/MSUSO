@@ -1,0 +1,30 @@
+#source("EGJ_USO_Library.r")
+rR_samples = function(nv=c(6000,6000,6000),jh=c(1,-1),delta1=0.4,delta2=0.8){
+  k = length(nv); 
+  rR_samples = list()
+  for(j in 1:k){
+    rR_samples[[j]] = runif(nv[j])
+  }
+  for(j in k:2){
+    s = j
+    while(s>1){
+      if(jh[s-1]>=0){
+        rR_samples[[j]] = NSR(rR_samples[[j]],delta1=delta1*abs(jh[s-1]),delta2=delta2)
+      }
+      if(jh[s-1]< 0){
+        rR_samples[[j]] = InvNSR(rR_samples[[j]],delta1=delta1*abs(jh[s-1]),delta2=delta2)
+      }
+      s = s-1; 
+    }
+  }
+  return(rR_samples)
+}
+
+# n = 6000; 
+# test_data = rR_samples(nv=c(n,n,n))
+# par(mfrow=c(1,1))
+# plot(Rmn(test_data[[1]],test_data[[2]]),seq(0,1,by=1/n),xlim=c(0.4,1),ylim=c(0.4,1))
+# points(Rmn(test_data[[2]],test_data[[3]]),seq(0,1,by=1/n))
+# lines(c(0,1),c(0,1))
+# par(mfrow=c(1,1))
+# 
