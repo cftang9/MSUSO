@@ -19,12 +19,3 @@ rR_samples = function(nv=c(6000,6000,6000),jh=c(1,-1),delta1=0.4,delta2=0.8){
   }
   return(rR_samples)
 }
-
-# n = 6000; 
-# test_data = rR_samples(nv=c(n,n,n))
-# par(mfrow=c(1,1))
-# plot(Rmn(test_data[[1]],test_data[[2]]),seq(0,1,by=1/n),xlim=c(0.4,1),ylim=c(0.4,1))
-# points(Rmn(test_data[[2]],test_data[[3]]),seq(0,1,by=1/n))
-# lines(c(0,1),c(0,1))
-# par(mfrow=c(1,1))
-# 
