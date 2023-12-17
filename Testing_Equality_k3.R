@@ -1,56 +1,58 @@
 rm(list = ls(all=TRUE))
 source("EGJ_USO_Library.r")
-n = 60; 
-nv = c(n,n,n); k=length(nv); 
+source("rUSO_samples.r")
+source("do_EqualityTests.r")
+source("EqCV.r")
+source("DR.r")
+source("ME-B.r")
 
-B0 = 10000; 
-UPs0 = array(,c(B0,3)); TPs0 = array(,c(B0,3)); MPs0 = array(,c(B0,3))
-set.seed(102220220)
-for(b0 in 1:B0){
-  X10 = runif(nv[1]); 
-  X20 = runif(nv[2]); 
-  X30 = runif(nv[3]); 
+n=60; k=3; nv = rep(n,k); ms=c(4,7,10); 
+eqCV0 = EqTest_CV(nv=nv,ms=ms); 
+MEB=0
 
-  R120 = Rmn(X10,X20); #LSMR120 = LSMRmn(R120); 
-  R230 = Rmn(X20,X30); #LSMR230 = LSMRmn(R230); 
+Test00 = do_EqualityTests(nv = nv, jh=c(0.0,0.0), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Test00
 
-  D12s0 = DP(R120,nv[1],nv[2]);
-  D23s0 = DP(R230,nv[2],nv[3]);
+Test20 = do_EqualityTests(nv = nv, jh=c(0.2,0.0), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Test20
 
-  Ds0 = rbind(D12s0,D23s0);
-  TPs0[b0,] = apply(Ds0,2,sum);
-  UPs0[b0,] = apply(Ds0,2,max);
-  MPs0[b0,] = D12s0; 
-  print(b0);
-}
-alpha = 0.05
-qT = apply(TPs0,2,function(x){quantile(x=x,1-alpha)})
-qU = apply(UPs0,2,function(x){quantile(x=x,1-alpha)})
-qB = apply(MPs0,2,function(x){quantile(x=x,1-alpha/(k-1))})
+Test40 = do_EqualityTests(nv = nv, jh=c(0.4,0.0), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Test40
+
+Test60 = do_EqualityTests(nv = nv, jh=c(0.6,0.0), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Test60
+
+Test80 = do_EqualityTests(nv = nv, jh=c(0.8,0.0), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Test80
+
+Testo0 = do_EqualityTests(nv = nv, jh=c(1.0,0.0), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Testo0
 
 
-B = 1000
-jumps = c(0,0)
-UPs = array(,c(B,3)); TPs = array(,c(B,3))
-set.seed(102220221)
-for(b in 1:B){
-  X1 = rRLS_Jumps(n=nv[1],jumps=jumps,at=0);
-  X2 = rRLS_Jumps(n=nv[2],jumps=jumps,at=1);
-  X3 = rRLS_Jumps(n=nv[3],jumps=jumps,at=2);
+Test22 = do_EqualityTests(nv = nv, jh=c(0.2,0.2), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Test22
 
-  R12 = Rmn(X1,X2); LSMR12 = LSMRmn(R12); 
-  R23 = Rmn(X2,X3); LSMR23 = LSMRmn(R23); 
+Test42 = do_EqualityTests(nv = nv, jh=c(0.4,0.2), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Test42
 
-  D12s = DP(R12,nv[1],nv[2])
-  D23s = DP(R23,nv[2],nv[3])
+Test64 = do_EqualityTests(nv = nv, jh=c(0.6,0.4), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Test64
 
-  Ds = rbind(D12s,D23s)
-  TPs[b,] = apply(Ds,2,sum)
-  UPs[b,] = apply(Ds,2,max)
-  print(b)
+Test86 = do_EqualityTests(nv = nv, jh=c(0.8,0.6), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Test86
+
+Testo8 = do_EqualityTests(nv = nv, jh=c(1.0,0.8), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Testo8
+
+
+Test0N2 = do_EqualityTests(nv = nv, jh=c(0.0,-0.2), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Test0N2 
+
+Test2N2 = do_EqualityTests(nv = nv, jh=c(0.2,-0.2), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Test2N2 
+
+Test4N2 = do_EqualityTests(nv = nv, jh=c(0.4,-0.2), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Test4N2 
+
+Test6N2 = do_EqualityTests(nv = nv, jh=c(0.6,-0.2), eqCV=eqCV0, ms=ms, MEB=MEB, Demo_b=250); Test6N2 
+
+
+if(1==0){
+  varlist=ls()
+  save(list=varlist[substring(varlist, 1, 4)=="Test"],file=paste0("TestEq_k",k,"n",n,".Rdata"))
 }
 
-paste(mean(TPs[,1] > qT[1]), "&", mean(UPs[,1] > qU[1]), "&",
-      mean(TPs[,2] > qT[2]), "&", mean(UPs[,2] > qU[2]), "&",
-      mean(TPs[,3] > qT[3]), "&", mean(UPs[,3] > qU[3]))
+
+
+if(1==0){
+  load(file=paste0("TestEq_k",k,"n",n,".Rdata"))
+  varlist=ls()
+  save(list=varlist[substring(varlist, 1, 4)=="Test"],file=paste0("TestEq_k",k,"n",n,".Rdata"))
+}
 
