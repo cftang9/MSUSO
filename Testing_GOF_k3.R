@@ -1,248 +1,68 @@
 rm(list = ls(all=TRUE))
 source("EGJ_USO_Library.r")
-#source("MUSOLibrary.r")
+source("rUSO_samples.r")
+source("do_GOFTests.r")
+source("GOFCV.r")
+source("DR.r")
+source("ME-B.r")
 
-nv = c(60,60,60); k = length(nv); 
-Table.row.200 = array(,c(7,9)); 
-# Bon.cv.p1 = 0.6585602; # (n0=3000)
-# Bon.cv.p2 = 0.7628116; # (n0=3000)
-# Bon.cv.ps = 1.4588240; # (n0=3000)
+n=60; k=3; nv = rep(n,k); B=1000; Demo_b = 250; 
+GOFCV0 = GOFTest_CV(nv=nv); 
+MEB=1
 
-B = 1000; 
+Test00 = do_GOFTests(nv = nv, jh=c(0.0,0.0), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); Test00
 
-jumps = c(0,0); 
-power.Sks = array(0,3); power.Wks = array(0,3); power.Bon = array(0,3); 
-set.seed(101020221)
-start = Sys.time();
-for(b in 1:B){
-  X.data = list(X1 = rRILS_Jumps(n=nv[1],jumps=jumps,at=0),
-                X2 = rRILS_Jumps(n=nv[2],jumps=jumps,at=1),  
-                X3 = rRILS_Jumps(n=nv[3],jumps=jumps,at=2))
-  temp = MUSOGOF(X.data)
-  power.Sks = power.Sks + temp$Sks/B;
-  power.Wks = power.Wks + temp$Wks/B;
-  power.Bon = power.Bon + temp$Bon/B;
-  end = Sys.time(); 
-  ave.interval = (end-start)/b
-  if(b%%50==0){
-    print(start); 
-    print(power.Sks*B/b); 
-    print(power.Wks*B/b); 
-    print(power.Bon*B/b); 
-    print(b); print(ave.interval); 
-    print(Sys.time() + ave.interval*(B-b)); 
-  }
+Test20 = do_GOFTests(nv = nv, jh=c(0.2,0.0), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); Test20
+
+Test40 = do_GOFTests(nv = nv, jh=c(0.4,0.0), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); Test40
+
+Test42 = do_GOFTests(nv = nv, jh=c(0.4,0.2), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); Test42
+
+Test64 = do_GOFTests(nv = nv, jh=c(0.6,0.2), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); Test64
+
+
+
+TestN20 = do_GOFTests(nv = nv, jh=c(-0.2,0.0), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestN20
+
+TestN40 = do_GOFTests(nv = nv, jh=c(-0.4,0.0), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestN40
+
+TestN60 = do_GOFTests(nv = nv, jh=c(-0.6,0.0), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestN60
+
+TestN80 = do_GOFTests(nv = nv, jh=c(-0.8,0.0), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestN80
+
+TestNo0 = do_GOFTests(nv = nv, jh=c(-1.0,0.0), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestNo0
+
+
+
+TestN22 = do_GOFTests(nv = nv, jh=c(-0.2,0.2), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestN22
+
+TestN42 = do_GOFTests(nv = nv, jh=c(-0.4,0.2), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestN42
+
+TestN62 = do_GOFTests(nv = nv, jh=c(-0.6,0.2), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestN62
+
+TestN82 = do_GOFTests(nv = nv, jh=c(-0.8,0.2), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestN82
+
+
+TestN2N2 = do_GOFTests(nv = nv, jh=c(-0.2,-0.2), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestN2N2
+
+TestN4N2 = do_GOFTests(nv = nv, jh=c(-0.4,-0.2), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestN4N2
+
+TestN6N4 = do_GOFTests(nv = nv, jh=c(-0.6,-0.4), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestN6N4
+
+TestN8N6 = do_GOFTests(nv = nv, jh=c(-0.8,-0.6), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestN8N6
+
+TestNoN8 = do_GOFTests(nv = nv, jh=c(-1.0,-0.8), GOFCV=GOFCV0, MEB=MEB, B=B, Demo_b=Demo_b); TestNoN8
+
+
+if(1==0){
+  varlist=ls()
+  save(list=varlist[substring(varlist, 1, 4)=="Test"],file=paste0("TestGOF_k",k,"n",n,".Rdata"))
 }
-Table.row.200[1,] = c(power.Sks[1],power.Wks[1],power.Bon[1],   
-                      power.Sks[2],power.Wks[2],power.Bon[2],   
-                      power.Sks[3],power.Wks[3],power.Bon[3])
-jumps
-paste(power.Sks[1], "&", power.Wks[1], "&", power.Bon[1], "&", 
-      power.Sks[2], "&", power.Wks[2], "&", power.Bon[2], "&", 
-      power.Sks[3], "&", power.Wks[3], "&", power.Bon[3] )
 
 
-jumps = c(1,0); 
-power.Sks = array(0,3); power.Wks = array(0,3); power.Bon = array(0,3); 
-set.seed(101020222)
-start = Sys.time();
-for(b in 1:B){
-  X.data = list(X1 = rRILS_Jumps(n=nv[1],jumps=jumps,at=0),
-                X2 = rRILS_Jumps(n=nv[2],jumps=jumps,at=1),  
-                X3 = rRILS_Jumps(n=nv[3],jumps=jumps,at=2))
-  temp = MUSOGOF(X.data)
-  power.Sks = power.Sks + temp$Sks/B;
-  power.Wks = power.Wks + temp$Wks/B;
-  power.Bon = power.Bon + temp$Bon/B;
-  end = Sys.time(); 
-  ave.interval = (end-start)/b
-  if(b%%50==0){
-    print(start); 
-    print(power.Sks*B/b); 
-    print(power.Wks*B/b); 
-    print(power.Bon*B/b); 
-    print(b); print(ave.interval); 
-    print(Sys.time() + ave.interval*(B-b)); 
-  }
+
+if(1==0){
+  load(file=paste0("TestGOF_k",k,"n",n,".Rdata"))
+  varlist=ls()
+  save(list=varlist[substring(varlist, 1, 4)=="Test"],file=paste0("TestGOF_k",k,"n",n,".Rdata"))
 }
-Table.row.200[2,] = c(power.Sks[1],power.Wks[1],power.Bon[1],   
-                      power.Sks[2],power.Wks[2],power.Bon[2],   
-                      power.Sks[3],power.Wks[3],power.Bon[3])
-jumps
-paste(power.Sks[1], "&", power.Wks[1], "&", power.Bon[1], "&", 
-      power.Sks[2], "&", power.Wks[2], "&", power.Bon[2], "&", 
-      power.Sks[3], "&", power.Wks[3], "&", power.Bon[3] )
-
-
-jumps = c(0,1); 
-power.Sks = array(0,3); power.Wks = array(0,3); power.Bon = array(0,3); 
-set.seed(101020223)
-start = Sys.time();
-for(b in 1:B){
-  X.data = list(X1 = rRILS_Jumps(n=nv[1],jumps=jumps,at=0),
-                X2 = rRILS_Jumps(n=nv[2],jumps=jumps,at=1),  
-                X3 = rRILS_Jumps(n=nv[3],jumps=jumps,at=2))
-  temp = MUSOGOF(X.data)
-  power.Sks = power.Sks + temp$Sks/B;
-  power.Wks = power.Wks + temp$Wks/B;
-  power.Bon = power.Bon + temp$Bon/B;
-  end = Sys.time(); 
-  ave.interval = (end-start)/b
-  if(b%%50==0){
-    print(start); 
-    print(power.Sks*B/b); 
-    print(power.Wks*B/b); 
-    print(power.Bon*B/b); 
-    print(b); print(ave.interval); 
-    print(Sys.time() + ave.interval*(B-b)); 
-  }
-}
-Table.row.200[3,] = c(power.Sks[1],power.Wks[1],power.Bon[1],   
-                      power.Sks[2],power.Wks[2],power.Bon[2],   
-                      power.Sks[3],power.Wks[3],power.Bon[3])
-jumps
-paste(power.Sks[1], "&", power.Wks[1], "&", power.Bon[1], "&", 
-      power.Sks[2], "&", power.Wks[2], "&", power.Bon[2], "&", 
-      power.Sks[3], "&", power.Wks[3], "&", power.Bon[3] )
-
-
-jumps = c(1,1); 
-power.Sks = array(0,3); power.Wks = array(0,3); power.Bon = array(0,3); 
-set.seed(101020224)
-start = Sys.time();
-for(b in 1:B){
-  X.data = list(X1 = rRILS_Jumps(n=nv[1],jumps=jumps,at=0),
-                X2 = rRILS_Jumps(n=nv[2],jumps=jumps,at=1),  
-                X3 = rRILS_Jumps(n=nv[3],jumps=jumps,at=2))
-  temp = MUSOGOF(X.data)
-  power.Sks = power.Sks + temp$Sks/B;
-  power.Wks = power.Wks + temp$Wks/B;
-  power.Bon = power.Bon + temp$Bon/B;
-  end = Sys.time(); 
-  ave.interval = (end-start)/b
-  if(b%%50==0){
-    print(start); 
-    print(power.Sks*B/b); 
-    print(power.Wks*B/b); 
-    print(power.Bon*B/b); 
-    print(b); print(ave.interval); 
-    print(Sys.time() + ave.interval*(B-b)); 
-  }
-}
-Table.row.200[4,] = c(power.Sks[1],power.Wks[1],power.Bon[1],   
-                      power.Sks[2],power.Wks[2],power.Bon[2],   
-                      power.Sks[3],power.Wks[3],power.Bon[3])
-jumps
-paste(power.Sks[1], "&", power.Wks[1], "&", power.Bon[1], "&", 
-      power.Sks[2], "&", power.Wks[2], "&", power.Bon[2], "&", 
-      power.Sks[3], "&", power.Wks[3], "&", power.Bon[3] )
-
-
-jumps = c(-1,1); 
-power.Sks = array(0,3); power.Wks = array(0,3); power.Bon = array(0,3); 
-set.seed(101020225)
-start = Sys.time();
-for(b in 1:B){
-  X.data = list(X1 = rRILS_Jumps(n=nv[1],jumps=jumps,at=0),
-                X2 = rRILS_Jumps(n=nv[2],jumps=jumps,at=1),  
-                X3 = rRILS_Jumps(n=nv[3],jumps=jumps,at=2))
-  temp = MUSOGOF(X.data)
-  power.Sks = power.Sks + temp$Sks/B;
-  power.Wks = power.Wks + temp$Wks/B;
-  power.Bon = power.Bon + temp$Bon/B;
-  end = Sys.time(); 
-  ave.interval = (end-start)/b
-  if(b%%50==0){
-    print(start); 
-    print(power.Sks*B/b); 
-    print(power.Wks*B/b); 
-    print(power.Bon*B/b); 
-    print(b); print(ave.interval); 
-    print(Sys.time() + ave.interval*(B-b)); 
-  }
-}
-Table.row.200[5,] = c(power.Sks[1],power.Wks[1],power.Bon[1],   
-                      power.Sks[2],power.Wks[2],power.Bon[2],   
-                      power.Sks[3],power.Wks[3],power.Bon[3])
-jumps
-paste(power.Sks[1], "&", power.Wks[1], "&", power.Bon[1], "&", 
-      power.Sks[2], "&", power.Wks[2], "&", power.Bon[2], "&", 
-      power.Sks[3], "&", power.Wks[3], "&", power.Bon[3] )
-
-
-jumps = c(-1,0); 
-power.Sks = array(0,3); power.Wks = array(0,3); power.Bon = array(0,3); 
-set.seed(101020226)
-start = Sys.time();
-for(b in 1:B){
-  X.data = list(X1 = rRILS_Jumps(n=nv[1],jumps=jumps,at=0),
-                X2 = rRILS_Jumps(n=nv[2],jumps=jumps,at=1),  
-                X3 = rRILS_Jumps(n=nv[3],jumps=jumps,at=2))
-  temp = MUSOGOF(X.data)
-  power.Sks = power.Sks + temp$Sks/B;
-  power.Wks = power.Wks + temp$Wks/B;
-  power.Bon = power.Bon + temp$Bon/B;
-  end = Sys.time(); 
-  ave.interval = (end-start)/b
-  if(b%%50==0){
-    print(start); 
-    print(power.Sks*B/b); 
-    print(power.Wks*B/b); 
-    print(power.Bon*B/b); 
-    print(b); print(ave.interval); 
-    print(Sys.time() + ave.interval*(B-b)); 
-  }
-}
-Table.row.200[6,] = c(power.Sks[1],power.Wks[1],power.Bon[1],   
-                      power.Sks[2],power.Wks[2],power.Bon[2],   
-                      power.Sks[3],power.Wks[3],power.Bon[3])
-jumps
-paste(power.Sks[1], "&", power.Wks[1], "&", power.Bon[1], "&", 
-      power.Sks[2], "&", power.Wks[2], "&", power.Bon[2], "&", 
-      power.Sks[3], "&", power.Wks[3], "&", power.Bon[3] )
-
-
-jumps = c(-1,-1); 
-power.Sks = array(0,3); power.Wks = array(0,3); power.Bon = array(0,3); 
-set.seed(101020227)
-start = Sys.time();
-for(b in 1:B){
-  X.data = list(X1 = rRILS_Jumps(n=nv[1],jumps=jumps,at=0),
-                X2 = rRILS_Jumps(n=nv[2],jumps=jumps,at=1),  
-                X3 = rRILS_Jumps(n=nv[3],jumps=jumps,at=2))
-  temp = MUSOGOF(X.data)
-  power.Sks = power.Sks + temp$Sks/B;
-  power.Wks = power.Wks + temp$Wks/B;
-  power.Bon = power.Bon + temp$Bon/B;
-  end = Sys.time(); 
-  ave.interval = (end-start)/b
-  if(b%%50==0){
-    print(start); 
-    print(power.Sks*B/b); 
-    print(power.Wks*B/b); 
-    print(power.Bon*B/b); 
-    print(b); print(ave.interval); 
-    print(Sys.time() + ave.interval*(B-b)); 
-  }
-}
-Table.row.200[7,] = c(power.Sks[1],power.Wks[1],power.Bon[1],   
-                      power.Sks[2],power.Wks[2],power.Bon[2],   
-                      power.Sks[3],power.Wks[3],power.Bon[3])
-
-Table.row.200 = round(Table.row.200,3)
-
-jumps
-paste(power.Sks[1], "&", power.Wks[1], "&", power.Bon[1], "&", 
-      power.Sks[2], "&", power.Wks[2], "&", power.Bon[2], "&", 
-      power.Sks[3], "&", power.Wks[3], "&", power.Bon[3] )
-
-rn = 7; 
-paste(Table.row.200[rn,1], "&", Table.row.200[rn,2], "&", Table.row.200[rn,3], "&", 
-      Table.row.200[rn,4], "&", Table.row.200[rn,5], "&", Table.row.200[rn,6], "&", 
-      Table.row.200[rn,7], "&", Table.row.200[rn,8], "&", Table.row.200[rn,9] )
-
-
-
-
-
-
